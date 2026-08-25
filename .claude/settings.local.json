@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(flutter pub get)",
+      "PowerShell(flutter pub add permission_handler:11.4.0 --dry-run 2>&1)",
+      "PowerShell(flutter analyze 2>&1)"
+    ]
+  }
+}
