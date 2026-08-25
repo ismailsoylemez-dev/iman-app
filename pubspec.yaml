@@ -42,6 +42,12 @@ dependencies:
   audioplayers: ^6.8.1
   share_plus: ^13.3.0
 
+  # Namaz/abdest adım animasyonları
+  rive: ^0.13.0
+
+  # Çevrimiçi/çevrimdışı durum kontrolü
+  connectivity_plus: ^6.0.0
+
   # Icon desteği
   cupertino_icons: ^1.0.6
 
@@ -58,3 +64,4 @@ flutter:
     - assets/sounds/
     - assets/images/
     - assets/data/
+    - assets/animations/

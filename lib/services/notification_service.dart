@@ -4,6 +4,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:timezone/data/latest.dart' as tz_data;
 import 'package:timezone/timezone.dart' as tz;
+import '../utils/app_exception.dart';
 
 class NotificationService {
   NotificationService._internal();
@@ -45,7 +46,7 @@ class NotificationService {
 
     final scheduledDate = tz.TZDateTime.from(dateTime, tz.local);
     if (scheduledDate.isBefore(tz.TZDateTime.now(tz.local))) {
-      return -1;
+      throw NotificationException(message: '$prayerName vakti için geçmiş bir zaman bildirimi zamanlanamaz.');
     }
 
     final id = dateTime.millisecondsSinceEpoch.remainder(1 << 31);
@@ -80,6 +81,11 @@ class NotificationService {
   /// Zamanlanmış bir bildirimi iptal eder
   Future<void> cancelNotification(int notificationId) async {
     await _plugin.cancel(notificationId);
+  }
+
+  /// Zamanlanmış tüm bildirimleri iptal eder (ör. ayarlar sıfırlandığında)
+  Future<void> cancelAllNotifications() async {
+    await _plugin.cancelAll();
   }
 
   /// Verilen asset yolundaki ezan sesini anında çalar

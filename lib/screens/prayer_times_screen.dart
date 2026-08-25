@@ -8,8 +8,10 @@ import '../models/city_model.dart';
 import '../services/prayer_time_service.dart';
 import '../services/permission_service.dart';
 import '../providers/prayer_times_notifier.dart';
+import '../services/notification_service.dart';
 import '../utils/app_exception.dart';
 import '../utils/error_handler.dart';
+import '../widgets/qibla_compass_widget.dart';
 
 class PrayerTimesScreen extends StatefulWidget {
   final VoidCallback? onOpenTesbihat;
@@ -40,6 +42,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
       if (!mounted) return;
       context.read<PrayerTimesNotifier>().fetchPrayerTimes();
       context.read<PrayerTimesNotifier>().updateQibla();
+      _scheduleAllAdhanNotifications();
     });
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -58,6 +61,21 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
   void dispose() {
     _timer?.cancel();
     super.dispose();
+  }
+
+  Future<void> _scheduleAllAdhanNotifications() async {
+    final notifier = context.read<PrayerTimesNotifier>();
+    for (var entry in notifier.prayerTimes.entries) {
+      try {
+        await NotificationService().scheduleAdhanNotification(
+          entry.key,
+          entry.value,
+          notifier.selectedCity.name,
+        );
+      } on NotificationException catch (_) {
+        // Geçmiş vakit için bildirim atlanır (gün içinde geçmiş vakitler beklenen bir durumdur)
+      }
+    }
   }
 
   Future<void> _detectGpsLocation() async {
@@ -663,6 +681,8 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
 
                       // Canlı Kıble Pusulası Bileşeni
                       _buildLiveCompass(qiblaAngle, selectedCity.name),
+                      const SizedBox(height: 10),
+                      QiblaCompassWidget(qiblaDirection: qiblaAngle),
 
                       // Yaklaşan Kandil / Dini Gün Rozeti
                       Container(

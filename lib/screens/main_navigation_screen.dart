@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'prayer_times_screen.dart';
+import 'package:flutter/services.dart';
+import 'home_screen.dart';
 import 'prayer_guide_screen.dart';
 import 'zikir_screen.dart';
 import 'dua_screen.dart';
+import 'settings_screen.dart';
+import 'statistics_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -12,6 +15,7 @@ class MainNavigationScreen extends StatefulWidget {
 }
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int _currentIndex = 0;
 
   static const Color emeraldGreen = Color(0xFF1B4332);
@@ -23,18 +27,86 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     });
   }
 
+  void _copyToClipboardAndNotify(BuildContext context, String text, String message) {
+    Clipboard.setData(ClipboardData(text: text));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message), behavior: SnackBarBehavior.floating),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<Widget> screens = [
-      PrayerTimesScreen(
-        onOpenTesbihat: () => _changeTab(2),
+      HomeScreen(
+        onNavigateToTab: _changeTab,
+        onOpenDrawer: () => _scaffoldKey.currentState?.openDrawer(),
       ),
-      const PrayerGuideScreen(),
-      const ZikirScreen(),
       const DuaScreen(),
+      const ZikirScreen(),
+      const PrayerGuideScreen(),
     ];
 
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(20),
+                color: emeraldGreen,
+                child: const Text(
+                  'İman Uygulaması',
+                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.settings_rounded, color: emeraldGreen),
+                title: const Text('Ayarlar'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SettingsScreen()));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.bar_chart_rounded, color: emeraldGreen),
+                title: const Text('İstatistikler'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const StatisticsScreen()));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.info_outline_rounded, color: emeraldGreen),
+                title: const Text('Hakkında'),
+                onTap: () {
+                  Navigator.pop(context);
+                  showAboutDialog(
+                    context: context,
+                    applicationName: 'İman Uygulaması',
+                    applicationVersion: '1.0.0',
+                    applicationIcon: const Icon(Icons.auto_stories_rounded, color: emeraldGreen),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.favorite_border_rounded, color: emeraldGreen),
+                title: const Text('Geri Bildirim'),
+                onTap: () {
+                  Navigator.pop(context);
+                  _copyToClipboardAndNotify(
+                    context,
+                    'destek@imanuygulamasi.com',
+                    'E-posta adresi panoya kopyalandı.',
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
       body: IndexedStack(
         index: _currentIndex,
         children: screens,
@@ -85,21 +157,17 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
               backgroundColor: Colors.transparent,
               elevation: 0,
               height: 64,
-              onDestinationSelected: (index) {
-                setState(() {
-                  _currentIndex = index;
-                });
-              },
+              onDestinationSelected: _changeTab,
               destinations: const [
                 NavigationDestination(
-                  icon: Icon(Icons.access_time_outlined),
-                  selectedIcon: Icon(Icons.access_time_filled),
-                  label: 'Vakitler',
+                  icon: Icon(Icons.home_outlined),
+                  selectedIcon: Icon(Icons.home_rounded),
+                  label: 'Ana Sayfa',
                 ),
                 NavigationDestination(
-                  icon: Icon(Icons.menu_book_outlined),
-                  selectedIcon: Icon(Icons.menu_book_rounded),
-                  label: 'Rehber',
+                  icon: Icon(Icons.auto_stories_outlined),
+                  selectedIcon: Icon(Icons.auto_stories_rounded),
+                  label: 'Dualar',
                 ),
                 NavigationDestination(
                   icon: Icon(Icons.touch_app_outlined),
@@ -107,9 +175,9 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                   label: 'Zikirmatik',
                 ),
                 NavigationDestination(
-                  icon: Icon(Icons.auto_stories_outlined),
-                  selectedIcon: Icon(Icons.auto_stories_rounded),
-                  label: 'Dualar',
+                  icon: Icon(Icons.menu_book_outlined),
+                  selectedIcon: Icon(Icons.menu_book_rounded),
+                  label: 'Namaz Rehberi',
                 ),
               ],
             ),

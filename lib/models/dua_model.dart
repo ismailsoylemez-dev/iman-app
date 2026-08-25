@@ -10,6 +10,8 @@ class DuaModel {
   final String category;
   final String audioUrl;
   final int defaultTarget;
+  final List<String> tags;
+  final String source; // 'Quran' | 'Sunnah' | 'Tradition'
 
   const DuaModel({
     required this.id,
@@ -23,6 +25,8 @@ class DuaModel {
     required this.category,
     required this.audioUrl,
     required this.defaultTarget,
+    this.tags = const [],
+    this.source = 'Quran',
   });
 
   factory DuaModel.fromJson(Map<String, dynamic> json) {
@@ -38,6 +42,8 @@ class DuaModel {
       category: json['category'] as String? ?? '',
       audioUrl: json['audioUrl'] as String? ?? '',
       defaultTarget: (json['defaultTarget'] as num?)?.toInt() ?? 1,
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e.toString()).toList() ?? const [],
+      source: json['source'] as String? ?? 'Quran',
     );
   }
 
@@ -54,6 +60,8 @@ class DuaModel {
       'category': category,
       'audioUrl': audioUrl,
       'defaultTarget': defaultTarget,
+      'tags': tags,
+      'source': source,
     };
   }
 
@@ -69,6 +77,8 @@ class DuaModel {
     String? category,
     String? audioUrl,
     int? defaultTarget,
+    List<String>? tags,
+    String? source,
   }) {
     return DuaModel(
       id: id ?? this.id,
@@ -82,6 +92,8 @@ class DuaModel {
       category: category ?? this.category,
       audioUrl: audioUrl ?? this.audioUrl,
       defaultTarget: defaultTarget ?? this.defaultTarget,
+      tags: tags ?? this.tags,
+      source: source ?? this.source,
     );
   }
 

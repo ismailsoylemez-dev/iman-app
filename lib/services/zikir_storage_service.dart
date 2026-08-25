@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/zikir_model.dart';
+import '../models/zikir_stats_model.dart';
 import '../models/hive_adapters.dart';
 import 'hive_storage_service.dart';
 
@@ -9,6 +10,7 @@ class ZikirStorageService {
   static const String _keyVibration = 'is_vibration_enabled';
   static const String _keyCustomZikirler = 'custom_zikirler_list';
   static const String _keyDailyStatsPrefix = 'stat_daily_dhikr_';
+  static const String _keyAllTimeCount = 'zikir_all_time_count';
 
   static Future<String?> getActiveZikirId() async {
     final hiveActive = HiveStorageService.getSetting(_keyActiveZikirId);
@@ -164,5 +166,42 @@ class ZikirStorageService {
       total += prefs.getInt(key) ?? 0;
     }
     return total;
+  }
+
+  static Future<int> getMonthlyTotalCount() async {
+    final prefs = await SharedPreferences.getInstance();
+    final now = DateTime.now();
+    int total = 0;
+    for (int i = 0; i < 30; i++) {
+      final d = now.subtract(Duration(days: i));
+      final key = _getDayKey(d);
+      total += prefs.getInt(key) ?? 0;
+    }
+    return total;
+  }
+
+  static Future<int> getAllTimeCount() async {
+    final hiveVal = HiveStorageService.getSetting(_keyAllTimeCount);
+    if (hiveVal != null && hiveVal is int) return hiveVal;
+
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getInt(_keyAllTimeCount) ?? 0;
+  }
+
+  /// Bir zikir sayacını artırır; günlük ve toplam istatistiklere işler
+  static Future<void> incrementZikir(String zikirId) async {
+    await recordDhikrIncrement();
+
+    final allTime = await getAllTimeCount() + 1;
+    await HiveStorageService.setSetting(_keyAllTimeCount, allTime);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_keyAllTimeCount, allTime);
+  }
+
+  static Future<ZikirStats> getZikirStats() async {
+    final thisWeek = await getWeeklyTotalCount();
+    final thisMonth = await getMonthlyTotalCount();
+    final allTime = await getAllTimeCount();
+    return ZikirStats(thisWeek: thisWeek, thisMonth: thisMonth, allTime: allTime);
   }
 }

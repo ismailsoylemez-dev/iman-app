@@ -34,6 +34,12 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
   double _fontScale = 1.0;
   String _selectedCategory = 'Tümü';
   String _searchQuery = '';
+  String _readFilter = 'Tümü'; // Tümü | Okundu | Okunmadı
+  bool _targetExceededOnly = false;
+
+  static const int _pageSize = 20;
+  int _visibleAllCount = _pageSize;
+  int _visibleFavCount = _pageSize;
 
   String? _currentlyPlayingId;
   PlayerState _audioPlayerState = PlayerState.stopped;
@@ -237,9 +243,17 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
           dua.surahName.toLowerCase().contains(query) ||
           dua.meaning.toLowerCase().contains(query) ||
           dua.transliteration.toLowerCase().contains(query) ||
-          dua.arabic.contains(query);
+          dua.arabic.contains(query) ||
+          dua.tags.any((tag) => tag.toLowerCase().contains(query));
 
-      return matchesCategory && matchesSearch;
+      final isRead = _readTodayIds.contains(dua.id);
+      final matchesRead = _readFilter == 'Tümü' ||
+          (_readFilter == 'Okundu' && isRead) ||
+          (_readFilter == 'Okunmadı' && !isRead);
+
+      final matchesTarget = !_targetExceededOnly || (_counters[dua.id] ?? 0) >= dua.defaultTarget;
+
+      return matchesCategory && matchesSearch && matchesRead && matchesTarget;
     }).toList();
   }
 
@@ -462,6 +476,7 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                   children: [
                     _buildSearchBar(),
                     _buildCategoryChips(),
+                    _buildExtraFilterChips(),
                     Expanded(
                       child: TabBarView(
                         controller: _tabController,
@@ -601,6 +616,56 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
     );
   }
 
+  Widget _buildExtraFilterChips() {
+    return SizedBox(
+      height: 40,
+      child: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+        scrollDirection: Axis.horizontal,
+        children: [
+          for (final option in const ['Tümü', 'Okundu', 'Okunmadı'])
+            Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: ChoiceChip(
+                showCheckmark: false,
+                label: Text(option),
+                labelStyle: TextStyle(
+                  fontSize: 11.5,
+                  color: _readFilter == option ? Colors.white : Colors.grey.shade800,
+                  fontWeight: _readFilter == option ? FontWeight.bold : FontWeight.w500,
+                ),
+                selectedColor: emeraldGreen,
+                backgroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  side: BorderSide(color: _readFilter == option ? accentGold : Colors.grey.shade300),
+                ),
+                selected: _readFilter == option,
+                onSelected: (_) => setState(() => _readFilter = option),
+              ),
+            ),
+          FilterChip(
+            showCheckmark: false,
+            label: const Text('Hedef Aşıldı'),
+            labelStyle: TextStyle(
+              fontSize: 11.5,
+              color: _targetExceededOnly ? Colors.white : Colors.grey.shade800,
+              fontWeight: _targetExceededOnly ? FontWeight.bold : FontWeight.w500,
+            ),
+            selectedColor: emeraldGreen,
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+              side: BorderSide(color: _targetExceededOnly ? accentGold : Colors.grey.shade300),
+            ),
+            selected: _targetExceededOnly,
+            onSelected: (selected) => setState(() => _targetExceededOnly = selected),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildDuaList(List<DuaModel> duas, {required bool isFavoriteTab}) {
     if (duas.isEmpty) {
       return Center(
@@ -638,20 +703,45 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
       );
     }
 
-    return ListView.builder(
-      padding: const EdgeInsets.fromLTRB(14, 8, 14, 24),
-      itemCount: (!isFavoriteTab && _dailyDua != null && _selectedCategory == 'Tümü' && _searchQuery.isEmpty)
-          ? duas.length + 1
-          : duas.length,
-      itemBuilder: (context, index) {
-        if (!isFavoriteTab && _dailyDua != null && _selectedCategory == 'Tümü' && _searchQuery.isEmpty) {
-          if (index == 0) {
+    final visibleCount = isFavoriteTab ? _visibleFavCount : _visibleAllCount;
+    final pagedDuas = duas.take(visibleCount).toList();
+    final hasMore = duas.length > pagedDuas.length;
+    final showDailyCard = !isFavoriteTab && _dailyDua != null && _selectedCategory == 'Tümü' && _searchQuery.isEmpty;
+
+    return NotificationListener<ScrollNotification>(
+      onNotification: (notification) {
+        if (notification.metrics.pixels >= notification.metrics.maxScrollExtent - 200 && hasMore) {
+          setState(() {
+            if (isFavoriteTab) {
+              _visibleFavCount += _pageSize;
+            } else {
+              _visibleAllCount += _pageSize;
+            }
+          });
+        }
+        return false;
+      },
+      child: ListView.builder(
+        padding: const EdgeInsets.fromLTRB(14, 8, 14, 24),
+        itemCount: (showDailyCard ? pagedDuas.length + 1 : pagedDuas.length) + (hasMore ? 1 : 0),
+        itemBuilder: (context, index) {
+          final offset = showDailyCard ? 1 : 0;
+
+          if (showDailyCard && index == 0) {
             return _buildDailyDuaCard(_dailyDua!);
           }
-          return _buildDuaCard(duas[index - 1]);
-        }
-        return _buildDuaCard(duas[index]);
-      },
+
+          final duaIndex = index - offset;
+          if (duaIndex < pagedDuas.length) {
+            return _buildDuaCard(pagedDuas[duaIndex]);
+          }
+
+          return const Padding(
+            padding: EdgeInsets.symmetric(vertical: 16),
+            child: Center(child: CircularProgressIndicator(color: emeraldGreen, strokeWidth: 2)),
+          );
+        },
+      ),
     );
   }
 
@@ -908,6 +998,38 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                 ),
               ),
             ),
+            if (dua.tags.isNotEmpty || dua.source.isNotEmpty) ...[
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 6,
+                runSpacing: 6,
+                children: [
+                  if (dua.source.isNotEmpty)
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                      decoration: BoxDecoration(
+                        color: emeraldGreen.withValues(alpha: 0.08),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: emeraldGreen.withValues(alpha: 0.3)),
+                      ),
+                      child: Text(
+                        dua.source == 'Quran' ? 'Kur\'an' : (dua.source == 'Sunnah' ? 'Sünnet' : dua.source),
+                        style: const TextStyle(fontSize: 10.5, fontWeight: FontWeight.bold, color: emeraldGreen),
+                      ),
+                    ),
+                  for (final tag in dua.tags)
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade100,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Colors.grey.shade300),
+                      ),
+                      child: Text('#$tag', style: TextStyle(fontSize: 10.5, color: Colors.grey.shade700)),
+                    ),
+                ],
+              ),
+            ],
             const SizedBox(height: 10),
             const Text(
               'Okunuşu:',

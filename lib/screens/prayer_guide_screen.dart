@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../models/prayer_guide_model.dart';
 import '../services/kaza_storage_service.dart';
+import 'prayer_steps_detail_screen.dart';
+import 'wudu_guide_screen.dart';
 
 class PrayerGuideScreen extends StatefulWidget {
   const PrayerGuideScreen({super.key});
@@ -304,19 +306,13 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  Icon(
-                    _selectedGender == Gender.erkek ? Icons.man : Icons.woman,
-                    color: emeraldGreen,
-                    size: 22,
-                  ),
-                  const SizedBox(width: 6),
-                  const Text(
-                    'Kılınış Şekli:',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13.5, color: darkText),
-                  ),
-                ],
+              OutlinedButton.icon(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => PrayerStepsDetailScreen(guide: currentPrayer)),
+                ),
+                icon: const Icon(Icons.play_circle_outline_rounded, size: 18, color: emeraldGreen),
+                label: const Text('Adım Adım Göster', style: TextStyle(color: emeraldGreen, fontWeight: FontWeight.bold, fontSize: 12)),
+                style: OutlinedButton.styleFrom(side: const BorderSide(color: emeraldGreen)),
               ),
               SegmentedButton<Gender>(
                 segments: const [
@@ -684,6 +680,20 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
                 style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
               ),
               children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: OutlinedButton.icon(
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => WuduGuideScreen(guide: ab)),
+                      ),
+                      icon: const Icon(Icons.play_circle_outline_rounded, size: 18, color: emeraldGreen),
+                      label: const Text('Adım Adım Göster', style: TextStyle(color: emeraldGreen, fontWeight: FontWeight.bold, fontSize: 12)),
+                      style: OutlinedButton.styleFrom(side: const BorderSide(color: emeraldGreen)),
+                    ),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   child: Column(
