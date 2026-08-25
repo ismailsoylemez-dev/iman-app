@@ -260,6 +260,13 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
     );
   }
 
+  /// Kalan süreye göre renk: 1 saatten fazla yeşil, 10-60 dk sarı, 10 dk altı kırmızı.
+  Color _countdownColor(Duration remaining) {
+    if (remaining.inMinutes >= 60) return const Color(0xFF4CAF50);
+    if (remaining.inMinutes >= 10) return const Color(0xFFFFC107);
+    return const Color(0xFFEF5350);
+  }
+
   String _formatDuration(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, '0');
     final hours = twoDigits(duration.inHours);
@@ -644,7 +651,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                                       value: progress,
                                       strokeWidth: 8,
                                       backgroundColor: Colors.white.withValues(alpha: 0.15),
-                                      valueColor: const AlwaysStoppedAnimation<Color>(accentGold),
+                                      valueColor: AlwaysStoppedAnimation<Color>(_countdownColor(remainingTime)),
                                     ),
                                   ),
                                   Column(
@@ -657,8 +664,8 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                                       const SizedBox(height: 2),
                                       Text(
                                         _formatDuration(remainingTime),
-                                        style: const TextStyle(
-                                          color: Colors.white,
+                                        style: TextStyle(
+                                          color: _countdownColor(remainingTime),
                                           fontSize: 26,
                                           fontWeight: FontWeight.bold,
                                           letterSpacing: 1.0,

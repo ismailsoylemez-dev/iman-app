@@ -204,4 +204,31 @@ class ZikirStorageService {
     final allTime = await getAllTimeCount();
     return ZikirStats(thisWeek: thisWeek, thisMonth: thisMonth, allTime: allTime);
   }
+
+  /// Son 7 günün günlük zikir sayılarını (eskiden yeniye) döner
+  static Future<List<int>> getLast7DaysCounts() async {
+    final prefs = await SharedPreferences.getInstance();
+    final now = DateTime.now();
+    return [
+      for (int i = 6; i >= 0; i--) prefs.getInt(_getDayKey(now.subtract(Duration(days: i)))) ?? 0,
+    ];
+  }
+
+  /// Bugünden geriye doğru kesintisiz aktivite gün sayısını döner
+  static Future<int> getCurrentStreak() async {
+    final prefs = await SharedPreferences.getInstance();
+    final now = DateTime.now();
+    int streak = 0;
+    for (int i = 0; i < 365; i++) {
+      final count = prefs.getInt(_getDayKey(now.subtract(Duration(days: i)))) ?? 0;
+      if (count > 0) {
+        streak++;
+      } else if (i == 0) {
+        continue;
+      } else {
+        break;
+      }
+    }
+    return streak;
+  }
 }

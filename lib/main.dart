@@ -6,6 +6,7 @@ import 'services/notification_service.dart';
 import 'services/offline_sync_service.dart';
 import 'providers/prayer_times_notifier.dart';
 import 'providers/app_theme_notifier.dart';
+import 'utils/app_colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,10 +23,10 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color accentGold = Color(0xFFD4AF37);
-  static const Color backgroundColor = Color(0xFFF8F9FA);
-  static const Color darkBackground = Color(0xFF121712);
+  static const Color emeraldGreen = AppColors.emeraldGreen;
+  static const Color accentGold = AppColors.accentGold;
+  static const Color backgroundColor = AppColors.lightBackground;
+  static const Color darkBackground = AppColors.darkBackground;
 
   @override
   Widget build(BuildContext context) {
@@ -47,16 +48,20 @@ class MyApp extends StatelessWidget {
                 seedColor: emeraldGreen,
                 primary: emeraldGreen,
                 secondary: accentGold,
-                surface: backgroundColor,
+                surface: AppColors.lightCard,
               ),
               cardTheme: CardThemeData(
-                elevation: 2,
-                color: Colors.white,
-                shadowColor: Colors.black.withValues(alpha: 0.08),
+                elevation: 3,
+                color: AppColors.lightCard,
+                shadowColor: Colors.black.withValues(alpha: 0.12),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  side: const BorderSide(color: Color(0xFFECEFF1), width: 1),
+                  borderRadius: BorderRadius.circular(12),
+                  side: const BorderSide(color: AppColors.lightBorder, width: 1),
                 ),
+              ),
+              textTheme: const TextTheme().apply(
+                bodyColor: AppColors.lightText,
+                displayColor: AppColors.lightText,
               ),
               appBarTheme: const AppBarTheme(
                 elevation: 0,
@@ -80,6 +85,20 @@ class MyApp extends StatelessWidget {
                 brightness: Brightness.dark,
                 primary: accentGold,
                 secondary: accentGold,
+                surface: AppColors.darkCard,
+              ),
+              cardTheme: CardThemeData(
+                elevation: 4,
+                color: AppColors.darkCard,
+                shadowColor: Colors.black.withValues(alpha: 0.5),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  side: const BorderSide(color: AppColors.darkBorder, width: 1),
+                ),
+              ),
+              textTheme: const TextTheme().apply(
+                bodyColor: AppColors.darkText,
+                displayColor: AppColors.darkText,
               ),
               appBarTheme: const AppBarTheme(
                 elevation: 0,

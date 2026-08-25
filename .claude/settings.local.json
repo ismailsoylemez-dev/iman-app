@@ -5,7 +5,11 @@
       "PowerShell(flutter pub add permission_handler:11.4.0 --dry-run 2>&1)",
       "PowerShell(flutter analyze 2>&1)",
       "PowerShell(flutter pub get 2>&1)",
-      "PowerShell($json = Get-Content 'assets\\\\data\\\\quran_prayers.json' -Raw | ConvertFrom-Json; \"Count: $\\($json.Count\\)\"; $json | Group-Object category | Select-Object Name, Count; \\($json | Group-Object id | Where-Object {$_.Count -gt 1}\\).Name)"
+      "PowerShell($json = Get-Content 'assets\\\\data\\\\quran_prayers.json' -Raw | ConvertFrom-Json; \"Count: $\\($json.Count\\)\"; $json | Group-Object category | Select-Object Name, Count; \\($json | Group-Object id | Where-Object {$_.Count -gt 1}\\).Name)",
+      "PowerShell(cd c:\\\\Flutter_Projects\\\\iman_uygulamasi; $json = Get-Content assets\\\\data\\\\quran_prayers.json -Raw | ConvertFrom-Json; \"Count: $\\($json.Count\\)\"; $json | Group-Object category | Select Name, Count)",
+      "PowerShell(cd c:\\\\Flutter_Projects\\\\iman_uygulamasi; $json = Get-Content assets\\\\data\\\\quran_prayers.json -Raw | ConvertFrom-Json; \"Count: $\\($json.Count\\)\"; $dupes = $json | Group-Object id | Where-Object { $_.Count -gt 1 }; \"Duplicates: $\\($dupes.Count\\)\"; $json | Group-Object category | Select Name, Count)",
+      "PowerShell(cd c:\\\\Flutter_Projects\\\\iman_uygulamasi; $json = Get-Content assets\\\\data\\\\quran_prayers.json -Raw | ConvertFrom-Json; \"Count: $\\($json.Count\\)\"; $dupes = $json | Group-Object id | Where-Object { $_.Count -gt 1 }; \"Duplicate IDs: $\\($dupes.Count\\)\"; $json | Group-Object category | Select Name, Count)",
+      "PowerShell(cd c:\\\\Flutter_Projects\\\\iman_uygulamasi; $json = Get-Content assets\\\\data\\\\quran_prayers.json -Raw | ConvertFrom-Json; \"Count: $\\($json.Count\\)\"; $dupes = $json | Group-Object id | Where-Object { $_.Count -gt 1 }; \"Duplicate IDs: $\\($dupes.Count\\)\"; flutter analyze)"
     ]
   }
 }

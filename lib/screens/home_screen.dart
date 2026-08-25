@@ -5,6 +5,9 @@ import '../providers/prayer_times_notifier.dart';
 import '../services/notification_service.dart';
 import '../services/offline_sync_service.dart';
 import '../services/prayer_time_service.dart';
+import '../services/zikir_storage_service.dart';
+import '../utils/app_colors.dart';
+import '../widgets/islamic_calendar_widget.dart';
 import 'prayer_times_screen.dart';
 import 'prayer_guide_screen.dart';
 import 'settings_screen.dart';
@@ -24,16 +27,17 @@ class _HomeScreenState extends State<HomeScreen> {
   static const Color emeraldDark = Color(0xFF0F241C);
   static const Color accentGold = Color(0xFFD4AF37);
   static const Color goldLight = Color(0xFFF9E8B2);
-  static const Color darkText = Color(0xFF212529);
 
   bool _isOnline = true;
   bool _isGpsEnabled = true;
   bool _hasNotificationPermission = true;
+  int _streak = 0;
 
   @override
   void initState() {
     super.initState();
     _checkSystemState();
+    _loadStreak();
   }
 
   Future<void> _checkSystemState() async {
@@ -50,6 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  Future<void> _loadStreak() async {
+    final streak = await ZikirStorageService.getCurrentStreak();
+    if (mounted) setState(() => _streak = streak);
+  }
+
   String _formatDuration(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, '0');
     return '${twoDigits(duration.inHours)}:${twoDigits(duration.inMinutes.remainder(60))}:${twoDigits(duration.inSeconds.remainder(60))}';
@@ -64,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
           icon: const Icon(Icons.menu_rounded),
           onPressed: widget.onOpenDrawer,
         ),
+        actions: [_buildMiniQiblaCompass(), const SizedBox(width: 8)],
       ),
       body: SafeArea(
         child: Center(
@@ -73,6 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onRefresh: () async {
                 await context.read<PrayerTimesNotifier>().fetchPrayerTimes();
                 await _checkSystemState();
+                await _loadStreak();
               },
               child: ListView(
                 padding: const EdgeInsets.all(16),
@@ -101,9 +112,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   _buildNextPrayerCard(),
                   const SizedBox(height: 12),
+                  if (_streak > 0) ...[
+                    _buildStreakCard(),
+                    const SizedBox(height: 12),
+                  ],
                   _buildHijriDateCard(),
                   const SizedBox(height: 12),
                   _buildSpecialDayCard(),
+                  const SizedBox(height: 12),
+                  const IslamicCalendarWidget(),
                   const SizedBox(height: 16),
                   _buildQuickActionGrid(),
                 ],
@@ -112,6 +129,33 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildMiniQiblaCompass() {
+    return Consumer<PrayerTimesNotifier>(
+      builder: (context, notifier, child) {
+        return InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const PrayerTimesScreen()),
+          ),
+          child: Container(
+            width: 40,
+            height: 40,
+            margin: const EdgeInsets.symmetric(vertical: 8),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white.withValues(alpha: 0.15),
+              border: Border.all(color: accentGold, width: 1.5),
+            ),
+            child: Transform.rotate(
+              angle: notifier.qiblaAngle * 3.1415926535 / 180,
+              child: const Icon(Icons.navigation_rounded, color: accentGold, size: 20),
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -228,6 +272,32 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Widget _buildStreakCard() {
+    const streakOrange = Color(0xFFE67E22);
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [streakOrange.withValues(alpha: 0.85), streakOrange],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Row(
+        children: [
+          const Icon(Icons.local_fire_department_rounded, color: Colors.white, size: 26),
+          const SizedBox(width: 10),
+          Text(
+            '$_streak günlük seri! Devam et 🎯',
+            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13.5),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildHijriDateCard() {
     return Consumer<PrayerTimesNotifier>(
       builder: (context, notifier, child) {
@@ -263,9 +333,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: const Color(0xFFE9ECEF)),
+        color: AppColors.card(context),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppColors.border(context)),
       ),
       child: Row(
         children: [
@@ -276,7 +346,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(specialDay.name, style: const TextStyle(fontWeight: FontWeight.bold, color: emeraldGreen)),
-                Text(specialDay.description, style: const TextStyle(fontSize: 11.5, color: darkText), maxLines: 2, overflow: TextOverflow.ellipsis),
+                Text(specialDay.description, style: TextStyle(fontSize: 11.5, color: AppColors.textSecondary(context)), maxLines: 2, overflow: TextOverflow.ellipsis),
               ],
             ),
           ),
@@ -310,20 +380,20 @@ class _HomeScreenState extends State<HomeScreen> {
       childAspectRatio: 2.4,
       children: actions.map((action) {
         return InkWell(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(12),
           onTap: action.onTap,
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: const Color(0xFFE9ECEF)),
+              color: AppColors.card(context),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: AppColors.border(context)),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(action.icon, color: emeraldGreen, size: 20),
                 const SizedBox(width: 8),
-                Text(action.label, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: darkText)),
+                Text(action.label, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: AppColors.text(context))),
               ],
             ),
           ),

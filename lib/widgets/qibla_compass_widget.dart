@@ -10,6 +10,19 @@ class QiblaCompassWidget extends StatelessWidget {
   static const Color emeraldGreen = Color(0xFF1B4332);
   static const Color accentGold = Color(0xFFD4AF37);
   static const Color darkText = Color(0xFF212529);
+  static const Color accuracyGood = Color(0xFF4CAF50);
+  static const Color accuracyMedium = Color(0xFFFFC107);
+  static const Color accuracyPoor = Color(0xFFEF5350);
+  static const Color accuracyUnknown = Color(0xFF9E9E9E);
+
+  ({Color color, String label}) _accuracyInfo(double? accuracyRadians, bool hasSensor) {
+    if (!hasSensor) return (color: accuracyUnknown, label: 'Sensör yok');
+    if (accuracyRadians == null) return (color: accuracyMedium, label: 'Doğruluk bilinmiyor');
+    final accuracyDegrees = accuracyRadians.abs() * (180 / math.pi);
+    if (accuracyDegrees <= 15) return (color: accuracyGood, label: 'Yüksek doğruluk');
+    if (accuracyDegrees <= 40) return (color: accuracyMedium, label: 'Orta doğruluk');
+    return (color: accuracyPoor, label: 'Düşük doğruluk (kalibre edin)');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +32,7 @@ class QiblaCompassWidget extends StatelessWidget {
         final double? heading = snapshot.hasData ? snapshot.data?.heading : null;
         final bool hasSensor = !snapshot.hasError && heading != null;
         final double relativeAngle = hasSensor ? (qiblaDirection - heading) * (math.pi / 180) : 0;
+        final accuracy = _accuracyInfo(snapshot.data?.accuracy, hasSensor);
 
         return Container(
           padding: const EdgeInsets.all(16),
@@ -41,7 +55,7 @@ class QiblaCompassWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: const Color(0xFFF8F9FA),
-                        border: Border.all(color: accentGold.withValues(alpha: 0.8), width: 2),
+                        border: Border.all(color: accuracy.color, width: 3),
                       ),
                     ),
                     AnimatedRotation(
@@ -57,9 +71,25 @@ class QiblaCompassWidget extends StatelessWidget {
                 '${qiblaDirection.toStringAsFixed(0)}°',
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: emeraldGreen),
               ),
+              const SizedBox(height: 4),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: 8,
+                    height: 8,
+                    decoration: BoxDecoration(shape: BoxShape.circle, color: accuracy.color),
+                  ),
+                  const SizedBox(width: 6),
+                  Text(
+                    accuracy.label,
+                    style: TextStyle(fontSize: 11.5, color: Colors.grey.shade600, fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
               Text(
                 hasSensor ? 'Kıble yönü canlı takip ediliyor' : 'Sabit açı gösteriliyor (sensör yok)',
-                style: TextStyle(fontSize: 11.5, color: Colors.grey.shade600),
+                style: TextStyle(fontSize: 11, color: Colors.grey.shade600),
               ),
             ],
           ),

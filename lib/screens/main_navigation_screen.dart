@@ -6,6 +6,8 @@ import 'zikir_screen.dart';
 import 'dua_screen.dart';
 import 'settings_screen.dart';
 import 'statistics_screen.dart';
+import '../widgets/status_bar_widget.dart';
+import '../utils/app_colors.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -44,6 +46,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
       const DuaScreen(),
       const ZikirScreen(),
       const PrayerGuideScreen(),
+      const SettingsScreen(),
     ];
 
     return Scaffold(
@@ -61,14 +64,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                   'İman Uygulaması',
                   style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-              ),
-              ListTile(
-                leading: const Icon(Icons.settings_rounded, color: emeraldGreen),
-                title: const Text('Ayarlar'),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SettingsScreen()));
-                },
               ),
               ListTile(
                 leading: const Icon(Icons.bar_chart_rounded, color: emeraldGreen),
@@ -107,13 +102,20 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           ),
         ),
       ),
-      body: IndexedStack(
-        index: _currentIndex,
-        children: screens,
+      body: Column(
+        children: [
+          const StatusBarWidget(),
+          Expanded(
+            child: IndexedStack(
+              index: _currentIndex,
+              children: screens,
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.card(context),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.06),
@@ -178,6 +180,11 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                   icon: Icon(Icons.menu_book_outlined),
                   selectedIcon: Icon(Icons.menu_book_rounded),
                   label: 'Namaz Rehberi',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.settings_outlined),
+                  selectedIcon: Icon(Icons.settings_rounded),
+                  label: 'Ayarlar',
                 ),
               ],
             ),

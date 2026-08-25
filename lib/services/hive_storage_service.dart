@@ -70,6 +70,14 @@ class HiveStorageService {
     return _favoritesBox?.keys.cast<String>().toList() ?? [];
   }
 
+  static List<DuaFavorite> getTopReadDuas({int limit = 5}) {
+    final box = _favoritesBox;
+    if (box == null) return [];
+    final records = box.values.where((r) => r.readCount > 0).toList()
+      ..sort((a, b) => b.readCount.compareTo(a.readCount));
+    return records.take(limit).toList();
+  }
+
   static Future<void> incrementDuaReadCount(String duaId) async {
     final box = _favoritesBox;
     if (box == null) return;

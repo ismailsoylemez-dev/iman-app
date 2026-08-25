@@ -8,6 +8,7 @@ import '../services/hive_storage_service.dart';
 import '../services/offline_sync_service.dart';
 import '../services/permission_service.dart';
 import '../services/prayer_time_service.dart';
+import 'notification_scheduler_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -175,6 +176,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 setState(() => _notifTiming = value);
                 await HiveStorageService.setSetting(_keyNotifTiming, value);
               },
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.notifications_active_outlined, color: emeraldGreen),
+            title: const Text('Vakit Bazlı Bildirim Zamanlayıcı'),
+            subtitle: const Text('Her vakit için ayrı zaman ve ses ayarla', style: TextStyle(fontSize: 11.5)),
+            trailing: const Icon(Icons.chevron_right_rounded),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const NotificationSchedulerScreen()),
             ),
           ),
           const Divider(height: 32),

@@ -5,6 +5,7 @@ import 'package:share_plus/share_plus.dart';
 import '../models/dua_model.dart';
 import '../services/dua_service.dart';
 import '../utils/error_handler.dart';
+import '../utils/app_colors.dart';
 
 class DuaScreen extends StatefulWidget {
   const DuaScreen({super.key});
@@ -53,6 +54,8 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
     {'name': 'Korunma', 'icon': '🛡️'},
     {'name': 'Bağışlanma', 'icon': '🤲'},
     {'name': 'Peygamber Duaları', 'icon': '📖'},
+    {'name': 'Kandil & Bayramlar', 'icon': '🕌'},
+    {'name': 'Sabah/Akşam', 'icon': '🌅'},
   ];
 
   @override
@@ -851,10 +854,11 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
               children: [
                 OutlinedButton.icon(
                   onPressed: () => _playOrPauseAudio(dua),
-                  icon: Icon(
-                    isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                  icon: _PulseIcon(
+                    icon: isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
                     color: accentGold,
                     size: 18,
+                    pulsing: isPlaying,
                   ),
                   label: Text(
                     isPlaying ? 'Durdur' : 'Dinle',
@@ -894,14 +898,14 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 7),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
         side: BorderSide(
-          color: isRead ? emeraldGreen.withValues(alpha: 0.5) : const Color(0xFFE9ECEF),
+          color: isRead ? emeraldGreen.withValues(alpha: 0.6) : AppColors.border(context),
           width: isRead ? 1.5 : 1.0,
         ),
       ),
-      elevation: 2,
-      color: isRead ? const Color(0xFFF4F9F6) : Colors.white,
+      elevation: 3,
+      color: isRead ? emeraldGreen.withValues(alpha: 0.06) : AppColors.card(context),
       child: Padding(
         padding: const EdgeInsets.all(14),
         child: Column(
@@ -980,20 +984,20 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
             Container(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
               decoration: BoxDecoration(
-                color: const Color(0xFFF8F9FA),
+                color: AppColors.card(context),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: const Color(0xFFE9ECEF)),
+                border: Border.all(color: AppColors.border(context)),
               ),
               child: Text(
                 dua.arabic,
                 textAlign: TextAlign.right,
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
-                  fontSize: 20 * _fontScale,
+                  fontSize: 18 * _fontScale,
                   fontFamily: 'serif',
-                  fontWeight: FontWeight.w600,
-                  color: emeraldDark,
-                  height: 1.8,
+                  fontWeight: FontWeight.bold,
+                  color: emeraldGreen,
+                  height: 1.6,
                   letterSpacing: 0.2,
                 ),
               ),
@@ -1045,8 +1049,8 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
               style: TextStyle(
                 fontSize: 15 * _fontScale,
                 fontWeight: FontWeight.w500,
-                color: const Color(0xFF212529),
-                height: 1.35,
+                color: AppColors.text(context),
+                height: 1.6,
               ),
             ),
             const SizedBox(height: 8),
@@ -1062,10 +1066,10 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
             Text(
               dua.meaning,
               style: TextStyle(
-                fontSize: 13.5 * _fontScale,
+                fontSize: 14 * _fontScale,
                 fontStyle: FontStyle.italic,
-                color: const Color(0xFF212529),
-                height: 1.4,
+                color: AppColors.textSecondary(context),
+                height: 1.6,
               ),
             ),
             const SizedBox(height: 8),
@@ -1116,6 +1120,7 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
             Row(
               children: [
                 InkWell(
+                  key: const ValueKey('dua_listen_button'),
                   onTap: () => _playOrPauseAudio(dua),
                   borderRadius: BorderRadius.circular(8),
                   child: Padding(
@@ -1123,10 +1128,11 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(
-                          isPlaying ? Icons.pause_circle_filled_rounded : Icons.volume_up_rounded,
+                        _PulseIcon(
+                          icon: isPlaying ? Icons.pause_circle_filled_rounded : Icons.volume_up_rounded,
                           size: 20,
                           color: isPlaying ? const Color(0xFFD97706) : emeraldGreen,
+                          pulsing: isPlaying,
                         ),
                         const SizedBox(width: 4),
                         Text(
@@ -1143,6 +1149,7 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                 ),
                 const SizedBox(width: 4),
                 IconButton(
+                  key: const ValueKey('dua_story_share_button'),
                   tooltip: 'Hikaye Olarak Paylaş',
                   icon: const Icon(Icons.amp_stories_outlined, size: 18),
                   visualDensity: VisualDensity.compact,
@@ -1226,6 +1233,64 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
           ],
         ),
       ),
+    );
+  }
+}
+
+/// Ses çalarken hafifçe büyüyüp küçülen (pulse) ikon; sadece [pulsing] true iken animasyon çalışır.
+class _PulseIcon extends StatefulWidget {
+  final IconData icon;
+  final Color color;
+  final double size;
+  final bool pulsing;
+
+  const _PulseIcon({
+    required this.icon,
+    required this.color,
+    required this.size,
+    required this.pulsing,
+  });
+
+  @override
+  State<_PulseIcon> createState() => _PulseIconState();
+}
+
+class _PulseIconState extends State<_PulseIcon> with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 700),
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.pulsing) _controller.repeat(reverse: true);
+  }
+
+  @override
+  void didUpdateWidget(covariant _PulseIcon oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.pulsing && !_controller.isAnimating) {
+      _controller.repeat(reverse: true);
+    } else if (!widget.pulsing && _controller.isAnimating) {
+      _controller.stop();
+      _controller.value = 0;
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ScaleTransition(
+      scale: Tween(begin: 1.0, end: 1.25).animate(
+        CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+      ),
+      child: Icon(widget.icon, color: widget.color, size: widget.size),
     );
   }
 }

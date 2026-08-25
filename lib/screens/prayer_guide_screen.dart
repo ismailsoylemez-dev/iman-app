@@ -308,7 +308,7 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
             children: [
               OutlinedButton.icon(
                 onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => PrayerStepsDetailScreen(guide: currentPrayer)),
+                  MaterialPageRoute(builder: (_) => PrayerStepsDetailScreen(guide: currentPrayer, allPrayers: allPrayers)),
                 ),
                 icon: const Icon(Icons.play_circle_outline_rounded, size: 18, color: emeraldGreen),
                 label: const Text('Adım Adım Göster', style: TextStyle(color: emeraldGreen, fontWeight: FontWeight.bold, fontSize: 12)),
