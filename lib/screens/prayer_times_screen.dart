@@ -12,6 +12,7 @@ import '../services/notification_service.dart';
 import '../utils/app_exception.dart';
 import '../utils/error_handler.dart';
 import '../widgets/qibla_compass_widget.dart';
+import '../utils/app_colors.dart';
 
 class PrayerTimesScreen extends StatefulWidget {
   final VoidCallback? onOpenTesbihat;
@@ -23,11 +24,11 @@ class PrayerTimesScreen extends StatefulWidget {
 }
 
 class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color emeraldDark = Color(0xFF0F241C);
-  static const Color accentGold = Color(0xFFD4AF37);
-  static const Color goldLight = Color(0xFFF9E8B2);
-  static const Color darkText = Color(0xFF212529);
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color emeraldDark = AppColors.primaryTealDark;
+  static const Color accentGold = AppColors.accentOrange;
+  static const Color goldLight = AppColors.secondaryCreamLight;
+  static const Color darkText = AppColors.lightText;
 
   Timer? _timer;
   DateTime _now = DateTime.now();

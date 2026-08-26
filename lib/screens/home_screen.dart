@@ -11,6 +11,7 @@ import '../widgets/islamic_calendar_widget.dart';
 import 'prayer_times_screen.dart';
 import 'prayer_guide_screen.dart';
 import 'settings_screen.dart';
+import 'calendar_full_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final ValueChanged<int>? onNavigateToTab;
@@ -23,10 +24,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color emeraldDark = Color(0xFF0F241C);
-  static const Color accentGold = Color(0xFFD4AF37);
-  static const Color goldLight = Color(0xFFF9E8B2);
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color emeraldDark = AppColors.primaryTealDark;
+  static const Color accentGold = AppColors.accentOrange;
+  static const Color goldLight = AppColors.secondaryCreamLight;
 
   bool _isOnline = true;
   bool _isGpsEnabled = true;
@@ -368,6 +369,7 @@ class _HomeScreenState extends State<HomeScreen> {
       (icon: Icons.mosque_rounded, label: 'Namaz Rehberi', onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const PrayerGuideScreen()))),
       (icon: Icons.auto_stories_rounded, label: 'Dualar', onTap: () => widget.onNavigateToTab?.call(1)),
       (icon: Icons.touch_app_rounded, label: 'Zikir', onTap: () => widget.onNavigateToTab?.call(2)),
+      (icon: Icons.calendar_month_rounded, label: 'Takvim', onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const CalendarFullScreen()))),
       (icon: Icons.settings_rounded, label: 'Ayarlar', onTap: _openSettings),
     ];
 

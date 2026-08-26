@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/zikir_model.dart';
 import '../services/zikir_storage_service.dart';
+import '../utils/app_colors.dart';
 
 class ZikirScreen extends StatefulWidget {
   const ZikirScreen({super.key});
@@ -11,10 +12,10 @@ class ZikirScreen extends StatefulWidget {
 }
 
 class _ZikirScreenState extends State<ZikirScreen> {
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color emeraldDark = Color(0xFF0F241C);
-  static const Color accentGold = Color(0xFFD4AF37);
-  static const Color goldLight = Color(0xFFF9E8B2);
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color emeraldDark = AppColors.primaryTealDark;
+  static const Color accentGold = AppColors.accentOrange;
+  static const Color goldLight = AppColors.secondaryCreamLight;
 
   ZikirModel _currentZikir = ZikirModel.defaultZikirler[0];
   List<ZikirModel> _customZikirler = [];

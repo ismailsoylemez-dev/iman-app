@@ -23,8 +23,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static const Color emeraldGreen = AppColors.emeraldGreen;
-  static const Color accentGold = AppColors.accentGold;
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color accentGold = AppColors.accentOrange;
   static const Color backgroundColor = AppColors.lightBackground;
   static const Color darkBackground = AppColors.darkBackground;
 
@@ -46,8 +46,10 @@ class MyApp extends StatelessWidget {
               scaffoldBackgroundColor: backgroundColor,
               colorScheme: ColorScheme.fromSeed(
                 seedColor: emeraldGreen,
+                brightness: Brightness.light,
                 primary: emeraldGreen,
                 secondary: accentGold,
+                tertiary: AppColors.secondaryCream,
                 surface: AppColors.lightCard,
               ),
               cardTheme: CardThemeData(
@@ -85,6 +87,7 @@ class MyApp extends StatelessWidget {
                 brightness: Brightness.dark,
                 primary: accentGold,
                 secondary: accentGold,
+                tertiary: AppColors.secondaryCream,
                 surface: AppColors.darkCard,
               ),
               cardTheme: CardThemeData(
@@ -102,7 +105,7 @@ class MyApp extends StatelessWidget {
               ),
               appBarTheme: const AppBarTheme(
                 elevation: 0,
-                backgroundColor: Color(0xFF0F241C),
+                backgroundColor: AppColors.emeraldDark,
                 foregroundColor: Colors.white,
                 centerTitle: true,
                 titleTextStyle: TextStyle(

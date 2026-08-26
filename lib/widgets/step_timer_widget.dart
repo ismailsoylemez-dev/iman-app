@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../utils/app_colors.dart';
 
 class StepTimerWidget extends StatefulWidget {
   final Duration duration;
@@ -13,8 +14,8 @@ class StepTimerWidget extends StatefulWidget {
 }
 
 class _StepTimerWidgetState extends State<StepTimerWidget> {
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color accentGold = Color(0xFFD4AF37);
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color accentGold = AppColors.accentOrange;
 
   Timer? _timer;
   late Duration _remaining;

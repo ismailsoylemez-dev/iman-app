@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import '../models/prayer_guide_model.dart';
 import '../widgets/prayer_step_animator.dart';
 import '../widgets/step_timer_widget.dart';
+import '../utils/app_colors.dart';
 
 class _FlatStep {
   final PrayerStep step;
@@ -22,9 +23,9 @@ class PrayerStepsDetailScreen extends StatefulWidget {
 }
 
 class _PrayerStepsDetailScreenState extends State<PrayerStepsDetailScreen> with SingleTickerProviderStateMixin {
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color emeraldDark = Color(0xFF0F241C);
-  static const Color accentGold = Color(0xFFD4AF37);
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color emeraldDark = AppColors.primaryTealDark;
+  static const Color accentGold = AppColors.accentOrange;
 
   Gender _gender = Gender.erkek;
   int _currentIndex = 0;

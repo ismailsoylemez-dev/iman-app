@@ -3,6 +3,7 @@ import '../models/prayer_guide_model.dart';
 import '../services/kaza_storage_service.dart';
 import 'prayer_steps_detail_screen.dart';
 import 'wudu_guide_screen.dart';
+import '../utils/app_colors.dart';
 
 class PrayerGuideScreen extends StatefulWidget {
   const PrayerGuideScreen({super.key});
@@ -12,16 +13,17 @@ class PrayerGuideScreen extends StatefulWidget {
 }
 
 class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTickerProviderStateMixin {
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color emeraldDark = Color(0xFF0F241C);
-  static const Color accentGold = Color(0xFFD4AF37);
-  static const Color darkText = Color(0xFF212529);
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color emeraldDark = AppColors.primaryTealDark;
+  static const Color accentGold = AppColors.accentOrange;
+  static const Color darkText = AppColors.lightText;
 
   late TabController _tabController;
   int _selectedPrayerIndex = 0;
   Gender _selectedGender = Gender.erkek;
 
   Map<String, int> _kazaDebts = {};
+  final Set<String> _expandedRakatKeys = {};
 
   @override
   void initState() {
@@ -270,30 +272,45 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
     );
   }
 
-  Widget _buildImageFallback() {
+  static const Map<String, IconData> _actionIcons = {
+    'iftitah': Icons.front_hand_rounded,
+    'kiyam': Icons.accessibility_new_rounded,
+    'ruku': Icons.arrow_downward_rounded,
+    'secde': Icons.self_improvement_rounded,
+    'kade': Icons.chair_rounded,
+    'selam': Icons.waving_hand_rounded,
+    'kunut': Icons.pan_tool_rounded,
+    'niyet': Icons.psychology_rounded,
+    'eller': Icons.back_hand_rounded,
+    'agiz': Icons.water_drop_rounded,
+    'burun': Icons.air_rounded,
+    'yuz': Icons.face_rounded,
+    'kollar': Icons.fitness_center_rounded,
+    'bas': Icons.face_retouching_natural_rounded,
+    'kulaklar': Icons.hearing_rounded,
+    'boyun': Icons.accessibility_rounded,
+    'ayaklar': Icons.directions_walk_rounded,
+    'abdest': Icons.water_rounded,
+    'agiz_burun': Icons.water_drop_outlined,
+    'vucut': Icons.accessibility_rounded,
+  };
+
+  /// Adım tipine göre ikon tabanlı renkli illüstrasyon kartı.
+  /// cdn.islamic.network yalnızca Kur'an ses/metin barındırdığından
+  /// namaz duruşu/abdest adımı görseli için gerçek bir CDN kaynağı yoktur;
+  /// bu yüzden asset yükleme denemesi yerine doğrudan ikon kartı üretilir.
+  Widget _buildStepIllustration(String? actionType, {double size = 64}) {
+    final icon = _actionIcons[actionType] ?? Icons.mosque_rounded;
     return Container(
-      height: 52,
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      width: size,
+      height: size,
+      alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: const Color(0xFFF8F9FA),
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: const Color(0xFFE9ECEF)),
+        color: AppColors.secondaryCream.withValues(alpha: 0.5),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: emeraldGreen.withValues(alpha: 0.15)),
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.image_outlined, size: 18, color: emeraldGreen.withValues(alpha: 0.7)),
-          const SizedBox(width: 8),
-          const Text(
-            'Görsel Hazırlanıyor',
-            style: TextStyle(
-              fontSize: 11.5,
-              color: darkText,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ],
-      ),
+      child: Icon(icon, size: size * 0.5, color: emeraldGreen),
     );
   }
 
@@ -437,102 +454,102 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
                       style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
                     ),
                     children: section.rakats.map((rakat) {
-                      return Container(
-                        margin: const EdgeInsets.fromLTRB(12, 0, 12, 10),
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFF8F9FA),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: const Color(0xFFE9ECEF)),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                                  decoration: BoxDecoration(
-                                    color: accentGold.withValues(alpha: 0.2),
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(color: accentGold.withValues(alpha: 0.6)),
-                                  ),
-                                  child: Text(
-                                    '${rakat.rakatNumber}. Rekat: ${rakat.title}',
-                                    style: const TextStyle(
-                                      color: Color(0xFF8C6D0F),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 12,
-                                    ),
-                                  ),
+                      final rakatKey = '${currentPrayer.name}_${section.name}_${rakat.rakatNumber}';
+
+                      return StatefulBuilder(
+                        builder: (context, setLocalState) {
+                          final isExpanded = _expandedRakatKeys.contains(rakatKey);
+                          return Container(
+                            margin: const EdgeInsets.fromLTRB(12, 0, 12, 10),
+                            decoration: BoxDecoration(
+                              color: AppColors.secondaryCream.withValues(alpha: isExpanded ? 0.35 : 0.2),
+                              borderRadius: BorderRadius.circular(12),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withValues(alpha: 0.06),
+                                  blurRadius: 4,
+                                  offset: const Offset(0, 2),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 10),
-                            ...rakat.steps.map((step) {
+                            clipBehavior: Clip.antiAlias,
+                            child: Material(
+                              color: Colors.transparent,
+                              child: Theme(
+                              data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                              child: ExpansionTile(
+                                initiallyExpanded: isExpanded,
+                                tilePadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                                childrenPadding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+                                onExpansionChanged: (expanded) => setLocalState(() {
+                                  if (expanded) {
+                                    _expandedRakatKeys.add(rakatKey);
+                                  } else {
+                                    _expandedRakatKeys.remove(rakatKey);
+                                  }
+                                }),
+                                title: Text(
+                                  '${rakat.rakatNumber}. Rekat: ${rakat.title}',
+                                  style: const TextStyle(
+                                    color: emeraldGreen,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                children: [
+                                  ...rakat.steps.map((step) {
                               final desc = step.getDescription(_selectedGender);
                               final hint = step.getAnatomicalHint(_selectedGender);
-                              final imgPath = step.getImagePath(_selectedGender, stepNumber: rakat.rakatNumber);
 
                               return Padding(
                                 padding: const EdgeInsets.only(bottom: 10),
-                                child: Column(
+                                child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Row(
-                                      children: [
-                                        const Icon(Icons.arrow_right, color: emeraldGreen, size: 20),
-                                        Expanded(
-                                          child: Text(
+                                    _buildStepIllustration(step.actionType, size: 56),
+                                    const SizedBox(width: 12),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
                                             step.title,
                                             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13.5, color: emeraldGreen),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(height: 2),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 20),
-                                      child: Text(
-                                        desc,
-                                        style: const TextStyle(fontSize: 13, color: darkText, height: 1.4),
-                                      ),
-                                    ),
-                                    if (hint != null)
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 20, top: 4),
-                                        child: Row(
-                                          children: [
-                                            const Icon(Icons.tips_and_updates_outlined, size: 14, color: accentGold),
-                                            const SizedBox(width: 4),
-                                            Expanded(
-                                              child: Text(
-                                                hint,
-                                                style: const TextStyle(fontSize: 11.5, color: Color(0xFF8C6D0F), fontStyle: FontStyle.italic),
+                                          const SizedBox(height: 2),
+                                          Text(
+                                            desc,
+                                            style: const TextStyle(fontSize: 13, color: darkText, height: 1.4),
+                                          ),
+                                          if (hint != null)
+                                            Padding(
+                                              padding: const EdgeInsets.only(top: 4),
+                                              child: Row(
+                                                children: [
+                                                  const Icon(Icons.tips_and_updates_outlined, size: 14, color: accentGold),
+                                                  const SizedBox(width: 4),
+                                                  Expanded(
+                                                    child: Text(
+                                                      hint,
+                                                      style: const TextStyle(fontSize: 11.5, color: Color(0xFF8C6D0F), fontStyle: FontStyle.italic),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                        ],
                                       ),
-                                    if (imgPath != null)
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 20, top: 6),
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
-                                          child: Image.asset(
-                                            imgPath,
-                                            height: 100,
-                                            fit: BoxFit.contain,
-                                            errorBuilder: (context, error, stackTrace) => _buildImageFallback(),
-                                          ),
-                                        ),
-                                      ),
+                                    ),
                                   ],
                                 ),
                               );
-                            }),
-                          ],
-                        ),
+                                  }),
+                                ],
+                              ),
+                            ),
+                            ),
+                          );
+                        },
                       );
                     }).toList(),
                   ),
@@ -698,8 +715,6 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   child: Column(
                     children: ab.steps.map((st) {
-                      final imgPath = st.getImagePath(_selectedGender);
-
                       return Container(
                         margin: const EdgeInsets.only(bottom: 8),
                         padding: const EdgeInsets.all(10),
@@ -708,44 +723,34 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(color: const Color(0xFFE9ECEF)),
                         ),
-                        child: Column(
+                        child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CircleAvatar(
-                                  radius: 12,
-                                  backgroundColor: emeraldGreen,
-                                  foregroundColor: Colors.white,
-                                  child: Text('${st.stepNumber}', style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
-                                ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                            _buildStepIllustration(st.actionType, size: 52),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
                                     children: [
-                                      Text(st.title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13.5, color: emeraldGreen)),
-                                      const SizedBox(height: 2),
-                                      Text(st.description, style: const TextStyle(fontSize: 12.5, color: darkText, height: 1.35)),
+                                      CircleAvatar(
+                                        radius: 10,
+                                        backgroundColor: emeraldGreen,
+                                        foregroundColor: Colors.white,
+                                        child: Text('${st.stepNumber}', style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Expanded(
+                                        child: Text(st.title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13.5, color: emeraldGreen)),
+                                      ),
                                     ],
                                   ),
-                                ),
-                              ],
-                            ),
-                            if (imgPath != null)
-                              Padding(
-                                padding: const EdgeInsets.only(left: 34, top: 6),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image.asset(
-                                    imgPath,
-                                    height: 80,
-                                    fit: BoxFit.contain,
-                                    errorBuilder: (context, error, stackTrace) => _buildImageFallback(),
-                                  ),
-                                ),
+                                  const SizedBox(height: 4),
+                                  Text(st.description, style: const TextStyle(fontSize: 12.5, color: darkText, height: 1.35)),
+                                ],
                               ),
+                            ),
                           ],
                         ),
                       );

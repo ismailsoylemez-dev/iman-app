@@ -19,10 +19,10 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
   final AudioPlayer _audioPlayer = AudioPlayer();
   final TextEditingController _searchController = TextEditingController();
 
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color emeraldDark = Color(0xFF0F241C);
-  static const Color accentGold = Color(0xFFD4AF37);
-  static const Color goldLight = Color(0xFFF9E8B2);
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color emeraldDark = AppColors.primaryTealDark;
+  static const Color accentGold = AppColors.accentOrange;
+  static const Color goldLight = AppColors.secondaryCreamLight;
 
   late TabController _tabController;
 
@@ -44,6 +44,10 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
 
   String? _currentlyPlayingId;
   PlayerState _audioPlayerState = PlayerState.stopped;
+  Duration _playbackPosition = Duration.zero;
+  Duration _playbackDuration = Duration.zero;
+  bool _isBuffering = false;
+  final Set<String> _contextExpandedIds = {};
 
   final List<Map<String, String>> _categories = const [
     {'name': 'Tümü', 'icon': '✨'},
@@ -71,6 +75,9 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
       if (mounted) {
         setState(() {
           _audioPlayerState = state;
+          if (state == PlayerState.playing || state == PlayerState.stopped) {
+            _isBuffering = false;
+          }
         });
       }
     });
@@ -80,7 +87,20 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
         setState(() {
           _currentlyPlayingId = null;
           _audioPlayerState = PlayerState.stopped;
+          _playbackPosition = Duration.zero;
         });
+      }
+    });
+
+    _audioPlayer.onDurationChanged.listen((duration) {
+      if (mounted) {
+        setState(() => _playbackDuration = duration);
+      }
+    });
+
+    _audioPlayer.onPositionChanged.listen((position) {
+      if (mounted) {
+        setState(() => _playbackPosition = position);
       }
     });
   }
@@ -148,11 +168,15 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
         await _audioPlayer.stop();
         setState(() {
           _currentlyPlayingId = dua.id;
+          _isBuffering = true;
+          _playbackPosition = Duration.zero;
+          _playbackDuration = Duration.zero;
         });
         await _audioPlayer.play(UrlSource(dua.audioUrl));
       }
     } catch (e) {
       if (mounted) {
+        setState(() => _isBuffering = false);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Ses çalınırken hata oluştu: $e'),
@@ -750,6 +774,7 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
 
   Widget _buildDailyDuaCard(DuaModel dua) {
     final isPlaying = _currentlyPlayingId == dua.id && _audioPlayerState == PlayerState.playing;
+    final isBuffering = _currentlyPlayingId == dua.id && _isBuffering;
 
     return Container(
       margin: const EdgeInsets.only(bottom: 14),
@@ -854,14 +879,20 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
               children: [
                 OutlinedButton.icon(
                   onPressed: () => _playOrPauseAudio(dua),
-                  icon: _PulseIcon(
-                    icon: isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
-                    color: accentGold,
-                    size: 18,
-                    pulsing: isPlaying,
-                  ),
+                  icon: isBuffering
+                      ? const SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(strokeWidth: 2, color: accentGold),
+                        )
+                      : _PulseIcon(
+                          icon: isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                          color: accentGold,
+                          size: 18,
+                          pulsing: isPlaying,
+                        ),
                   label: Text(
-                    isPlaying ? 'Durdur' : 'Dinle',
+                    isBuffering ? 'Yükleniyor...' : (isPlaying ? 'Durdur' : 'Dinle'),
                     style: const TextStyle(color: Colors.white, fontSize: 12.5),
                   ),
                   style: OutlinedButton.styleFrom(
@@ -883,6 +914,21 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                 ),
               ],
             ),
+            if (isPlaying || isBuffering)
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: LinearProgressIndicator(
+                    value: isBuffering || _playbackDuration.inMilliseconds == 0
+                        ? null
+                        : (_playbackPosition.inMilliseconds / _playbackDuration.inMilliseconds).clamp(0.0, 1.0),
+                    minHeight: 3,
+                    backgroundColor: Colors.white24,
+                    color: accentGold,
+                  ),
+                ),
+              ),
           ],
         ),
       ),
@@ -894,6 +940,7 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
     final isRead = _readTodayIds.contains(dua.id);
     final currentCount = _counters[dua.id] ?? 0;
     final isPlaying = _currentlyPlayingId == dua.id && _audioPlayerState == PlayerState.playing;
+    final isBuffering = _currentlyPlayingId == dua.id && _isBuffering;
 
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 7),
@@ -1074,47 +1121,75 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
             ),
             const SizedBox(height: 8),
             if (dua.context.isNotEmpty)
-              Theme(
-                data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-                child: ExpansionTile(
-                  tilePadding: EdgeInsets.zero,
-                  childrenPadding: const EdgeInsets.only(bottom: 8),
-                  dense: true,
-                  title: const Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.info_outline_rounded, size: 16, color: emeraldGreen),
-                      SizedBox(width: 6),
-                      Text(
-                        'Fazileti & Tefsiri',
-                        style: TextStyle(
-                          fontSize: 12.5,
-                          fontWeight: FontWeight.w600,
-                          color: emeraldGreen,
-                        ),
-                      ),
-                    ],
-                  ),
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(12),
+              StatefulBuilder(
+                builder: (context, setLocalState) {
+                  return Theme(
+                    data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                    child: Container(
+                      margin: const EdgeInsets.only(top: 2),
                       decoration: BoxDecoration(
-                        color: emeraldGreen.withValues(alpha: 0.06),
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: emeraldGreen.withValues(alpha: 0.15)),
+                        color: AppColors.secondaryCream.withValues(alpha: _contextExpandedIds.contains(dua.id) ? 0.35 : 0.2),
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.06),
+                            blurRadius: 4,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
                       ),
-                      child: Text(
-                        dua.context,
-                        style: TextStyle(
-                          fontSize: 12.5 * _fontScale,
-                          color: Colors.grey.shade800,
-                          height: 1.4,
+                      clipBehavior: Clip.antiAlias,
+                      child: Material(
+                        color: Colors.transparent,
+                        child: ExpansionTile(
+                        tilePadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+                        childrenPadding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+                        onExpansionChanged: (expanded) => setLocalState(() {
+                          if (expanded) {
+                            _contextExpandedIds.add(dua.id);
+                          } else {
+                            _contextExpandedIds.remove(dua.id);
+                          }
+                        }),
+                        title: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.info_outline_rounded, size: 18, color: emeraldGreen),
+                            SizedBox(width: 6),
+                            Text(
+                              'Fazileti & Tefsiri',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: emeraldGreen,
+                              ),
+                            ),
+                          ],
                         ),
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: emeraldGreen.withValues(alpha: 0.06),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: emeraldGreen.withValues(alpha: 0.15)),
+                            ),
+                            child: Text(
+                              dua.context,
+                              style: TextStyle(
+                                fontSize: 12.5 * _fontScale,
+                                color: Colors.grey.shade800,
+                                height: 1.4,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
+                        ),
                     ),
-                  ],
-                ),
+                  );
+                },
               ),
             const Divider(height: 16),
             Row(
@@ -1125,22 +1200,29 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                   borderRadius: BorderRadius.circular(8),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-                    child: Row(
+    child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        _PulseIcon(
-                          icon: isPlaying ? Icons.pause_circle_filled_rounded : Icons.volume_up_rounded,
-                          size: 20,
-                          color: isPlaying ? const Color(0xFFD97706) : emeraldGreen,
-                          pulsing: isPlaying,
-                        ),
+                        if (isBuffering)
+                          const SizedBox(
+                            width: 18,
+                            height: 18,
+                            child: CircularProgressIndicator(strokeWidth: 2, color: accentGold),
+                          )
+                        else
+                          _PulseIcon(
+                            icon: isPlaying ? Icons.pause_circle_filled_rounded : Icons.volume_up_rounded,
+                            size: 20,
+                            color: isPlaying ? accentGold : emeraldGreen,
+                            pulsing: isPlaying,
+                          ),
                         const SizedBox(width: 4),
                         Text(
-                          isPlaying ? 'Durdur' : 'Dinle',
+                          isBuffering ? 'Yükleniyor...' : (isPlaying ? 'Durdur' : 'Dinle'),
                           style: TextStyle(
                             fontSize: 12.5,
                             fontWeight: FontWeight.w600,
-                            color: isPlaying ? const Color(0xFFD97706) : emeraldGreen,
+                            color: isPlaying || isBuffering ? accentGold : emeraldGreen,
                           ),
                         ),
                       ],
@@ -1230,6 +1312,21 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                 ),
               ],
             ),
+            if (isPlaying || isBuffering)
+              Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: LinearProgressIndicator(
+                    value: isBuffering || _playbackDuration.inMilliseconds == 0
+                        ? null
+                        : (_playbackPosition.inMilliseconds / _playbackDuration.inMilliseconds).clamp(0.0, 1.0),
+                    minHeight: 3,
+                    backgroundColor: AppColors.secondaryCreamLight,
+                    color: accentGold,
+                  ),
+                ),
+              ),
           ],
         ),
       ),

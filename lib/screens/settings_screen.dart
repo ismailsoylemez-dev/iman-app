@@ -9,6 +9,7 @@ import '../services/offline_sync_service.dart';
 import '../services/permission_service.dart';
 import '../services/prayer_time_service.dart';
 import 'notification_scheduler_screen.dart';
+import '../utils/app_colors.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -18,8 +19,8 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color accentGold = Color(0xFFD4AF37);
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color accentGold = AppColors.accentOrange;
 
   static const String _keyCalcMethod = 'settings_calc_method';
   static const String _keyNotifEnabled = 'settings_notif_enabled';

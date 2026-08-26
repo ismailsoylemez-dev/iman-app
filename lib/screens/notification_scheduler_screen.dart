@@ -12,8 +12,8 @@ class NotificationSchedulerScreen extends StatefulWidget {
 }
 
 class _NotificationSchedulerScreenState extends State<NotificationSchedulerScreen> {
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color accentGold = Color(0xFFD4AF37);
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color accentGold = AppColors.accentOrange;
 
   static const List<String> _prayers = ['İmsak', 'Güneş', 'Öğle', 'İkindi', 'Akşam', 'Yatsı'];
   static const List<String> _sounds = ['Sistem', 'Ezan', 'Zil'];

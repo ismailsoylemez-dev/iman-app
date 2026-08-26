@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/prayer_guide_model.dart';
 import '../widgets/prayer_step_animator.dart';
+import '../utils/app_colors.dart';
 
 class WuduGuideScreen extends StatefulWidget {
   final AblutionGuide guide;
@@ -13,8 +14,8 @@ class WuduGuideScreen extends StatefulWidget {
 }
 
 class _WuduGuideScreenState extends State<WuduGuideScreen> {
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color accentGold = Color(0xFFD4AF37);
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color accentGold = AppColors.accentOrange;
 
   Gender _gender = Gender.erkek;
   int _currentIndex = 0;

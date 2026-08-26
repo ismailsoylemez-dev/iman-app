@@ -1,15 +1,16 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
+import '../utils/app_colors.dart';
 
 class QiblaCompassWidget extends StatelessWidget {
   final double qiblaDirection;
 
   const QiblaCompassWidget({super.key, required this.qiblaDirection});
 
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color accentGold = Color(0xFFD4AF37);
-  static const Color darkText = Color(0xFF212529);
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color accentGold = AppColors.accentOrange;
+  static const Color darkText = AppColors.lightText;
   static const Color accuracyGood = Color(0xFF4CAF50);
   static const Color accuracyMedium = Color(0xFFFFC107);
   static const Color accuracyPoor = Color(0xFFEF5350);

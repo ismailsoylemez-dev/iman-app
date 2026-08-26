@@ -922,7 +922,7 @@
     "transliteration": "Allâhü lâ ilâhe illâ hüve'l-hayyü'l-kayyûm, lâ te'huzühû sinetün velâ nevm",
     "meaning": "Allah, kendisinden başka ilah olmayandır. Diridir, her şeyin varlığı O'na bağlıdır. O'nu ne bir uyuklama ne de bir uyku tutar.",
     "context": "Kur'an'ın en faziletli ayeti olarak bilinir, koruma amaçlı sabah-akşam okunur.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2-255.mp3",
     "defaultTarget": 1,
     "tags": ["ayetel kürsi", "koruma"],
     "source": "Quran"
@@ -938,7 +938,7 @@
     "transliteration": "Kul eûzü bi rabbi'l-felak",
     "meaning": "De ki: Sabahın Rabbine sığınırım.",
     "context": "Muavvizeteyn olarak bilinen, dış tehlike ve büyüden korunmak için okunan surelerdendir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/113-1.mp3",
     "defaultTarget": 3,
     "tags": ["felak", "koruma"],
     "source": "Quran"
@@ -954,7 +954,7 @@
     "transliteration": "Kul eûzü bi rabbi'n-nâs",
     "meaning": "De ki: İnsanların Rabbine sığınırım.",
     "context": "Vesvese ve iç tehlikelerden korunmak için Felak Suresi ile birlikte okunur.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/114-1.mp3",
     "defaultTarget": 3,
     "tags": ["nas", "koruma", "vesvese"],
     "source": "Quran"

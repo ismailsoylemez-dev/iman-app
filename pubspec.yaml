@@ -48,6 +48,9 @@ dependencies:
   # Çevrimiçi/çevrimdışı durum kontrolü
   connectivity_plus: ^6.0.0
 
+  # Hicri takvim dönüşümü
+  hijri: ^3.0.0
+
   # Icon desteği
   cupertino_icons: ^1.0.6
 

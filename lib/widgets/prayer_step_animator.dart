@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rive/rive.dart';
+import '../utils/app_colors.dart';
 
 /// Rive animasyonunu oynatır; henüz eklenmemiş .riv dosyaları için
 /// (tasarımcı tarafından sonradan eklenecekleri için) zarif bir yer tutucuya düşer.
@@ -16,8 +17,8 @@ class PrayerStepAnimator extends StatelessWidget {
     this.height,
   });
 
-  static const Color emeraldGreen = Color(0xFF1B4332);
-  static const Color goldLight = Color(0xFFF9E8B2);
+  static const Color emeraldGreen = AppColors.primaryTeal;
+  static const Color goldLight = AppColors.secondaryCreamLight;
 
   Future<bool> _assetExists() async {
     try {
