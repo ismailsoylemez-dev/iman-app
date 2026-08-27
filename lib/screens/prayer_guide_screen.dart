@@ -24,6 +24,7 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
 
   Map<String, int> _kazaDebts = {};
   final Set<String> _expandedRakatKeys = {};
+  final Set<String> _expandedStepKeys = {};
 
   @override
   void initState() {
@@ -136,7 +137,7 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: const Color(0xFFE9ECEF)),
+                        border: Border.all(color: AppColors.lightBorder),
                       ),
                       child: Row(
                         children: [
@@ -204,7 +205,7 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
                                 _kazaDebts[vakit] = next;
                               });
                             },
-                            child: const Text('+5', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Color(0xFF8C6D0F))),
+                            child: const Text('+5', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppColors.badgeGoldText)),
                           ),
                         ],
                       ),
@@ -225,7 +226,7 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
     final currentPrayer = allPrayers[_selectedPrayerIndex];
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA),
+      backgroundColor: AppColors.lightBackground,
       appBar: AppBar(
         title: const Text('Namaz & Abdest Rehberi'),
         actions: [
@@ -311,6 +312,120 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
         border: Border.all(color: emeraldGreen.withValues(alpha: 0.15)),
       ),
       child: Icon(icon, size: size * 0.5, color: emeraldGreen),
+    );
+  }
+
+  /// Sadeleştirilmiş adım kartı: kapalı halde yalnızca numara/ikon + başlık +
+  /// tek satır özet gösterir; dokununca açıklama, ikon illüstrasyonu ve
+  /// (varsa) anatomik ipucu genişleyerek görünür.
+  Widget _buildCollapsibleStep({
+    required String stepKey,
+    required String? actionType,
+    required String title,
+    required String description,
+    String? hint,
+    String? numberLabel,
+  }) {
+    return StatefulBuilder(
+      builder: (context, setLocalState) {
+        final isExpanded = _expandedStepKeys.contains(stepKey);
+        return Container(
+          margin: const EdgeInsets.only(bottom: 8),
+          decoration: BoxDecoration(
+            color: AppColors.lightBackground,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: AppColors.lightBorder),
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            onTap: () => setLocalState(() {
+              if (isExpanded) {
+                _expandedStepKeys.remove(stepKey);
+              } else {
+                _expandedStepKeys.add(stepKey);
+              }
+            }),
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      if (numberLabel != null) ...[
+                        CircleAvatar(
+                          radius: 10,
+                          backgroundColor: emeraldGreen,
+                          foregroundColor: Colors.white,
+                          child: Text(numberLabel, style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
+                        ),
+                        const SizedBox(width: 8),
+                      ],
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13.5, color: emeraldGreen)),
+                            if (!isExpanded) ...[
+                              const SizedBox(height: 2),
+                              Text(
+                                description,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(fontSize: 12, color: darkText),
+                              ),
+                            ],
+                          ],
+                        ),
+                      ),
+                      Icon(
+                        isExpanded ? Icons.expand_less_rounded : Icons.expand_more_rounded,
+                        color: Colors.grey.shade500,
+                        size: 20,
+                      ),
+                    ],
+                  ),
+                  if (isExpanded) ...[
+                    const SizedBox(height: 8),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildStepIllustration(actionType, size: 52),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(description, style: const TextStyle(fontSize: 13, color: darkText, height: 1.4)),
+                              if (hint != null)
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4),
+                                  child: Row(
+                                    children: [
+                                      const Icon(Icons.tips_and_updates_outlined, size: 14, color: accentGold),
+                                      const SizedBox(width: 4),
+                                      Expanded(
+                                        child: Text(
+                                          hint,
+                                          style: const TextStyle(fontSize: 11.5, color: AppColors.badgeGoldText, fontStyle: FontStyle.italic),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -400,7 +515,7 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                   side: BorderSide(
-                    color: isSelected ? accentGold : const Color(0xFFCED4DA),
+                    color: isSelected ? accentGold : AppColors.lightBorder,
                   ),
                 ),
                 selected: isSelected,
@@ -427,12 +542,12 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
 
               return Card(
                 margin: const EdgeInsets.only(bottom: 12),
-                color: Colors.white,
+                color: AppColors.card(context),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
-                  side: const BorderSide(color: Color(0xFFE9ECEF)),
+                  side: BorderSide(color: AppColors.border(context)),
                 ),
-                elevation: 2,
+                elevation: 0,
                 child: Theme(
                   data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
                   child: ExpansionTile(
@@ -501,47 +616,12 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
                               final desc = step.getDescription(_selectedGender);
                               final hint = step.getAnatomicalHint(_selectedGender);
 
-                              return Padding(
-                                padding: const EdgeInsets.only(bottom: 10),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    _buildStepIllustration(step.actionType, size: 56),
-                                    const SizedBox(width: 12),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            step.title,
-                                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13.5, color: emeraldGreen),
-                                          ),
-                                          const SizedBox(height: 2),
-                                          Text(
-                                            desc,
-                                            style: const TextStyle(fontSize: 13, color: darkText, height: 1.4),
-                                          ),
-                                          if (hint != null)
-                                            Padding(
-                                              padding: const EdgeInsets.only(top: 4),
-                                              child: Row(
-                                                children: [
-                                                  const Icon(Icons.tips_and_updates_outlined, size: 14, color: accentGold),
-                                                  const SizedBox(width: 4),
-                                                  Expanded(
-                                                    child: Text(
-                                                      hint,
-                                                      style: const TextStyle(fontSize: 11.5, color: Color(0xFF8C6D0F), fontStyle: FontStyle.italic),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                              return _buildCollapsibleStep(
+                                stepKey: '${rakatKey}_${step.title}',
+                                actionType: step.actionType,
+                                title: step.title,
+                                description: desc,
+                                hint: hint,
                               );
                                   }),
                                 ],
@@ -573,11 +653,11 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
 
         return Card(
           margin: const EdgeInsets.only(bottom: 14),
-          color: Colors.white,
-          elevation: 2,
+          color: AppColors.card(context),
+          elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
-            side: const BorderSide(color: Color(0xFFE9ECEF)),
+            side: BorderSide(color: AppColors.border(context)),
           ),
           child: Theme(
             data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
@@ -589,7 +669,7 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
                   color: accentGold.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(Icons.star_rounded, color: Color(0xFF8C6D0F), size: 22),
+                child: const Icon(Icons.star_rounded, color: AppColors.badgeGoldText, size: 22),
               ),
               title: Text(
                 item.title,
@@ -633,9 +713,9 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
                             margin: const EdgeInsets.only(top: 6),
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: const Color(0xFFF8F9FA),
+                              color: AppColors.lightBackground,
                               borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: const Color(0xFFE9ECEF)),
+                              border: Border.all(color: AppColors.lightBorder),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -668,11 +748,11 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
 
         return Card(
           margin: const EdgeInsets.only(bottom: 14),
-          color: Colors.white,
-          elevation: 2,
+          color: AppColors.card(context),
+          elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
-            side: const BorderSide(color: Color(0xFFE9ECEF)),
+            side: BorderSide(color: AppColors.border(context)),
           ),
           child: Theme(
             data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
@@ -715,44 +795,12 @@ class _PrayerGuideScreenState extends State<PrayerGuideScreen> with SingleTicker
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   child: Column(
                     children: ab.steps.map((st) {
-                      return Container(
-                        margin: const EdgeInsets.only(bottom: 8),
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFF8F9FA),
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: const Color(0xFFE9ECEF)),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            _buildStepIllustration(st.actionType, size: 52),
-                            const SizedBox(width: 10),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      CircleAvatar(
-                                        radius: 10,
-                                        backgroundColor: emeraldGreen,
-                                        foregroundColor: Colors.white,
-                                        child: Text('${st.stepNumber}', style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
-                                      ),
-                                      const SizedBox(width: 8),
-                                      Expanded(
-                                        child: Text(st.title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13.5, color: emeraldGreen)),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Text(st.description, style: const TextStyle(fontSize: 12.5, color: darkText, height: 1.35)),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                      return _buildCollapsibleStep(
+                        stepKey: '${ab.title}_${st.stepNumber}',
+                        actionType: st.actionType,
+                        title: st.title,
+                        description: st.description,
+                        numberLabel: '${st.stepNumber}',
                       );
                     }).toList(),
                   ),

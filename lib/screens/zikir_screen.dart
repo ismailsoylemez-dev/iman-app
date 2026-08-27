@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import '../models/zikir_model.dart';
 import '../services/zikir_storage_service.dart';
 import '../utils/app_colors.dart';
+import '../utils/app_typography.dart';
 
 class ZikirScreen extends StatefulWidget {
   const ZikirScreen({super.key});
@@ -576,7 +577,7 @@ class _ZikirScreenState extends State<ZikirScreen> {
                                   const Text('Bu Hafta Toplam', style: TextStyle(fontSize: 10.5, color: Colors.grey)),
                                   Text(
                                     '$_weeklyTotal Zikir',
-                                    style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Color(0xFF8C6D0F)),
+                                    style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: AppColors.badgeGoldText),
                                   ),
                                 ],
                               ),
@@ -656,8 +657,9 @@ class _ZikirScreenState extends State<ZikirScreen> {
                           style: const TextStyle(
                             color: goldLight,
                             fontSize: 24,
-                            fontFamily: 'serif',
+                            fontFamily: AppTypography.arabicFontFamily,
                             fontWeight: FontWeight.bold,
+                            height: 1.9,
                           ),
                         ),
                         const SizedBox(height: 6),
@@ -686,7 +688,11 @@ class _ZikirScreenState extends State<ZikirScreen> {
                     setState(() => _buttonScale = 1.0);
                     _incrementCount();
                   },
-                  onTapCancel: () => setState(() => _buttonScale = 1.0),
+                  onTapCancel: () {
+                    if (_buttonScale != 1.0) {
+                      setState(() => _buttonScale = 1.0);
+                    }
+                  },
                   child: AnimatedScale(
                     scale: _buttonScale,
                     duration: const Duration(milliseconds: 90),
@@ -714,7 +720,7 @@ class _ZikirScreenState extends State<ZikirScreen> {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               gradient: const RadialGradient(
-                                colors: [Color(0xFF2D6A4F), emeraldGreen],
+                                colors: [AppColors.lightPrimaryDark, emeraldGreen],
                                 radius: 0.85,
                               ),
                               boxShadow: [

@@ -14,9 +14,6 @@ class StepTimerWidget extends StatefulWidget {
 }
 
 class _StepTimerWidgetState extends State<StepTimerWidget> {
-  static const Color emeraldGreen = AppColors.primaryTeal;
-  static const Color accentGold = AppColors.accentOrange;
-
   Timer? _timer;
   late Duration _remaining;
 
@@ -63,6 +60,8 @@ class _StepTimerWidgetState extends State<StepTimerWidget> {
   Widget build(BuildContext context) {
     final total = widget.duration.inMilliseconds == 0 ? 1 : widget.duration.inMilliseconds;
     final progress = 1 - (_remaining.inMilliseconds.clamp(0, total) / total);
+    final accent = AppColors.accent(context);
+    final textColor = AppColors.text(context);
 
     return SizedBox(
       width: 56,
@@ -76,16 +75,16 @@ class _StepTimerWidgetState extends State<StepTimerWidget> {
             child: CircularProgressIndicator(
               value: progress,
               strokeWidth: 4,
-              backgroundColor: emeraldGreen.withValues(alpha: 0.12),
-              valueColor: const AlwaysStoppedAnimation<Color>(accentGold),
+              backgroundColor: accent.withValues(alpha: 0.15),
+              valueColor: AlwaysStoppedAnimation<Color>(accent),
             ),
           ),
           Text(
             '${_remaining.inSeconds < 0 ? 0 : _remaining.inSeconds}',
-            style: const TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
-              color: emeraldGreen,
+              color: textColor,
             ),
           ),
         ],

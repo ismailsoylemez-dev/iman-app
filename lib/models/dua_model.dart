@@ -9,6 +9,9 @@ class DuaModel {
   final String context;
   final String category;
   final String audioUrl;
+  final List<String> audioUrls;
+  final String audioAsset;
+  final List<String> audioAssets;
   final int defaultTarget;
   final List<String> tags;
   final String source; // 'Quran' | 'Sunnah' | 'Tradition'
@@ -24,10 +27,16 @@ class DuaModel {
     required this.context,
     required this.category,
     required this.audioUrl,
+    this.audioUrls = const [],
+    this.audioAsset = '',
+    this.audioAssets = const [],
     required this.defaultTarget,
     this.tags = const [],
     this.source = 'Quran',
   });
+
+  /// Dua için çalınabilir bir ses kaynağı var mı? (yerel dosya veya internet URL'i)
+  bool get hasAudio => audioAsset.isNotEmpty || audioUrl.isNotEmpty;
 
   factory DuaModel.fromJson(Map<String, dynamic> json) {
     return DuaModel(
@@ -41,6 +50,9 @@ class DuaModel {
       context: json['context'] as String? ?? '',
       category: json['category'] as String? ?? '',
       audioUrl: json['audioUrl'] as String? ?? '',
+      audioUrls: (json['audioUrls'] as List<dynamic>?)?.map((e) => e.toString()).toList() ?? const [],
+      audioAsset: json['audioAsset'] as String? ?? '',
+      audioAssets: (json['audioAssets'] as List<dynamic>?)?.map((e) => e.toString()).toList() ?? const [],
       defaultTarget: (json['defaultTarget'] as num?)?.toInt() ?? 1,
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e.toString()).toList() ?? const [],
       source: json['source'] as String? ?? 'Quran',
@@ -59,6 +71,9 @@ class DuaModel {
       'context': context,
       'category': category,
       'audioUrl': audioUrl,
+      'audioUrls': audioUrls,
+      'audioAsset': audioAsset,
+      'audioAssets': audioAssets,
       'defaultTarget': defaultTarget,
       'tags': tags,
       'source': source,
@@ -76,6 +91,9 @@ class DuaModel {
     String? context,
     String? category,
     String? audioUrl,
+    List<String>? audioUrls,
+    String? audioAsset,
+    List<String>? audioAssets,
     int? defaultTarget,
     List<String>? tags,
     String? source,
@@ -91,6 +109,9 @@ class DuaModel {
       context: context ?? this.context,
       category: category ?? this.category,
       audioUrl: audioUrl ?? this.audioUrl,
+      audioUrls: audioUrls ?? this.audioUrls,
+      audioAsset: audioAsset ?? this.audioAsset,
+      audioAssets: audioAssets ?? this.audioAssets,
       defaultTarget: defaultTarget ?? this.defaultTarget,
       tags: tags ?? this.tags,
       source: source ?? this.source,

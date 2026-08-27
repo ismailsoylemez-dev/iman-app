@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:share_plus/share_plus.dart';
 import '../models/dua_model.dart';
 import '../services/dua_service.dart';
+import '../services/dua_audio_service.dart';
 import '../utils/error_handler.dart';
 import '../utils/app_colors.dart';
+import '../utils/app_typography.dart';
+import '../widgets/dua_list_card.dart';
+import '../widgets/dua_detail_sheet.dart';
+import '../widgets/pulse_icon.dart';
 
 class DuaScreen extends StatefulWidget {
   const DuaScreen({super.key});
@@ -16,7 +20,7 @@ class DuaScreen extends StatefulWidget {
 
 class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMixin {
   final DuaService _duaService = DuaService();
-  final AudioPlayer _audioPlayer = AudioPlayer();
+  final DuaAudioService _audioService = DuaAudioService();
   final TextEditingController _searchController = TextEditingController();
 
   static const Color emeraldGreen = AppColors.primaryTeal;
@@ -42,12 +46,11 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
   int _visibleAllCount = _pageSize;
   int _visibleFavCount = _pageSize;
 
-  String? _currentlyPlayingId;
-  PlayerState _audioPlayerState = PlayerState.stopped;
-  Duration _playbackPosition = Duration.zero;
-  Duration _playbackDuration = Duration.zero;
-  bool _isBuffering = false;
-  final Set<String> _contextExpandedIds = {};
+  String? get _currentlyPlayingId => _audioService.currentlyPlayingId;
+  PlayerState get _audioPlayerState => _audioService.playerState;
+  Duration get _playbackPosition => _audioService.position;
+  Duration get _playbackDuration => _audioService.duration;
+  bool get _isBuffering => _audioService.isBuffering;
 
   final List<Map<String, String>> _categories = const [
     {'name': 'Tümü', 'icon': '✨'},
@@ -71,38 +74,9 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
   }
 
   void _initAudioListeners() {
-    _audioPlayer.onPlayerStateChanged.listen((state) {
-      if (mounted) {
-        setState(() {
-          _audioPlayerState = state;
-          if (state == PlayerState.playing || state == PlayerState.stopped) {
-            _isBuffering = false;
-          }
-        });
-      }
-    });
-
-    _audioPlayer.onPlayerComplete.listen((_) {
-      if (mounted) {
-        setState(() {
-          _currentlyPlayingId = null;
-          _audioPlayerState = PlayerState.stopped;
-          _playbackPosition = Duration.zero;
-        });
-      }
-    });
-
-    _audioPlayer.onDurationChanged.listen((duration) {
-      if (mounted) {
-        setState(() => _playbackDuration = duration);
-      }
-    });
-
-    _audioPlayer.onPositionChanged.listen((position) {
-      if (mounted) {
-        setState(() => _playbackPosition = position);
-      }
-    });
+    _audioService.onStateChanged = () {
+      if (mounted) setState(() {});
+    };
   }
 
   Future<void> _loadInitialData() async {
@@ -138,54 +112,15 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
 
   @override
   void dispose() {
-    _audioPlayer.stop();
-    _audioPlayer.dispose();
+    _audioService.dispose();
     _searchController.dispose();
     _tabController.dispose();
     super.dispose();
   }
 
   Future<void> _playOrPauseAudio(DuaModel dua) async {
-    if (dua.audioUrl.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Bu dua için ses tilaveti henüz mevcut değil.'),
-          duration: Duration(seconds: 2),
-          behavior: SnackBarBehavior.floating,
-        ),
-      );
-      return;
-    }
-
-    try {
-      if (_currentlyPlayingId == dua.id) {
-        if (_audioPlayerState == PlayerState.playing) {
-          await _audioPlayer.pause();
-        } else {
-          await _audioPlayer.resume();
-        }
-      } else {
-        await _audioPlayer.stop();
-        setState(() {
-          _currentlyPlayingId = dua.id;
-          _isBuffering = true;
-          _playbackPosition = Duration.zero;
-          _playbackDuration = Duration.zero;
-        });
-        await _audioPlayer.play(UrlSource(dua.audioUrl));
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(() => _isBuffering = false);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Ses çalınırken hata oluştu: $e'),
-            backgroundColor: Colors.red.shade700,
-            behavior: SnackBarBehavior.floating,
-          ),
-        );
-      }
-    }
+    if (!dua.hasAudio) return;
+    await _audioService.playOrToggle(dua);
   }
 
   Future<void> _toggleFavorite(String duaId) async {
@@ -199,8 +134,10 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
     });
   }
 
-  Future<void> _toggleReadStatus(String duaId) async {
-    final isRead = await _duaService.toggleReadStatus(duaId, DateTime.now());
+  /// Detay görünümü (DuaDetailSheet) okundu durumunu kendi içinde
+  /// [DuaService] üzerinden değiştirir; bu yalnızca ekrandaki listeyi
+  /// sonucuyla senkronize eder.
+  void _syncReadStatus(String duaId, bool isRead) {
     setState(() {
       if (isRead) {
         _readTodayIds.add(duaId);
@@ -210,41 +147,40 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
     });
   }
 
-  Future<void> _incrementCounter(DuaModel dua) async {
-    final nextVal = await _duaService.incrementCounter(dua.id, dua.defaultTarget);
-    HapticFeedback.lightImpact();
-    setState(() {
-      _counters[dua.id] = nextVal;
-    });
-
-    if (nextVal == dua.defaultTarget && mounted) {
-      HapticFeedback.heavyImpact();
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Tebrikler! "${dua.title}" vird hedefinize (${dua.defaultTarget}) ulaştınız.'),
-          backgroundColor: emeraldGreen,
-          duration: const Duration(seconds: 2),
-          behavior: SnackBarBehavior.floating,
-        ),
-      );
-    }
+  /// Detay görünümü sayaç değerini kendi içinde değiştirir; bu yalnızca
+  /// ekrandaki listeyi sonucuyla senkronize eder.
+  void _syncCounter(String duaId, int count) {
+    setState(() => _counters[duaId] = count);
   }
 
-  Future<void> _resetCounter(String duaId) async {
-    await _duaService.resetCounter(duaId);
-    HapticFeedback.mediumImpact();
+  /// Karta dokununca açılan detay görünümünü gösterir.
+  void _openDuaDetail(DuaModel dua) {
+    DuaDetailSheet.show(
+      context,
+      dua: dua,
+      audioService: _audioService,
+      duaService: _duaService,
+      fontScale: _fontScale,
+      initialIsFavorite: _favoriteIds.contains(dua.id),
+      initialIsRead: _readTodayIds.contains(dua.id),
+      initialCount: _counters[dua.id] ?? 0,
+      onFavoriteChanged: (isFav) => _syncFavoriteStatus(dua.id, isFav),
+      onReadChanged: (isRead) => _syncReadStatus(dua.id, isRead),
+      onCounterChanged: (count) => _syncCounter(dua.id, count),
+      onShowStory: () => _showStoryShareModal(dua),
+    );
+  }
+
+  /// [_toggleFavorite] ile aynı işi yapar; detay görünümü favori durumunu
+  /// kendi içinde değiştirdiğinde ekrandaki listeyi sonucuyla senkronize eder.
+  void _syncFavoriteStatus(String duaId, bool isFav) {
     setState(() {
-      _counters[duaId] = 0;
+      if (isFav) {
+        _favoriteIds.add(duaId);
+      } else {
+        _favoriteIds.remove(duaId);
+      }
     });
-    if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Sayaç sıfırlandı.'),
-          duration: Duration(seconds: 1),
-          behavior: SnackBarBehavior.floating,
-        ),
-      );
-    }
   }
 
   void _changeFontScale(double delta) {
@@ -294,7 +230,7 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
         return Container(
           height: MediaQuery.of(context).size.height * 0.90,
           decoration: const BoxDecoration(
-            color: Color(0xFF121212),
+            color: AppColors.storyBackground,
             borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
           ),
           child: Column(
@@ -307,13 +243,13 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                     const Text(
                       'Hikaye Olarak Paylaş',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: AppColors.onPrimary,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     IconButton(
-                      icon: const Icon(Icons.close, color: Colors.white70),
+                      icon: const Icon(Icons.close, color: AppColors.onPrimarySecondary),
                       onPressed: () => Navigator.pop(context),
                     ),
                   ],
@@ -366,7 +302,7 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                             dua.title,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: AppColors.onPrimary,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -385,7 +321,7 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                               style: const TextStyle(
                                 color: goldLight,
                                 fontSize: 18,
-                                fontFamily: 'serif',
+                                fontFamily: AppTypography.arabicFontFamily,
                                 height: 1.8,
                               ),
                             ),
@@ -395,7 +331,7 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                             dua.transliteration,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                              color: Colors.white70,
+                              color: AppColors.onPrimarySecondary,
                               fontSize: 12.5,
                               fontStyle: FontStyle.italic,
                             ),
@@ -405,7 +341,7 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                             dua.meaning,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: AppColors.onPrimary,
                               fontSize: 13,
                               height: 1.4,
                             ),
@@ -571,7 +507,7 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
         },
         decoration: InputDecoration(
           hintText: 'Dua, sure adı, okunuş veya mealde ara...',
-          hintStyle: TextStyle(fontSize: 13.5, color: Colors.grey.shade600),
+          hintStyle: TextStyle(fontSize: 13.5, color: AppColors.textSecondary(context)),
           prefixIcon: const Icon(Icons.search, color: emeraldGreen),
           suffixIcon: _searchQuery.isNotEmpty
               ? IconButton(
@@ -585,15 +521,15 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
                 )
               : null,
           filled: true,
-          fillColor: Colors.white,
+          fillColor: AppColors.surface(context),
           contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: Colors.grey.shade300),
+            borderSide: BorderSide(color: AppColors.border(context)),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: Colors.grey.shade200),
+            borderSide: BorderSide(color: AppColors.border(context)),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
@@ -604,20 +540,27 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
     );
   }
 
+  int _categoryCount(String category) {
+    if (category == 'Tümü') return _allDuas.length;
+    return _allDuas.where((d) => d.category == category).length;
+  }
+
   Widget _buildCategoryChips() {
     return SizedBox(
-      height: 48,
+      height: 52,
       child: ListView.separated(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
         scrollDirection: Axis.horizontal,
+        physics: const AlwaysScrollableScrollPhysics(),
         itemCount: _categories.length,
         separatorBuilder: (_, __) => const SizedBox(width: 8),
         itemBuilder: (context, index) {
           final cat = _categories[index];
           final isSelected = _selectedCategory == cat['name'];
+          final count = _categoryCount(cat['name']!);
           return FilterChip(
             showCheckmark: false,
-            label: Text('${cat['icon']} ${cat['name']}'),
+            label: Text('${cat['icon']} ${cat['name']} ($count)'),
             labelStyle: TextStyle(
               color: isSelected ? Colors.white : Colors.grey.shade800,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
@@ -760,7 +703,20 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
 
           final duaIndex = index - offset;
           if (duaIndex < pagedDuas.length) {
-            return _buildDuaCard(pagedDuas[duaIndex]);
+            final dua = pagedDuas[duaIndex];
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 2),
+              child: DuaListCard(
+                dua: dua,
+                isFavorite: _favoriteIds.contains(dua.id),
+                isPlaying: _currentlyPlayingId == dua.id && _audioPlayerState == PlayerState.playing,
+                isBuffering: _currentlyPlayingId == dua.id && _isBuffering,
+                fontScale: _fontScale,
+                onTap: () => _openDuaDetail(dua),
+                onToggleFavorite: () => _toggleFavorite(dua.id),
+                onPlayPause: () => _playOrPauseAudio(dua),
+              ),
+            );
           }
 
           return const Padding(
@@ -846,7 +802,7 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
             Text(
               dua.title,
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.onPrimary,
                 fontSize: 16 * _fontScale,
                 fontWeight: FontWeight.bold,
               ),
@@ -858,16 +814,16 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
               textDirection: TextDirection.rtl,
               style: TextStyle(
                 color: goldLight,
-                fontSize: 18 * _fontScale,
-                fontFamily: 'serif',
-                height: 1.6,
+                fontSize: 21 * _fontScale,
+                fontFamily: AppTypography.arabicFontFamily,
+                height: 1.9,
               ),
             ),
             const SizedBox(height: 8),
             Text(
               dua.meaning,
               style: TextStyle(
-                color: Colors.white.withValues(alpha: 0.92),
+                color: AppColors.onPrimarySecondary,
                 fontSize: 13.5 * _fontScale,
                 fontStyle: FontStyle.italic,
                 height: 1.4,
@@ -877,31 +833,33 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                OutlinedButton.icon(
-                  onPressed: () => _playOrPauseAudio(dua),
-                  icon: isBuffering
-                      ? const SizedBox(
-                          width: 16,
-                          height: 16,
-                          child: CircularProgressIndicator(strokeWidth: 2, color: accentGold),
-                        )
-                      : _PulseIcon(
-                          icon: isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
-                          color: accentGold,
-                          size: 18,
-                          pulsing: isPlaying,
-                        ),
-                  label: Text(
-                    isBuffering ? 'Yükleniyor...' : (isPlaying ? 'Durdur' : 'Dinle'),
-                    style: const TextStyle(color: Colors.white, fontSize: 12.5),
+                if (dua.hasAudio) ...[
+                  OutlinedButton.icon(
+                    onPressed: () => _playOrPauseAudio(dua),
+                    icon: isBuffering
+                        ? const SizedBox(
+                            width: 16,
+                            height: 16,
+                            child: CircularProgressIndicator(strokeWidth: 2, color: accentGold),
+                          )
+                        : PulseIcon(
+                            icon: isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                            color: accentGold,
+                            size: 18,
+                            pulsing: isPlaying,
+                          ),
+                    label: Text(
+                      isBuffering ? 'Yükleniyor...' : (isPlaying ? 'Durdur' : 'Dinle'),
+                      style: const TextStyle(color: AppColors.onPrimary, fontSize: 12.5),
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      side: const BorderSide(color: accentGold),
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    ),
                   ),
-                  style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: accentGold),
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                  ),
-                ),
-                const SizedBox(width: 8),
+                  const SizedBox(width: 8),
+                ],
                 ElevatedButton.icon(
                   onPressed: () => _showStoryShareModal(dua),
                   icon: const Icon(Icons.amp_stories_rounded, size: 16, color: emeraldDark),
@@ -935,459 +893,4 @@ class _DuaScreenState extends State<DuaScreen> with SingleTickerProviderStateMix
     );
   }
 
-  Widget _buildDuaCard(DuaModel dua) {
-    final isFav = _favoriteIds.contains(dua.id);
-    final isRead = _readTodayIds.contains(dua.id);
-    final currentCount = _counters[dua.id] ?? 0;
-    final isPlaying = _currentlyPlayingId == dua.id && _audioPlayerState == PlayerState.playing;
-    final isBuffering = _currentlyPlayingId == dua.id && _isBuffering;
-
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 7),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(
-          color: isRead ? emeraldGreen.withValues(alpha: 0.6) : AppColors.border(context),
-          width: isRead ? 1.5 : 1.0,
-        ),
-      ),
-      elevation: 3,
-      color: isRead ? emeraldGreen.withValues(alpha: 0.06) : AppColors.card(context),
-      child: Padding(
-        padding: const EdgeInsets.all(14),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Row(
-              children: [
-                InkWell(
-                  onTap: () => _toggleReadStatus(dua.id),
-                  borderRadius: BorderRadius.circular(6),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          isRead ? Icons.check_circle_rounded : Icons.radio_button_unchecked_rounded,
-                          color: isRead ? emeraldGreen : Colors.grey.shade400,
-                          size: 20,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          isRead ? 'Okundu' : 'Günlük Takip',
-                          style: TextStyle(
-                            fontSize: 11.5,
-                            fontWeight: isRead ? FontWeight.bold : FontWeight.normal,
-                            color: isRead ? emeraldGreen : Colors.grey.shade600,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const Spacer(),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
-                  decoration: BoxDecoration(
-                    color: goldLight.withValues(alpha: 0.4),
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: accentGold.withValues(alpha: 0.7)),
-                  ),
-                  child: Text(
-                    '${dua.surahName} ${dua.ayahNo}',
-                    style: const TextStyle(
-                      fontSize: 11.5,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF8C6D0F),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 6),
-                IconButton(
-                  icon: Icon(
-                    isFav ? Icons.favorite_rounded : Icons.favorite_border_rounded,
-                    color: isFav ? Colors.red.shade600 : Colors.grey.shade400,
-                    size: 22,
-                  ),
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
-                  visualDensity: VisualDensity.compact,
-                  tooltip: isFav ? 'Favorilerden Çıkar' : 'Favorilere Ekle',
-                  onPressed: () => _toggleFavorite(dua.id),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Text(
-              dua.title,
-              style: TextStyle(
-                fontSize: 15.5 * _fontScale,
-                fontWeight: FontWeight.bold,
-                color: emeraldGreen,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-              decoration: BoxDecoration(
-                color: AppColors.card(context),
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: AppColors.border(context)),
-              ),
-              child: Text(
-                dua.arabic,
-                textAlign: TextAlign.right,
-                textDirection: TextDirection.rtl,
-                style: TextStyle(
-                  fontSize: 18 * _fontScale,
-                  fontFamily: 'serif',
-                  fontWeight: FontWeight.bold,
-                  color: emeraldGreen,
-                  height: 1.6,
-                  letterSpacing: 0.2,
-                ),
-              ),
-            ),
-            if (dua.tags.isNotEmpty || dua.source.isNotEmpty) ...[
-              const SizedBox(height: 8),
-              Wrap(
-                spacing: 6,
-                runSpacing: 6,
-                children: [
-                  if (dua.source.isNotEmpty)
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                      decoration: BoxDecoration(
-                        color: emeraldGreen.withValues(alpha: 0.08),
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: emeraldGreen.withValues(alpha: 0.3)),
-                      ),
-                      child: Text(
-                        dua.source == 'Quran' ? 'Kur\'an' : (dua.source == 'Sunnah' ? 'Sünnet' : dua.source),
-                        style: const TextStyle(fontSize: 10.5, fontWeight: FontWeight.bold, color: emeraldGreen),
-                      ),
-                    ),
-                  for (final tag in dua.tags)
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade100,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.grey.shade300),
-                      ),
-                      child: Text('#$tag', style: TextStyle(fontSize: 10.5, color: Colors.grey.shade700)),
-                    ),
-                ],
-              ),
-            ],
-            const SizedBox(height: 10),
-            const Text(
-              'Okunuşu:',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-                color: emeraldGreen,
-              ),
-            ),
-            const SizedBox(height: 2),
-            Text(
-              dua.transliteration,
-              style: TextStyle(
-                fontSize: 15 * _fontScale,
-                fontWeight: FontWeight.w500,
-                color: AppColors.text(context),
-                height: 1.6,
-              ),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              'Meali:',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF8C6D0F),
-              ),
-            ),
-            const SizedBox(height: 2),
-            Text(
-              dua.meaning,
-              style: TextStyle(
-                fontSize: 14 * _fontScale,
-                fontStyle: FontStyle.italic,
-                color: AppColors.textSecondary(context),
-                height: 1.6,
-              ),
-            ),
-            const SizedBox(height: 8),
-            if (dua.context.isNotEmpty)
-              StatefulBuilder(
-                builder: (context, setLocalState) {
-                  return Theme(
-                    data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-                    child: Container(
-                      margin: const EdgeInsets.only(top: 2),
-                      decoration: BoxDecoration(
-                        color: AppColors.secondaryCream.withValues(alpha: _contextExpandedIds.contains(dua.id) ? 0.35 : 0.2),
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.06),
-                            blurRadius: 4,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      clipBehavior: Clip.antiAlias,
-                      child: Material(
-                        color: Colors.transparent,
-                        child: ExpansionTile(
-                        tilePadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
-                        childrenPadding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
-                        onExpansionChanged: (expanded) => setLocalState(() {
-                          if (expanded) {
-                            _contextExpandedIds.add(dua.id);
-                          } else {
-                            _contextExpandedIds.remove(dua.id);
-                          }
-                        }),
-                        title: const Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.info_outline_rounded, size: 18, color: emeraldGreen),
-                            SizedBox(width: 6),
-                            Text(
-                              'Fazileti & Tefsiri',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: emeraldGreen,
-                              ),
-                            ),
-                          ],
-                        ),
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: emeraldGreen.withValues(alpha: 0.06),
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: emeraldGreen.withValues(alpha: 0.15)),
-                            ),
-                            child: Text(
-                              dua.context,
-                              style: TextStyle(
-                                fontSize: 12.5 * _fontScale,
-                                color: Colors.grey.shade800,
-                                height: 1.4,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                        ),
-                    ),
-                  );
-                },
-              ),
-            const Divider(height: 16),
-            Row(
-              children: [
-                InkWell(
-                  key: const ValueKey('dua_listen_button'),
-                  onTap: () => _playOrPauseAudio(dua),
-                  borderRadius: BorderRadius.circular(8),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        if (isBuffering)
-                          const SizedBox(
-                            width: 18,
-                            height: 18,
-                            child: CircularProgressIndicator(strokeWidth: 2, color: accentGold),
-                          )
-                        else
-                          _PulseIcon(
-                            icon: isPlaying ? Icons.pause_circle_filled_rounded : Icons.volume_up_rounded,
-                            size: 20,
-                            color: isPlaying ? accentGold : emeraldGreen,
-                            pulsing: isPlaying,
-                          ),
-                        const SizedBox(width: 4),
-                        Text(
-                          isBuffering ? 'Yükleniyor...' : (isPlaying ? 'Durdur' : 'Dinle'),
-                          style: TextStyle(
-                            fontSize: 12.5,
-                            fontWeight: FontWeight.w600,
-                            color: isPlaying || isBuffering ? accentGold : emeraldGreen,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 4),
-                IconButton(
-                  key: const ValueKey('dua_story_share_button'),
-                  tooltip: 'Hikaye Olarak Paylaş',
-                  icon: const Icon(Icons.amp_stories_outlined, size: 18),
-                  visualDensity: VisualDensity.compact,
-                  color: accentGold,
-                  onPressed: () => _showStoryShareModal(dua),
-                ),
-                IconButton(
-                  tooltip: 'Kopyala',
-                  icon: const Icon(Icons.copy_rounded, size: 18),
-                  visualDensity: VisualDensity.compact,
-                  color: Colors.grey.shade700,
-                  onPressed: () {
-                    Clipboard.setData(ClipboardData(text: dua.formattedShareText));
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('"${dua.title}" panoya kopyalandı.'),
-                        duration: const Duration(seconds: 2),
-                        behavior: SnackBarBehavior.floating,
-                      ),
-                    );
-                  },
-                ),
-                IconButton(
-                  tooltip: 'Paylaş',
-                  icon: const Icon(Icons.share_outlined, size: 18),
-                  visualDensity: VisualDensity.compact,
-                  color: Colors.grey.shade700,
-                  onPressed: () => SharePlus.instance.share(
-                    ShareParams(
-                      text: dua.formattedShareText,
-                      subject: dua.title,
-                    ),
-                  ),
-                ),
-                const Spacer(),
-                Tooltip(
-                  message: 'Tıkla: Artır | Basılı Tut: Sıfırla',
-                  child: InkWell(
-                    onTap: () => _incrementCounter(dua),
-                    onLongPress: () => _resetCounter(dua.id),
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: currentCount >= dua.defaultTarget
-                              ? [emeraldGreen, const Color(0xFF2D6A4F)]
-                              : [const Color(0xFFF1F3F5), const Color(0xFFE9ECEF)],
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(
-                          color: currentCount >= dua.defaultTarget
-                              ? accentGold
-                              : Colors.grey.shade300,
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            Icons.touch_app_rounded,
-                            size: 14,
-                            color: currentCount >= dua.defaultTarget ? accentGold : emeraldGreen,
-                          ),
-                          const SizedBox(width: 4),
-                          Text(
-                            '$currentCount / ${dua.defaultTarget}',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: currentCount >= dua.defaultTarget ? Colors.white : Colors.grey.shade800,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            if (isPlaying || isBuffering)
-              Padding(
-                padding: const EdgeInsets.only(top: 4),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(4),
-                  child: LinearProgressIndicator(
-                    value: isBuffering || _playbackDuration.inMilliseconds == 0
-                        ? null
-                        : (_playbackPosition.inMilliseconds / _playbackDuration.inMilliseconds).clamp(0.0, 1.0),
-                    minHeight: 3,
-                    backgroundColor: AppColors.secondaryCreamLight,
-                    color: accentGold,
-                  ),
-                ),
-              ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-/// Ses çalarken hafifçe büyüyüp küçülen (pulse) ikon; sadece [pulsing] true iken animasyon çalışır.
-class _PulseIcon extends StatefulWidget {
-  final IconData icon;
-  final Color color;
-  final double size;
-  final bool pulsing;
-
-  const _PulseIcon({
-    required this.icon,
-    required this.color,
-    required this.size,
-    required this.pulsing,
-  });
-
-  @override
-  State<_PulseIcon> createState() => _PulseIconState();
-}
-
-class _PulseIconState extends State<_PulseIcon> with SingleTickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 700),
-  );
-
-  @override
-  void initState() {
-    super.initState();
-    if (widget.pulsing) _controller.repeat(reverse: true);
-  }
-
-  @override
-  void didUpdateWidget(covariant _PulseIcon oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.pulsing && !_controller.isAnimating) {
-      _controller.repeat(reverse: true);
-    } else if (!widget.pulsing && _controller.isAnimating) {
-      _controller.stop();
-      _controller.value = 0;
-    }
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ScaleTransition(
-      scale: Tween(begin: 1.0, end: 1.25).animate(
-        CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
-      ),
-      child: Icon(widget.icon, color: widget.color, size: widget.size),
-    );
-  }
 }

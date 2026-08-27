@@ -28,7 +28,6 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
   static const Color emeraldDark = AppColors.primaryTealDark;
   static const Color accentGold = AppColors.accentOrange;
   static const Color goldLight = AppColors.secondaryCreamLight;
-  static const Color darkText = AppColors.lightText;
 
   Timer? _timer;
   DateTime _now = DateTime.now();
@@ -138,7 +137,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
       context: context,
       isScrollControlled: true,
       showDragHandle: true,
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.card(context),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
@@ -186,13 +185,17 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: 'Şehir adı veya plaka no ile ara...',
+                              hintStyle: TextStyle(
+                                fontSize: 13,
+                                color: AppColors.textSecondary(context),
+                              ),
                               prefixIcon: const Icon(Icons.search, color: emeraldGreen),
                               filled: true,
-                              fillColor: const Color(0xFFF8F9FA),
+                              fillColor: AppColors.background(context),
                               contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(14),
-                                borderSide: const BorderSide(color: Color(0xFFE9ECEF)),
+                                borderSide: BorderSide(color: AppColors.border(context)),
                               ),
                             ),
                             onChanged: (value) {
@@ -221,8 +224,8 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                               return ListTile(
                                 leading: CircleAvatar(
                                   radius: 18,
-                                  backgroundColor: isSelected ? emeraldGreen : Colors.grey.shade200,
-                                  foregroundColor: isSelected ? Colors.white : darkText,
+                                  backgroundColor: isSelected ? emeraldGreen : AppColors.border(context),
+                                  foregroundColor: isSelected ? Colors.white : AppColors.text(context),
                                   child: Text(
                                     city.plateCode.toString().padLeft(2, '0'),
                                     style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
@@ -232,7 +235,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                                   city.name,
                                   style: TextStyle(
                                     fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
-                                    color: isSelected ? emeraldGreen : darkText,
+                                    color: isSelected ? emeraldGreen : AppColors.text(context),
                                   ),
                                 ),
                                 trailing: isSelected
@@ -263,9 +266,9 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
 
   /// Kalan süreye göre renk: 1 saatten fazla yeşil, 10-60 dk sarı, 10 dk altı kırmızı.
   Color _countdownColor(Duration remaining) {
-    if (remaining.inMinutes >= 60) return const Color(0xFF4CAF50);
-    if (remaining.inMinutes >= 10) return const Color(0xFFFFC107);
-    return const Color(0xFFEF5350);
+    if (remaining.inMinutes >= 60) return AppColors.statusGood;
+    if (remaining.inMinutes >= 10) return AppColors.statusWarning;
+    return AppColors.statusCritical;
   }
 
   String _formatDuration(Duration duration) {
@@ -302,9 +305,9 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
           margin: const EdgeInsets.symmetric(vertical: 8),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.card(context),
             borderRadius: BorderRadius.circular(18),
-            border: Border.all(color: const Color(0xFFE9ECEF)),
+            border: Border.all(color: AppColors.border(context)),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withValues(alpha: 0.04),
@@ -328,7 +331,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                       height: 80,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: const Color(0xFFF8F9FA),
+                        color: AppColors.background(context),
                         border: Border.all(color: accentGold.withValues(alpha: 0.8), width: 2),
                       ),
                     ),
@@ -379,12 +382,12 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                     const SizedBox(height: 4),
                     Text(
                       '$cityName için Kıble Açısı: ${qiblaDirection.toStringAsFixed(0)}°',
-                      style: const TextStyle(fontSize: 12.5, color: darkText, fontWeight: FontWeight.w600),
+                      style: TextStyle(fontSize: 12.5, color: AppColors.text(context), fontWeight: FontWeight.w600),
                     ),
                     const SizedBox(height: 2),
                     Text(
                       'Ok işareti Kâbe-i Muazzama yönünü gösterir.',
-                      style: TextStyle(fontSize: 11.5, color: Colors.grey.shade600),
+                      style: TextStyle(fontSize: 11.5, color: AppColors.textSecondary(context)),
                     ),
                   ],
                 ),
@@ -401,9 +404,9 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.card(context),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFFE9ECEF)),
+        border: Border.all(color: AppColors.border(context)),
       ),
       child: Row(
         children: [
@@ -414,7 +417,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
               shape: BoxShape.circle,
               border: Border.all(color: accentGold),
             ),
-            child: const Icon(Icons.explore_rounded, color: Color(0xFF8C6D0F), size: 24),
+            child: Icon(Icons.explore_rounded, color: AppColors.accent(context), size: 24),
           ),
           const SizedBox(width: 14),
           Expanded(
@@ -431,7 +434,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                 ),
                 Text(
                   'Cihazınızda pusula sensörü desteklenmiyorsa bu açıyı referans alabilirsiniz.',
-                  style: TextStyle(fontSize: 11.5, color: Colors.grey.shade600),
+                  style: TextStyle(fontSize: 11.5, color: AppColors.textSecondary(context)),
                 ),
               ],
             ),
@@ -468,7 +471,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
         }
 
         return Scaffold(
-          backgroundColor: const Color(0xFFF8F9FA),
+          backgroundColor: AppColors.background(context),
           appBar: AppBar(
             title: const Text('Ezan Vakitleri'),
             actions: [
@@ -541,9 +544,9 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                             child: Container(
                               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: AppColors.card(context),
                                 borderRadius: BorderRadius.circular(12),
-                                border: Border.all(color: const Color(0xFFE9ECEF)),
+                                border: Border.all(color: AppColors.border(context)),
                               ),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -574,14 +577,14 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                const Icon(Icons.calendar_month_outlined, color: Color(0xFF8C6D0F), size: 16),
+                                Icon(Icons.calendar_month_outlined, color: AppColors.accent(context), size: 16),
                                 const SizedBox(width: 6),
                                 Text(
                                   hijriDateStr,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 12,
-                                    color: Color(0xFF8C6D0F),
+                                    color: AppColors.accent(context),
                                   ),
                                 ),
                               ],
@@ -696,9 +699,9 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: AppColors.card(context),
                           borderRadius: BorderRadius.circular(14),
-                          border: Border.all(color: const Color(0xFFE9ECEF)),
+                          border: Border.all(color: AppColors.border(context)),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withValues(alpha: 0.03),
@@ -715,7 +718,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                                 color: accentGold.withValues(alpha: 0.15),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: const Icon(Icons.star_rounded, color: Color(0xFF8C6D0F), size: 20),
+                              child: Icon(Icons.star_rounded, color: AppColors.accent(context), size: 20),
                             ),
                             const SizedBox(width: 12),
                             Expanded(
@@ -730,7 +733,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                                     specialDay.description,
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
-                                    style: const TextStyle(fontSize: 11.5, color: darkText),
+                                    style: TextStyle(fontSize: 11.5, color: AppColors.text(context)),
                                   ),
                                 ],
                               ),
@@ -780,10 +783,10 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                           return Container(
                             margin: const EdgeInsets.only(bottom: 8),
                             decoration: BoxDecoration(
-                              color: isNext ? emeraldGreen.withValues(alpha: 0.08) : Colors.white,
+                              color: isNext ? emeraldGreen.withValues(alpha: 0.08) : AppColors.card(context),
                               borderRadius: BorderRadius.circular(14),
                               border: Border.all(
-                                color: isNext ? accentGold : const Color(0xFFE9ECEF),
+                                color: isNext ? accentGold : AppColors.border(context),
                                 width: isNext ? 1.8 : 1.0,
                               ),
                               boxShadow: [
@@ -795,11 +798,12 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                               ],
                             ),
                             child: ListTile(
-                              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                              minVerticalPadding: 12,
                               leading: Container(
                                 padding: const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
-                                  color: isNext ? emeraldGreen : const Color(0xFFF8F9FA),
+                                  color: isNext ? emeraldGreen : AppColors.background(context),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Icon(
@@ -813,7 +817,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                                 style: TextStyle(
                                   fontWeight: isNext ? FontWeight.bold : FontWeight.w600,
                                   fontSize: 15,
-                                  color: isNext ? emeraldGreen : darkText,
+                                  color: isNext ? emeraldGreen : AppColors.text(context),
                                 ),
                               ),
                               trailing: Row(
@@ -841,7 +845,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 17,
-                                      color: isNext ? emeraldGreen : darkText,
+                                      color: isNext ? emeraldGreen : AppColors.text(context),
                                     ),
                                   ),
                                 ],

@@ -14,10 +14,6 @@ class StatisticsScreen extends StatefulWidget {
 }
 
 class _StatisticsScreenState extends State<StatisticsScreen> {
-  static const Color emeraldGreen = AppColors.primaryTeal;
-  static const Color accentGold = AppColors.accentOrange;
-  static const Color streakOrange = Color(0xFFE67E22);
-
   final DuaService _duaService = DuaService();
 
   ZikirStats? _zikirStats;
@@ -68,13 +64,13 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('İstatistikler')),
       body: stats == null
-          ? const Center(child: CircularProgressIndicator(color: emeraldGreen))
+          ? Center(child: CircularProgressIndicator(color: AppColors.primary(context)))
           : ListView(
               padding: const EdgeInsets.all(16),
               children: [
                 _buildStreakCard(),
                 const SizedBox(height: 20),
-                const Text('Zikir İstatistikleri', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: emeraldGreen)),
+                Text('Zikir İstatistikleri', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: AppColors.primary(context))),
                 const SizedBox(height: 10),
                 Row(
                   children: [
@@ -86,15 +82,15 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const Text('Haftalık Zikir Grafiği', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: emeraldGreen)),
+                Text('Haftalık Zikir Grafiği', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: AppColors.primary(context))),
                 const SizedBox(height: 10),
                 _buildWeeklyBarChart(),
                 const SizedBox(height: 24),
-                const Text('Dua Geçmişi', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: emeraldGreen)),
+                Text('Dua Geçmişi', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: AppColors.primary(context))),
                 const SizedBox(height: 10),
                 _buildStatCard('Favori Dualar', _favoriteDuaCount),
                 const SizedBox(height: 20),
-                const Text('En Çok Okunan 5 Dua', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: emeraldGreen)),
+                Text('En Çok Okunan 5 Dua', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: AppColors.primary(context))),
                 const SizedBox(height: 10),
                 _buildTopDuasList(),
               ],
@@ -108,7 +104,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [streakOrange.withValues(alpha: 0.85), streakOrange],
+          colors: [AppColors.streakOrange.withValues(alpha: 0.85), AppColors.streakOrange],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -116,7 +112,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
       ),
       child: Row(
         children: [
-          const Icon(Icons.local_fire_department_rounded, color: Colors.white, size: 36),
+          const Icon(Icons.local_fire_department_rounded, color: AppColors.onPrimary, size: 36),
           const SizedBox(width: 14),
           Expanded(
             child: Column(
@@ -124,11 +120,11 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               children: [
                 Text(
                   '$_streak günlük seri',
-                  style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  style: const TextStyle(color: AppColors.onPrimary, fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const Text(
                   'Zikir çekmeye her gün devam et!',
-                  style: TextStyle(color: Colors.white70, fontSize: 12),
+                  style: TextStyle(color: AppColors.onPrimarySecondary, fontSize: 12),
                 ),
               ],
             ),
@@ -169,7 +165,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                 width: 18,
                 height: 6 + (heightRatio * 80),
                 decoration: BoxDecoration(
-                  color: isToday ? accentGold : emeraldGreen.withValues(alpha: 0.7),
+                  color: isToday ? AppColors.accent(context) : AppColors.primary(context).withValues(alpha: 0.7),
                   borderRadius: BorderRadius.circular(6),
                 ),
               ),
@@ -178,7 +174,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                 dayLabels[date.weekday - 1],
                 style: TextStyle(
                   fontSize: 11,
-                  color: isToday ? emeraldGreen : AppColors.textSecondary(context),
+                  color: isToday ? AppColors.primary(context) : AppColors.textSecondary(context),
                   fontWeight: isToday ? FontWeight.bold : FontWeight.normal,
                 ),
               ),
@@ -221,8 +217,8 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
             children: [
               CircleAvatar(
                 radius: 14,
-                backgroundColor: rank <= 3 ? accentGold : emeraldGreen.withValues(alpha: 0.15),
-                foregroundColor: rank <= 3 ? emeraldGreen : emeraldGreen,
+                backgroundColor: rank <= 3 ? AppColors.accent(context) : AppColors.primary(context).withValues(alpha: 0.15),
+                foregroundColor: rank <= 3 ? AppColors.primary(context) : AppColors.primary(context),
                 child: Text('$rank', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
               ),
               const SizedBox(width: 10),
@@ -234,7 +230,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              Text('${item.count}×', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: emeraldGreen)),
+              Text('${item.count}×', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: AppColors.primary(context))),
             ],
           ),
         );
@@ -252,7 +248,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
       ),
       child: Column(
         children: [
-          Text('$value', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22, color: accentGold)),
+          Text('$value', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22, color: AppColors.accent(context))),
           const SizedBox(height: 4),
           Text(label, style: TextStyle(fontSize: 12, color: AppColors.textSecondary(context)), textAlign: TextAlign.center),
         ],

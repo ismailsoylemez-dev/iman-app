@@ -24,11 +24,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static const Color emeraldGreen = AppColors.primaryTeal;
-  static const Color emeraldDark = AppColors.primaryTealDark;
-  static const Color accentGold = AppColors.accentOrange;
-  static const Color goldLight = AppColors.secondaryCreamLight;
-
   bool _isOnline = true;
   bool _isGpsEnabled = true;
   bool _hasNotificationPermission = true;
@@ -148,11 +143,11 @@ class _HomeScreenState extends State<HomeScreen> {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.white.withValues(alpha: 0.15),
-              border: Border.all(color: accentGold, width: 1.5),
+              border: Border.all(color: AppColors.accent(context), width: 1.5),
             ),
             child: Transform.rotate(
               angle: notifier.qiblaAngle * 3.1415926535 / 180,
-              child: const Icon(Icons.navigation_rounded, color: accentGold, size: 20),
+              child: Icon(Icons.navigation_rounded, color: AppColors.accent(context), size: 20),
             ),
           ),
         );
@@ -216,20 +211,20 @@ class _HomeScreenState extends State<HomeScreen> {
             width: double.infinity,
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [emeraldDark, emeraldGreen],
+              gradient: LinearGradient(
+                colors: [AppColors.primaryTealDark, AppColors.primary(context)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: accentGold.withValues(alpha: 0.5), width: 1.5),
+              border: Border.all(color: AppColors.accent(context).withValues(alpha: 0.5), width: 1.5),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   '${notifier.selectedCity.name} • Sıradaki Vakit',
-                  style: const TextStyle(color: goldLight, fontSize: 12.5, fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.accent(context).withValues(alpha: 0.8), fontSize: 12.5, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -244,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 10),
                 Row(
                   children: [
-                    const Icon(Icons.explore_rounded, color: accentGold, size: 16),
+                    Icon(Icons.explore_rounded, color: AppColors.accent(context), size: 16),
                     const SizedBox(width: 4),
                     Text(
                       'Kıble: ${notifier.qiblaAngle.toStringAsFixed(0)}°',
@@ -255,10 +250,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () => Navigator.of(context).push(
                         MaterialPageRoute(builder: (_) => const PrayerGuideScreen()),
                       ),
-                      icon: const Icon(Icons.menu_book_rounded, size: 16, color: accentGold),
+                      icon: Icon(Icons.menu_book_rounded, size: 16, color: AppColors.accent(context)),
                       label: const Text('Namaz Rehberi', style: TextStyle(color: Colors.white, fontSize: 12)),
                       style: OutlinedButton.styleFrom(
-                        side: const BorderSide(color: accentGold),
+                        side: BorderSide(color: AppColors.accent(context)),
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                       ),
@@ -274,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildStreakCard() {
-    const streakOrange = Color(0xFFE67E22);
+    const streakOrange = AppColors.streakOrange;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -305,17 +300,17 @@ class _HomeScreenState extends State<HomeScreen> {
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           decoration: BoxDecoration(
-            color: goldLight.withValues(alpha: 0.35),
+            color: AppColors.accent(context).withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: accentGold.withValues(alpha: 0.6)),
+            border: Border.all(color: AppColors.accent(context).withValues(alpha: 0.6)),
           ),
           child: Row(
             children: [
-              const Icon(Icons.calendar_month_outlined, color: Color(0xFF8C6D0F)),
+              Icon(Icons.calendar_month_outlined, color: AppColors.accent(context)),
               const SizedBox(width: 10),
               Text(
                 notifier.hijriDate.isNotEmpty ? notifier.hijriDate : PrayerTimeService.getHijriDate(DateTime.now()),
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Color(0xFF8C6D0F)),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: AppColors.accent(context)),
               ),
             ],
           ),
@@ -340,20 +335,20 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: Row(
         children: [
-          const Icon(Icons.star_rounded, color: Color(0xFF8C6D0F)),
+          Icon(Icons.star_rounded, color: AppColors.accent(context)),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(specialDay.name, style: const TextStyle(fontWeight: FontWeight.bold, color: emeraldGreen)),
+                Text(specialDay.name, style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.primary(context))),
                 Text(specialDay.description, style: TextStyle(fontSize: 11.5, color: AppColors.textSecondary(context)), maxLines: 2, overflow: TextOverflow.ellipsis),
               ],
             ),
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-            decoration: BoxDecoration(color: emeraldGreen, borderRadius: BorderRadius.circular(12)),
+            decoration: BoxDecoration(color: AppColors.primary(context), borderRadius: BorderRadius.circular(12)),
             child: Text(
               remainingDays == 0 ? 'Bugün' : '$remainingDays gün',
               style: const TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold),
@@ -393,7 +388,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(action.icon, color: emeraldGreen, size: 20),
+                Icon(action.icon, color: AppColors.primary(context), size: 20),
                 const SizedBox(width: 8),
                 Text(action.label, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: AppColors.text(context))),
               ],

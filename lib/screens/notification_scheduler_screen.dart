@@ -12,9 +12,6 @@ class NotificationSchedulerScreen extends StatefulWidget {
 }
 
 class _NotificationSchedulerScreenState extends State<NotificationSchedulerScreen> {
-  static const Color emeraldGreen = AppColors.primaryTeal;
-  static const Color accentGold = AppColors.accentOrange;
-
   static const List<String> _prayers = ['İmsak', 'Güneş', 'Öğle', 'İkindi', 'Akşam', 'Yatsı'];
   static const List<String> _sounds = ['Sistem', 'Ezan', 'Zil'];
 
@@ -116,7 +113,7 @@ class _NotificationSchedulerScreenState extends State<NotificationSchedulerScree
                     ),
                     Switch(
                       value: enabled,
-                      activeThumbColor: accentGold,
+                      activeThumbColor: AppColors.accent(context),
                       onChanged: (value) => _saveEnabled(prayer, value),
                     ),
                   ],
@@ -163,9 +160,9 @@ class _NotificationSchedulerScreenState extends State<NotificationSchedulerScree
                     alignment: Alignment.centerRight,
                     child: OutlinedButton.icon(
                       onPressed: _isTesting ? null : () => _testNotification(prayer),
-                      icon: const Icon(Icons.notifications_active_outlined, size: 16, color: emeraldGreen),
-                      label: const Text('Test Et', style: TextStyle(color: emeraldGreen, fontSize: 12, fontWeight: FontWeight.bold)),
-                      style: OutlinedButton.styleFrom(side: const BorderSide(color: emeraldGreen)),
+                      icon: Icon(Icons.notifications_active_outlined, size: 16, color: AppColors.primary(context)),
+                      label: Text('Test Et', style: TextStyle(color: AppColors.primary(context), fontSize: 12, fontWeight: FontWeight.bold)),
+                      style: OutlinedButton.styleFrom(side: BorderSide(color: AppColors.primary(context))),
                     ),
                   ),
                 ],

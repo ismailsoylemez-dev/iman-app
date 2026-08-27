@@ -19,8 +19,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  static const Color emeraldGreen = AppColors.primaryTeal;
-  static const Color accentGold = AppColors.accentOrange;
 
   static const String _keyCalcMethod = 'settings_calc_method';
   static const String _keyNotifEnabled = 'settings_notif_enabled';
@@ -111,7 +109,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           SwitchListTile(
             title: const Text('Karanlık Mod'),
             value: themeNotifier.isDarkMode,
-            activeThumbColor: accentGold,
+            activeThumbColor: AppColors.accent(context),
             onChanged: (_) => themeNotifier.toggleDarkMode(),
           ),
           ListTile(
@@ -121,7 +119,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               min: 0,
               max: 2,
               divisions: 2,
-              activeColor: emeraldGreen,
+              activeColor: AppColors.primary(context),
               label: switch (themeNotifier.fontSize) {
                 AppFontSize.small => 'Küçük',
                 AppFontSize.medium => 'Orta',
@@ -161,7 +159,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           SwitchListTile(
             title: const Text('Ezan Bildirimleri'),
             value: _notificationsEnabled,
-            activeThumbColor: accentGold,
+            activeThumbColor: AppColors.accent(context),
             onChanged: (value) async {
               setState(() => _notificationsEnabled = value);
               await HiveStorageService.setSetting(_keyNotifEnabled, value);
@@ -180,7 +178,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.notifications_active_outlined, color: emeraldGreen),
+            leading: Icon(Icons.notifications_active_outlined, color: AppColors.primary(context)),
             title: const Text('Vakit Bazlı Bildirim Zamanlayıcı'),
             subtitle: const Text('Her vakit için ayrı zaman ve ses ayarla', style: TextStyle(fontSize: 11.5)),
             trailing: const Icon(Icons.chevron_right_rounded),
@@ -197,7 +195,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const Divider(height: 32),
           _buildSectionTitle('Veri Yönetimi'),
           ListTile(
-            leading: const Icon(Icons.delete_outline_rounded, color: emeraldGreen),
+            leading: Icon(Icons.delete_outline_rounded, color: AppColors.primary(context)),
             title: const Text('Önbelleği Temizle'),
             onTap: () async {
               final messenger = ScaffoldMessenger.of(context);
@@ -210,7 +208,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.ios_share_rounded, color: emeraldGreen),
+            leading: Icon(Icons.ios_share_rounded, color: AppColors.primary(context)),
             title: const Text('Verileri CSV Olarak Dışa Aktar'),
             onTap: () async {
               final csv = await _buildExportCsv();
@@ -219,7 +217,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.sync_rounded, color: emeraldGreen),
+            leading: Icon(Icons.sync_rounded, color: AppColors.primary(context)),
             title: const Text('Senkronizasyon Durumu'),
             subtitle: Text(_lastSync != null ? 'Son senkronizasyon: $_lastSync' : 'Henüz senkronize edilmedi'),
           ),
@@ -250,7 +248,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       padding: const EdgeInsets.only(bottom: 4),
       child: Text(
         title,
-        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: emeraldGreen),
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: AppColors.primary(context)),
       ),
     );
   }

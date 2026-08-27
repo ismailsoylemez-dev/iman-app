@@ -20,9 +20,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int _currentIndex = 0;
 
-  static const Color emeraldGreen = AppColors.primaryTeal;
-  static const Color accentGold = AppColors.accentOrange;
-
   void _changeTab(int index) {
     setState(() {
       _currentIndex = index;
@@ -59,14 +56,14 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
-                color: emeraldGreen,
+                color: AppColors.primary(context),
                 child: const Text(
                   'İman Uygulaması',
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: AppColors.onPrimary, fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
               ListTile(
-                leading: const Icon(Icons.bar_chart_rounded, color: emeraldGreen),
+                leading: Icon(Icons.bar_chart_rounded, color: AppColors.primary(context)),
                 title: const Text('İstatistikler'),
                 onTap: () {
                   Navigator.pop(context);
@@ -74,7 +71,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.info_outline_rounded, color: emeraldGreen),
+                leading: Icon(Icons.info_outline_rounded, color: AppColors.primary(context)),
                 title: const Text('Hakkında'),
                 onTap: () {
                   Navigator.pop(context);
@@ -82,12 +79,12 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                     context: context,
                     applicationName: 'İman Uygulaması',
                     applicationVersion: '1.0.0',
-                    applicationIcon: const Icon(Icons.auto_stories_rounded, color: emeraldGreen),
+                    applicationIcon: Icon(Icons.auto_stories_rounded, color: AppColors.primary(context)),
                   );
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.favorite_border_rounded, color: emeraldGreen),
+                leading: Icon(Icons.favorite_border_rounded, color: AppColors.primary(context)),
                 title: const Text('Geri Bildirim'),
                 onTap: () {
                   Navigator.pop(context);
@@ -118,7 +115,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           color: AppColors.card(context),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.06),
+              color: AppColors.border(context).withValues(alpha: 0.5),
               blurRadius: 16,
               offset: const Offset(0, -4),
             ),
@@ -128,30 +125,30 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           top: false,
           child: NavigationBarTheme(
             data: NavigationBarThemeData(
-              indicatorColor: accentGold.withValues(alpha: 0.2),
+              indicatorColor: AppColors.accent(context).withValues(alpha: 0.2),
               indicatorShape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
-                side: BorderSide(color: accentGold.withValues(alpha: 0.5), width: 1),
+                side: BorderSide(color: AppColors.accent(context).withValues(alpha: 0.5), width: 1),
               ),
               labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
                 if (states.contains(WidgetState.selected)) {
-                  return const TextStyle(
-                    color: emeraldGreen,
+                  return TextStyle(
+                    color: AppColors.primary(context),
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
                   );
                 }
                 return TextStyle(
-                  color: Colors.grey.shade600,
+                  color: AppColors.textSecondary(context),
                   fontWeight: FontWeight.w500,
                   fontSize: 12,
                 );
               }),
               iconTheme: WidgetStateProperty.resolveWith<IconThemeData>((states) {
                 if (states.contains(WidgetState.selected)) {
-                  return const IconThemeData(color: emeraldGreen, size: 24);
+                  return IconThemeData(color: AppColors.primary(context), size: 24);
                 }
-                return IconThemeData(color: Colors.grey.shade600, size: 22);
+                return IconThemeData(color: AppColors.textSecondary(context), size: 22);
               }),
             ),
             child: NavigationBar(

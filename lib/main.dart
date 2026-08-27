@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               useMaterial3: true,
               brightness: Brightness.light,
+              fontFamily: 'Manrope',
               scaffoldBackgroundColor: backgroundColor,
               colorScheme: ColorScheme.fromSeed(
                 seedColor: emeraldGreen,
@@ -50,18 +51,18 @@ class MyApp extends StatelessWidget {
                 primary: emeraldGreen,
                 secondary: accentGold,
                 tertiary: AppColors.secondaryCream,
-                surface: AppColors.lightCard,
+                surface: AppColors.lightSurface,
               ),
               cardTheme: CardThemeData(
-                elevation: 3,
-                color: AppColors.lightCard,
-                shadowColor: Colors.black.withValues(alpha: 0.12),
+                elevation: 0,
+                color: AppColors.lightSurface,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                   side: const BorderSide(color: AppColors.lightBorder, width: 1),
                 ),
               ),
               textTheme: const TextTheme().apply(
+                fontFamily: 'Manrope',
                 bodyColor: AppColors.lightText,
                 displayColor: AppColors.lightText,
               ),
@@ -71,16 +72,24 @@ class MyApp extends StatelessWidget {
                 foregroundColor: Colors.white,
                 centerTitle: true,
                 titleTextStyle: TextStyle(
+                  fontFamily: 'Manrope',
                   color: Colors.white,
                   fontSize: 18,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
                   letterSpacing: 0.3,
                 ),
+              ),
+              inputDecorationTheme: const InputDecorationTheme(
+                hintStyle: TextStyle(color: AppColors.lightTextSecondary),
+                border: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightBorder)),
+                enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightBorder)),
+                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.lightPrimary)),
               ),
             ),
             darkTheme: ThemeData(
               useMaterial3: true,
               brightness: Brightness.dark,
+              fontFamily: 'Manrope',
               scaffoldBackgroundColor: darkBackground,
               colorScheme: ColorScheme.fromSeed(
                 seedColor: emeraldGreen,
@@ -88,18 +97,18 @@ class MyApp extends StatelessWidget {
                 primary: accentGold,
                 secondary: accentGold,
                 tertiary: AppColors.secondaryCream,
-                surface: AppColors.darkCard,
+                surface: AppColors.darkSurface,
               ),
               cardTheme: CardThemeData(
-                elevation: 4,
-                color: AppColors.darkCard,
-                shadowColor: Colors.black.withValues(alpha: 0.5),
+                elevation: 0,
+                color: AppColors.darkSurface,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                   side: const BorderSide(color: AppColors.darkBorder, width: 1),
                 ),
               ),
               textTheme: const TextTheme().apply(
+                fontFamily: 'Manrope',
                 bodyColor: AppColors.darkText,
                 displayColor: AppColors.darkText,
               ),
@@ -109,11 +118,18 @@ class MyApp extends StatelessWidget {
                 foregroundColor: Colors.white,
                 centerTitle: true,
                 titleTextStyle: TextStyle(
-                  color: Colors.white,
+                  fontFamily: 'Manrope',
+                  color: AppColors.accentOrangeDark,
                   fontSize: 18,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
                   letterSpacing: 0.3,
                 ),
+              ),
+              inputDecorationTheme: const InputDecorationTheme(
+                hintStyle: TextStyle(color: AppColors.darkTextSecondary),
+                border: OutlineInputBorder(borderSide: BorderSide(color: AppColors.darkBorder)),
+                enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.darkBorder)),
+                focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.darkPrimary)),
               ),
             ),
             builder: (context, child) {

@@ -12,7 +12,11 @@
     "context": "Kalp huzursuzluğu ve endişe anlarında okunması tavsiye edilen dualardandır.",
     "audioUrl": null,
     "defaultTarget": 33,
-    "tags": ["huzur", "kalp", "zikir"],
+    "tags": [
+      "huzur",
+      "kalp",
+      "zikir"
+    ],
     "source": "Sunnah"
   },
   {
@@ -26,10 +30,14 @@
     "transliteration": "Allahümme ente's-selâmü ve minke's-selâm tebârekte yâ ze'l-celâli ve'l-ikrâm",
     "meaning": "Allah'ım! Sen selâmsın, selâmet ancak sendendir. Ey azamet ve ikram sahibi, sen yücesin.",
     "context": "Peygamberimizin (s.a.v.) her farz namazın ardından okuduğu zikirdir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n66.mp3",
     "defaultTarget": 1,
-    "tags": ["namaz sonrası", "selam"],
-    "source": "Sunnah"
+    "tags": [
+      "namaz sonrası",
+      "selam"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n66.mp3"
   },
   {
     "id": "huzur_03",
@@ -42,10 +50,23 @@
     "transliteration": "Rabbişrahlî sadrî ve yessirlî emrî",
     "meaning": "Rabbim! Göğsümü genişlet, işimi kolaylaştır.",
     "context": "Hz. Musa'nın (a.s.) risalet göreviyle gönderilirken yaptığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2373.mp3",
     "defaultTarget": 7,
-    "tags": ["musa", "kolaylık", "huzur"],
-    "source": "Quran"
+    "tags": [
+      "musa",
+      "kolaylık",
+      "huzur"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2373.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2374.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2373.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2373.mp3",
+      "assets/audio/quran/2374.mp3"
+    ]
   },
   {
     "id": "huzur_04",
@@ -58,10 +79,20 @@
     "transliteration": "Hasbiyallâhu lâ ilâhe illâ hû aleyhi tevekkeltü",
     "meaning": "Allah bana yeter. O'ndan başka ilah yoktur. Ben yalnızca O'na tevekkül ettim.",
     "context": "Bir işte tam bir teslimiyet ve güven duygusu için okunur.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1364.mp3",
     "defaultTarget": 7,
-    "tags": ["tevekkül", "güven"],
-    "source": "Quran"
+    "tags": [
+      "tevekkül",
+      "güven"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1364.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1364.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1364.mp3"
+    ]
   },
   {
     "id": "huzur_05",
@@ -76,7 +107,10 @@
     "context": "Sabah namazından sonra huzurla güne başlamak için okunan zikirdir.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["sabah", "şükür"],
+    "tags": [
+      "sabah",
+      "şükür"
+    ],
     "source": "Sunnah"
   },
   {
@@ -90,10 +124,20 @@
     "transliteration": "Ellezîne âmenû ve tatmainnü kulûbühüm bi zikrillâh, elâ bi zikrillâhi tatmainnü'l-kulûb",
     "meaning": "İman edenlerin kalpleri Allah'ı anmakla huzur bulur. Bilesiniz ki kalpler ancak Allah'ı anmakla huzur bulur.",
     "context": "Zikrin kalbe huzur verdiğini bildiren ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1735.mp3",
     "defaultTarget": 1,
-    "tags": ["zikir", "kalp"],
-    "source": "Quran"
+    "tags": [
+      "zikir",
+      "kalp"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1735.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1735.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1735.mp3"
+    ]
   },
   {
     "id": "huzur_07",
@@ -108,7 +152,10 @@
     "context": "Peygamberimizin yatağa girerken okuduğu dualardandır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["uyku", "huzur"],
+    "tags": [
+      "uyku",
+      "huzur"
+    ],
     "source": "Sunnah"
   },
   {
@@ -122,10 +169,15 @@
     "transliteration": "Radîtü billâhi Rabben ve bil İslâmi dînen ve bi Muhammedin Rasûlâ",
     "meaning": "Rab olarak Allah'tan, din olarak İslam'dan, peygamber olarak Muhammed'den (s.a.v.) razı oldum.",
     "context": "Sabah-akşam okunması tavsiye edilen rıza zikridir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n23.mp3",
     "defaultTarget": 3,
-    "tags": ["sabah", "rıza", "huzur"],
-    "source": "Sunnah"
+    "tags": [
+      "sabah",
+      "rıza",
+      "huzur"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n23.mp3"
   },
   {
     "id": "huzur_09",
@@ -138,10 +190,20 @@
     "transliteration": "Fe izâ kara'tel Kur'âne festeiz billâhi mineşşeytânirracîm",
     "meaning": "Kur'an okuyacağın zaman kovulmuş şeytandan Allah'a sığın.",
     "context": "Kur'an tilavetine başlamadan önceki eûzü emrini bildiren ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1999.mp3",
     "defaultTarget": 1,
-    "tags": ["kuran", "sığınma"],
-    "source": "Quran"
+    "tags": [
+      "kuran",
+      "sığınma"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1999.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1999.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1999.mp3"
+    ]
   },
   {
     "id": "huzur_10",
@@ -154,10 +216,14 @@
     "transliteration": "Allahümme innî es'elüke'l-âfiyete fi'd-dünyâ ve'l-âhirah",
     "meaning": "Allah'ım! Senden dünya ve ahirette afiyet (esenlik) dilerim.",
     "context": "Peygamberimizin en çok okuduğu dualardan biridir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n84.mp3",
     "defaultTarget": 7,
-    "tags": ["afiyet", "huzur"],
-    "source": "Sunnah"
+    "tags": [
+      "afiyet",
+      "huzur"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n84.mp3"
   },
   {
     "id": "huzur_11",
@@ -172,7 +238,10 @@
     "context": "Tevhid inancını pekiştiren, kalbe huzur veren zikirlerdendir.",
     "audioUrl": null,
     "defaultTarget": 33,
-    "tags": ["tevhid", "huzur"],
+    "tags": [
+      "tevhid",
+      "huzur"
+    ],
     "source": "Sunnah"
   },
   {
@@ -186,10 +255,20 @@
     "transliteration": "Sübhânellezî sehhara lenâ hâzâ ve mâ künnâ lehû mukrinîn",
     "meaning": "Bunu hizmetimize veren Allah'ı tesbih ederiz, yoksa biz buna güç yetiremezdik.",
     "context": "Bir binite (araca) binerken okunması tavsiye edilen duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/4338.mp3",
     "defaultTarget": 1,
-    "tags": ["yolculuk", "huzur"],
-    "source": "Quran"
+    "tags": [
+      "yolculuk",
+      "huzur"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/4338.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/4338.mp3",
+    "audioAssets": [
+      "assets/audio/quran/4338.mp3"
+    ]
   },
   {
     "id": "huzur_13",
@@ -202,10 +281,20 @@
     "transliteration": "Allahümme edhilnî müdhale sıdkın ve ahricnî muhrace sıdkın",
     "meaning": "Allah'ım! Beni girilecek yere doğrulukla girdir, çıkılacak yerden doğrulukla çıkar.",
     "context": "Yeni bir işe veya yere başlarken huzurla okunan bir duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2109.mp3",
     "defaultTarget": 1,
-    "tags": ["giriş çıkış", "huzur"],
-    "source": "Quran"
+    "tags": [
+      "giriş çıkış",
+      "huzur"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2109.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2109.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2109.mp3"
+    ]
   },
   {
     "id": "huzur_14",
@@ -220,7 +309,10 @@
     "context": "Peygamberimizin teheccüd namazında okuduğu nur duasının bir bölümüdür.",
     "audioUrl": null,
     "defaultTarget": 7,
-    "tags": ["nur", "huzur"],
+    "tags": [
+      "nur",
+      "huzur"
+    ],
     "source": "Sunnah"
   },
   {
@@ -234,10 +326,14 @@
     "transliteration": "Elhamdü lillâhillezî bi ni'metihî tetimmüs sâlihât",
     "meaning": "Nimetiyle salih ameller tamamlanan Allah'a hamd olsun.",
     "context": "Bir hayır tamamlandığında şükür ifadesi olarak okunur.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n218.mp3",
     "defaultTarget": 3,
-    "tags": ["şükür", "huzur"],
-    "source": "Sunnah"
+    "tags": [
+      "şükür",
+      "huzur"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n218.mp3"
   },
   {
     "id": "sikinti_01",
@@ -250,10 +346,21 @@
     "transliteration": "Lâ ilâhe illâ ente sübhâneke innî küntü mine'z-zâlimîn",
     "meaning": "Senden başka ilah yoktur, seni tenzih ederim. Gerçekten ben zalimlerden oldum.",
     "context": "Hz. Yunus'un (a.s.) balığın karnındayken yaptığı, kabul olan meşhur duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2570.mp3",
     "defaultTarget": 40,
-    "tags": ["yunus", "sıkıntı", "tövbe"],
-    "source": "Quran"
+    "tags": [
+      "yunus",
+      "sıkıntı",
+      "tövbe"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2570.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2570.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2570.mp3"
+    ]
   },
   {
     "id": "sikinti_02",
@@ -266,10 +373,20 @@
     "transliteration": "Hasbünallâhu ve ni'me'l-vekîl",
     "meaning": "Allah bize yeter, O ne güzel vekildir.",
     "context": "Zorluk ve sıkıntı anlarında güven ve sığınma duygusuyla okunur.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/466.mp3",
     "defaultTarget": 100,
-    "tags": ["güven", "yardım"],
-    "source": "Quran"
+    "tags": [
+      "güven",
+      "yardım"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/466.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/466.mp3",
+    "audioAssets": [
+      "assets/audio/quran/466.mp3"
+    ]
   },
   {
     "id": "sikinti_03",
@@ -282,10 +399,20 @@
     "transliteration": "Rabbenâ âtinâ min ledünke rahmeten ve heyyi' lenâ min emrinâ raşedâ",
     "meaning": "Rabbimiz! Bize katından bir rahmet ver ve işimizde bize kolaylık ve doğruluk hazırla.",
     "context": "Ashab-ı Kehf'in mağaraya sığındıklarında yaptıkları duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2150.mp3",
     "defaultTarget": 7,
-    "tags": ["ashab-ı kehf", "kolaylık"],
-    "source": "Quran"
+    "tags": [
+      "ashab-ı kehf",
+      "kolaylık"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2150.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2150.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2150.mp3"
+    ]
   },
   {
     "id": "sikinti_04",
@@ -298,10 +425,14 @@
     "transliteration": "Allahümme innî eûzü bike mine'l-hemmi ve'l-hazen",
     "meaning": "Allah'ım! Kederden ve hüzünden sana sığınırım.",
     "context": "Peygamberimizin sıkıntı, üzüntü ve tasadan Allah'a sığınmak için okuduğu dualardandır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n121.mp3",
     "defaultTarget": 7,
-    "tags": ["keder", "hüzün"],
-    "source": "Sunnah"
+    "tags": [
+      "keder",
+      "hüzün"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n121.mp3"
   },
   {
     "id": "sikinti_05",
@@ -314,10 +445,20 @@
     "transliteration": "Rabbenâ efrig aleynâ sabren ve sebbit akdâmenâ",
     "meaning": "Rabbimiz! Üzerimize sabır yağdır ve ayaklarımızı sabit kıl.",
     "context": "Talut'un ordusunun Calut ile savaşa çıkarken yaptığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/257.mp3",
     "defaultTarget": 7,
-    "tags": ["sabır", "zorluk"],
-    "source": "Quran"
+    "tags": [
+      "sabır",
+      "zorluk"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/257.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/257.mp3",
+    "audioAssets": [
+      "assets/audio/quran/257.mp3"
+    ]
   },
   {
     "id": "sikinti_06",
@@ -330,10 +471,22 @@
     "transliteration": "Feinne meal usri yüsrâ, inne meal usri yüsrâ",
     "meaning": "Şüphesiz zorlukla beraber bir kolaylık vardır. Gerçekten zorlukla beraber bir kolaylık vardır.",
     "context": "Sıkıntılı zamanlarda ümit ve teselli veren müjde ayetidir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6095.mp3",
     "defaultTarget": 1,
-    "tags": ["zorluk", "kolaylık"],
-    "source": "Quran"
+    "tags": [
+      "zorluk",
+      "kolaylık"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6095.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6096.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/6095.mp3",
+    "audioAssets": [
+      "assets/audio/quran/6095.mp3",
+      "assets/audio/quran/6096.mp3"
+    ]
   },
   {
     "id": "sikinti_07",
@@ -346,10 +499,20 @@
     "transliteration": "İnnâ lillâhi ve innâ ileyhi râci'ûn",
     "meaning": "Biz Allah'a aitiz ve yine O'na döneceğiz.",
     "context": "Bir musibetle karşılaşıldığında okunması emredilen ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/163.mp3",
     "defaultTarget": 3,
-    "tags": ["musibet", "sabır"],
-    "source": "Quran"
+    "tags": [
+      "musibet",
+      "sabır"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/163.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/163.mp3",
+    "audioAssets": [
+      "assets/audio/quran/163.mp3"
+    ]
   },
   {
     "id": "sikinti_08",
@@ -362,10 +525,14 @@
     "transliteration": "Allahümme innî eûzü bike minel aczi vel kesel",
     "meaning": "Allah'ım! Acizlikten ve tembellikten sana sığınırım.",
     "context": "Peygamberimizin günlük okuduğu sığınma dualarındandır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n121.mp3",
     "defaultTarget": 7,
-    "tags": ["tembellik", "sıkıntı"],
-    "source": "Sunnah"
+    "tags": [
+      "tembellik",
+      "sıkıntı"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n121.mp3"
   },
   {
     "id": "sikinti_09",
@@ -378,10 +545,14 @@
     "transliteration": "Allahümme innî eûzü bike minel me'semi vel mağram",
     "meaning": "Allah'ım! Günahtan ve borç yükünden sana sığınırım.",
     "context": "Borç sıkıntısı çekenler için Peygamberimizin öğrettiği duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n56.mp3",
     "defaultTarget": 7,
-    "tags": ["borç", "sıkıntı"],
-    "source": "Sunnah"
+    "tags": [
+      "borç",
+      "sıkıntı"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n56.mp3"
   },
   {
     "id": "sikinti_10",
@@ -394,10 +565,14 @@
     "transliteration": "Hasbünallâhu ve ni'mel vekîl, ni'mel mevlâ ve ni'men-nasîr",
     "meaning": "Allah bize yeter, O ne güzel vekildir; ne güzel dost ne güzel yardımcıdır.",
     "context": "Korku ve tehlike anlarında okunması tavsiye edilen bir zikirdir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n128.mp3",
     "defaultTarget": 7,
-    "tags": ["korku", "yardım"],
-    "source": "Sunnah"
+    "tags": [
+      "korku",
+      "yardım"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n128.mp3"
   },
   {
     "id": "sikinti_11",
@@ -412,7 +587,10 @@
     "context": "Secdede okunması tavsiye edilen teslimiyet ifadesidir.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["sığınma", "sıkıntı"],
+    "tags": [
+      "sığınma",
+      "sıkıntı"
+    ],
     "source": "Sunnah"
   },
   {
@@ -428,7 +606,10 @@
     "context": "Zor bir işe başlarken okunması tavsiye edilen duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["kolaylık", "sıkıntı"],
+    "tags": [
+      "kolaylık",
+      "sıkıntı"
+    ],
     "source": "Sunnah"
   },
   {
@@ -442,10 +623,20 @@
     "transliteration": "Rabbenâ velâ tuhammilnâ mâ lâ tâkate lenâ bih",
     "meaning": "Rabbimiz! Bize gücümüzün yetmediği şeyi yükleme.",
     "context": "İmtihan ve zorluk anlarında Allah'a sığınmak için okunan ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/293.mp3",
     "defaultTarget": 3,
-    "tags": ["imtihan", "güç"],
-    "source": "Quran"
+    "tags": [
+      "imtihan",
+      "güç"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/293.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/293.mp3",
+    "audioAssets": [
+      "assets/audio/quran/293.mp3"
+    ]
   },
   {
     "id": "sikinti_14",
@@ -458,10 +649,14 @@
     "transliteration": "Allahümme rahmeteke ercû felâ tekilnî ilâ nefsî tarfete ayn",
     "meaning": "Allah'ım! Rahmetini umarım, beni göz açıp kapayıncaya kadar bile nefsime bırakma.",
     "context": "Zorlu anlarda tam teslimiyetle okunan bir sığınma duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n123.mp3",
     "defaultTarget": 3,
-    "tags": ["rahmet", "sıkıntı"],
-    "source": "Sunnah"
+    "tags": [
+      "rahmet",
+      "sıkıntı"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n123.mp3"
   },
   {
     "id": "sifa_01",
@@ -476,7 +671,10 @@
     "context": "Peygamberimizin hasta ziyaretlerinde okuduğu meşhur şifa duasıdır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["hasta ziyareti", "şifa"],
+    "tags": [
+      "hasta ziyareti",
+      "şifa"
+    ],
     "source": "Sunnah"
   },
   {
@@ -492,7 +690,10 @@
     "context": "Şifa duasının devamı olarak okunan, tam iyileşme dileğidir.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["şifa", "iyileşme"],
+    "tags": [
+      "şifa",
+      "iyileşme"
+    ],
     "source": "Sunnah"
   },
   {
@@ -506,10 +707,14 @@
     "transliteration": "Eûzü bi izzetillâhi ve kudretihî min şerri mâ ecidü ve ühâzir",
     "meaning": "Allah'ın izzet ve kudretine, hissettiğim ve çekindiğim şeyin şerrinden sığınırım.",
     "context": "Vücudun herhangi bir yerinde ağrı hissedildiğinde elini o yere koyup okunması tavsiye edilir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n243.mp3",
     "defaultTarget": 7,
-    "tags": ["ağrı", "rukye"],
-    "source": "Sunnah"
+    "tags": [
+      "ağrı",
+      "rukye"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n243.mp3"
   },
   {
     "id": "sifa_04",
@@ -522,10 +727,20 @@
     "transliteration": "Ve nünezzilü mine'l-Kur'âni mâ hüve şifâün ve rahmetün li'l-mü'minîn",
     "meaning": "Biz Kur'an'dan mü'minler için şifa ve rahmet olan şeyler indiriyoruz.",
     "context": "Kur'an-ı Kerim'in manevi ve maddi şifa kaynağı olduğunu bildiren ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2111.mp3",
     "defaultTarget": 1,
-    "tags": ["kuran", "şifa"],
-    "source": "Quran"
+    "tags": [
+      "kuran",
+      "şifa"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2111.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2111.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2111.mp3"
+    ]
   },
   {
     "id": "sifa_05",
@@ -538,10 +753,14 @@
     "transliteration": "Allahümme âfinî fî bedenî, Allahümme âfinî fî sem'î, Allahümme âfinî fî basarî",
     "meaning": "Allah'ım! Bedenime afiyet ver. Allah'ım! Kulağıma afiyet ver. Allah'ım! Gözüme afiyet ver.",
     "context": "Peygamberimizin her sabah okuduğu bildirilen afiyet duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n82.mp3",
     "defaultTarget": 3,
-    "tags": ["sağlık", "afiyet"],
-    "source": "Sunnah"
+    "tags": [
+      "sağlık",
+      "afiyet"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n82.mp3"
   },
   {
     "id": "sifa_06",
@@ -554,10 +773,14 @@
     "transliteration": "Bismillâhi erkîke min külli şey'in yü'zîk",
     "meaning": "Allah'ın adıyla, seni rahatsız eden her şeyden sana şifa duası (rukye) yapıyorum.",
     "context": "Peygamberimizin Cebrail'in (a.s.) kendisine okuduğu rukyeyi tarif ettiği hadisten alınmıştır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n12.mp3",
     "defaultTarget": 3,
-    "tags": ["rukye", "şifa"],
-    "source": "Sunnah"
+    "tags": [
+      "rukye",
+      "şifa"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n12.mp3"
   },
   {
     "id": "sifa_07",
@@ -572,7 +795,10 @@
     "context": "Sağlıklı bir ömür geçirmek için okunan dualardandır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["ömür", "sağlık"],
+    "tags": [
+      "ömür",
+      "sağlık"
+    ],
     "source": "Sunnah"
   },
   {
@@ -586,10 +812,14 @@
     "transliteration": "Lâ be'se, tahûrun inşâallâh",
     "meaning": "Zararı yok, inşallah bu hastalık günahlarına kefaret olur ve seni temizler.",
     "context": "Peygamberimizin hasta ziyaretlerinde söylediği teselli sözüdür.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n147.mp3",
     "defaultTarget": 1,
-    "tags": ["hasta ziyareti", "şifa"],
-    "source": "Sunnah"
+    "tags": [
+      "hasta ziyareti",
+      "şifa"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n147.mp3"
   },
   {
     "id": "sifa_09",
@@ -602,10 +832,14 @@
     "transliteration": "Allahümme innî es'elükel afve vel âfiyete fid dünyâ vel âhirah",
     "meaning": "Allah'ım! Senden dünya ve ahirette af ve afiyet dilerim.",
     "context": "Bedensel ve manevi afiyet için sıkça okunan bir duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n84.mp3",
     "defaultTarget": 3,
-    "tags": ["af", "afiyet"],
-    "source": "Sunnah"
+    "tags": [
+      "af",
+      "afiyet"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n84.mp3"
   },
   {
     "id": "sifa_10",
@@ -618,10 +852,15 @@
     "transliteration": "Üîzüke bi kelimâtillâhit tâmmeh, min külli şeytânin ve hâmmeh, ve min külli aynin lâmmeh",
     "meaning": "Seni Allah'ın tam kelimeleriyle her şeytandan, zehirli hayvandan ve nazar değen gözden koruması için Allah'a emanet ediyorum.",
     "context": "Peygamberimizin torunları Hasan ve Hüseyin'e okuduğu koruma duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n146.mp3",
     "defaultTarget": 3,
-    "tags": ["nazar", "koruma", "şifa"],
-    "source": "Sunnah"
+    "tags": [
+      "nazar",
+      "koruma",
+      "şifa"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n146.mp3"
   },
   {
     "id": "sifa_11",
@@ -634,10 +873,20 @@
     "transliteration": "Ve yeşfi sudûra kavmin mü'minîn",
     "meaning": "...ve mü'minler topluluğunun gönüllerine şifa versin.",
     "context": "Bedensel şifanın yanı sıra kalbin şifa bulmasına dair bir ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1249.mp3",
     "defaultTarget": 1,
-    "tags": ["gönül", "şifa"],
-    "source": "Quran"
+    "tags": [
+      "gönül",
+      "şifa"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1249.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1249.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1249.mp3"
+    ]
   },
   {
     "id": "sifa_12",
@@ -652,7 +901,10 @@
     "context": "Peygamberimizin hasta bir sahabi için yaptığı şifa duasıdır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["şifa", "dua"],
+    "tags": [
+      "şifa",
+      "dua"
+    ],
     "source": "Sunnah"
   },
   {
@@ -666,10 +918,14 @@
     "transliteration": "Eûzü bi kelimâtillâhit tâmmâti min ğadabihî ve ikâbihî ve şerri ibâdihî ve min hemezâtiş şeyâtîn",
     "meaning": "Allah'ın gazabından, azabından, kullarının şerrinden ve şeytanların vesveselerinden Allah'ın tam kelimelerine sığınırım.",
     "context": "Bir yere konaklarken veya tehlikeden korunmak için okunan kapsamlı bir sığınma duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n113.mp3",
     "defaultTarget": 3,
-    "tags": ["koruma", "şeytan"],
-    "source": "Sunnah"
+    "tags": [
+      "koruma",
+      "şeytan"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n113.mp3"
   },
   {
     "id": "sifa_14",
@@ -682,10 +938,14 @@
     "transliteration": "Elhamdü lillâhillezî âfânî mimmebtelâke bihî ve faddalenî alâ kesîrin mimmen halaka tafdîlâ",
     "meaning": "Beni, seni müptela kıldığı şeyden koruyan ve yarattıklarının çoğundan üstün kılan Allah'a hamd olsun.",
     "context": "Hasta veya musibete uğramış birini gördüğünde okunması tavsiye edilen şükür duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n194.mp3",
     "defaultTarget": 3,
-    "tags": ["şükür", "afiyet"],
-    "source": "Sunnah"
+    "tags": [
+      "şükür",
+      "afiyet"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n194.mp3"
   },
   {
     "id": "rizik_01",
@@ -700,7 +960,10 @@
     "context": "Yemek öncesi ve rızkın bereketlenmesi niyetiyle okunan dualardandır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["bereket", "yemek"],
+    "tags": [
+      "bereket",
+      "yemek"
+    ],
     "source": "Sunnah"
   },
   {
@@ -714,10 +977,14 @@
     "transliteration": "Allahümmekfinî bi halâlike an harâmike ve ağninî bi fadlike ammen sivâk",
     "meaning": "Allah'ım! Helalinle beni haramından koru, lütfunla beni senden başkasına muhtaç etme.",
     "context": "Borç ve geçim sıkıntısı çekenler için okunması tavsiye edilen bir duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n136.mp3",
     "defaultTarget": 7,
-    "tags": ["helal", "rızık"],
-    "source": "Sunnah"
+    "tags": [
+      "helal",
+      "rızık"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n136.mp3"
   },
   {
     "id": "rizik_03",
@@ -730,10 +997,20 @@
     "transliteration": "Rabbi innî limâ enzelte ileyye min hayrin fakîr",
     "meaning": "Rabbim! Bana indireceğin her hayra muhtacım.",
     "context": "Hz. Musa'nın (a.s.) Medyen'e sığındığında yaptığı, rızık talep eden duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3276.mp3",
     "defaultTarget": 7,
-    "tags": ["musa", "rızık"],
-    "source": "Quran"
+    "tags": [
+      "musa",
+      "rızık"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3276.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/3276.mp3",
+    "audioAssets": [
+      "assets/audio/quran/3276.mp3"
+    ]
   },
   {
     "id": "rizik_04",
@@ -746,10 +1023,20 @@
     "transliteration": "Mâ yeftehillâhü li'n-nâsi min rahmetin felâ mümsike lehâ",
     "meaning": "Allah insanlara rahmetinden neyi açarsa, onu tutacak yoktur.",
     "context": "Allah'ın rızık kapılarını açmasının önüne hiçbir gücün geçemeyeceğini bildirir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3662.mp3",
     "defaultTarget": 1,
-    "tags": ["rahmet", "rızık"],
-    "source": "Quran"
+    "tags": [
+      "rahmet",
+      "rızık"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3662.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/3662.mp3",
+    "audioAssets": [
+      "assets/audio/quran/3662.mp3"
+    ]
   },
   {
     "id": "rizik_05",
@@ -764,7 +1051,10 @@
     "context": "Rızkın hem bol hem de helal olması niyetiyle okunur.",
     "audioUrl": null,
     "defaultTarget": 7,
-    "tags": ["bolluk", "rızık"],
+    "tags": [
+      "bolluk",
+      "rızık"
+    ],
     "source": "Sunnah"
   },
   {
@@ -780,7 +1070,10 @@
     "context": "Gerçek zenginliğin ilimle olduğunu hatırlatan bir duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["ilim", "zenginlik"],
+    "tags": [
+      "ilim",
+      "zenginlik"
+    ],
     "source": "Sunnah"
   },
   {
@@ -796,7 +1089,10 @@
     "context": "İşe ve ticarete erken başlamanın bereketine dair Peygamberimizin duasıdır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["ticaret", "bereket"],
+    "tags": [
+      "ticaret",
+      "bereket"
+    ],
     "source": "Sunnah"
   },
   {
@@ -812,7 +1108,10 @@
     "context": "Geçim darlığından Allah'a sığınmak için okunan dualardandır.",
     "audioUrl": null,
     "defaultTarget": 7,
-    "tags": ["fakirlik", "koruma"],
+    "tags": [
+      "fakirlik",
+      "koruma"
+    ],
     "source": "Sunnah"
   },
   {
@@ -828,7 +1127,10 @@
     "context": "Kanaat duygusunu pekiştiren bir rızık duasıdır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["kanaat", "bereket"],
+    "tags": [
+      "kanaat",
+      "bereket"
+    ],
     "source": "Sunnah"
   },
   {
@@ -844,7 +1146,10 @@
     "context": "Akraba ziyaretinin rızkı bereketlendirdiğini bildiren hadise dayanır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["akraba", "rızık"],
+    "tags": [
+      "akraba",
+      "rızık"
+    ],
     "source": "Sunnah"
   },
   {
@@ -858,10 +1163,22 @@
     "transliteration": "Ve men yettekıllâhe yec'al lehû mahracâ, ve yerzukhü min haysü lâ yahtesib",
     "meaning": "Kim Allah'a karşı gelmekten sakınırsa, Allah ona bir çıkış yolu sağlar ve onu hesaba katmadığı bir yerden rızıklandırır.",
     "context": "Takvanın rızka vesile olduğunu bildiren meşhur ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5219.mp3",
     "defaultTarget": 1,
-    "tags": ["takva", "rızık"],
-    "source": "Quran"
+    "tags": [
+      "takva",
+      "rızık"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5219.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5220.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/5219.mp3",
+    "audioAssets": [
+      "assets/audio/quran/5219.mp3",
+      "assets/audio/quran/5220.mp3"
+    ]
   },
   {
     "id": "rizik_12",
@@ -874,10 +1191,14 @@
     "transliteration": "Allahümme innî es'elüke hayra hâzel yevmi fethahû ve nasrahû ve nûrahû ve berakatehû ve hüdâh",
     "meaning": "Allah'ım! Bu günün hayrını, fethini, yardımını, nurunu, bereketini ve hidayetini senden dilerim.",
     "context": "Sabah okunan, günün bereketini talep eden dualardandır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n89.mp3",
     "defaultTarget": 1,
-    "tags": ["sabah", "bereket"],
-    "source": "Sunnah"
+    "tags": [
+      "sabah",
+      "bereket"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n89.mp3"
   },
   {
     "id": "rizik_13",
@@ -890,10 +1211,20 @@
     "transliteration": "Rabbenâ li yükîmüs salâte fec'al ef'ideten minen nâsi tehvî ileyhim verzukhüm mines semerât",
     "meaning": "Rabbimiz! Namazı dosdoğru kılmaları için, insanlardan bir kısmının gönüllerini onlara meylettir ve onları çeşitli meyvelerle rızıklandır.",
     "context": "Hz. İbrahim'in (a.s.) Mekke'de ailesi için yaptığı rızık duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1787.mp3",
     "defaultTarget": 1,
-    "tags": ["evlat", "rızık"],
-    "source": "Quran"
+    "tags": [
+      "evlat",
+      "rızık"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1787.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1787.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1787.mp3"
+    ]
   },
   {
     "id": "rizik_14",
@@ -908,7 +1239,10 @@
     "context": "Çalışmanın ve emeğin bereketlenmesi için okunan bir duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["emek", "bereket"],
+    "tags": [
+      "emek",
+      "bereket"
+    ],
     "source": "Sunnah"
   },
   {
@@ -922,10 +1256,20 @@
     "transliteration": "Allâhü lâ ilâhe illâ hüve'l-hayyü'l-kayyûm, lâ te'huzühû sinetün velâ nevm",
     "meaning": "Allah, kendisinden başka ilah olmayandır. Diridir, her şeyin varlığı O'na bağlıdır. O'nu ne bir uyuklama ne de bir uyku tutar.",
     "context": "Kur'an'ın en faziletli ayeti olarak bilinir, koruma amaçlı sabah-akşam okunur.",
-    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2-255.mp3",
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/262.mp3",
     "defaultTarget": 1,
-    "tags": ["ayetel kürsi", "koruma"],
-    "source": "Quran"
+    "tags": [
+      "ayetel kürsi",
+      "koruma"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/262.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/262.mp3",
+    "audioAssets": [
+      "assets/audio/quran/262.mp3"
+    ]
   },
   {
     "id": "korunma_02",
@@ -938,10 +1282,28 @@
     "transliteration": "Kul eûzü bi rabbi'l-felak",
     "meaning": "De ki: Sabahın Rabbine sığınırım.",
     "context": "Muavvizeteyn olarak bilinen, dış tehlike ve büyüden korunmak için okunan surelerdendir.",
-    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/113-1.mp3",
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6226.mp3",
     "defaultTarget": 3,
-    "tags": ["felak", "koruma"],
-    "source": "Quran"
+    "tags": [
+      "felak",
+      "koruma"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6226.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6227.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6228.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6229.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6230.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/6226.mp3",
+    "audioAssets": [
+      "assets/audio/quran/6226.mp3",
+      "assets/audio/quran/6227.mp3",
+      "assets/audio/quran/6228.mp3",
+      "assets/audio/quran/6229.mp3",
+      "assets/audio/quran/6230.mp3"
+    ]
   },
   {
     "id": "korunma_03",
@@ -954,10 +1316,31 @@
     "transliteration": "Kul eûzü bi rabbi'n-nâs",
     "meaning": "De ki: İnsanların Rabbine sığınırım.",
     "context": "Vesvese ve iç tehlikelerden korunmak için Felak Suresi ile birlikte okunur.",
-    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/114-1.mp3",
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6231.mp3",
     "defaultTarget": 3,
-    "tags": ["nas", "koruma", "vesvese"],
-    "source": "Quran"
+    "tags": [
+      "nas",
+      "koruma",
+      "vesvese"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6231.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6232.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6233.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6234.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6235.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6236.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/6231.mp3",
+    "audioAssets": [
+      "assets/audio/quran/6231.mp3",
+      "assets/audio/quran/6232.mp3",
+      "assets/audio/quran/6233.mp3",
+      "assets/audio/quran/6234.mp3",
+      "assets/audio/quran/6235.mp3",
+      "assets/audio/quran/6236.mp3"
+    ]
   },
   {
     "id": "korunma_04",
@@ -970,10 +1353,14 @@
     "transliteration": "Bismillâhillezî lâ yedurru measmihî şey'ün fi'l-ardı velâ fi's-semâ",
     "meaning": "O Allah'ın adıyla ki, O'nun adı anıldığında yerde ve gökte hiçbir şey zarar veremez.",
     "context": "Sabah akşam üç kez okunması, o vakit içinde her türlü zarardan korunmaya vesile olur.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n86.mp3",
     "defaultTarget": 3,
-    "tags": ["ev", "koruma"],
-    "source": "Sunnah"
+    "tags": [
+      "ev",
+      "koruma"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n86.mp3"
   },
   {
     "id": "korunma_05",
@@ -986,10 +1373,13 @@
     "transliteration": "Eûzü bi kelimâtillâhi't-tâmmâti min şerri mâ halak",
     "meaning": "Allah'ın tam ve eksiksiz kelimelerine, yarattığı şeylerin şerrinden sığınırım.",
     "context": "Bir yere konaklandığında veya tehlike hissedildiğinde okunması tavsiye edilir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n97.mp3",
     "defaultTarget": 3,
-    "tags": ["genel koruma"],
-    "source": "Sunnah"
+    "tags": [
+      "genel koruma"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n97.mp3"
   },
   {
     "id": "korunma_06",
@@ -1002,10 +1392,14 @@
     "transliteration": "Bismike Rabbî vada'tü cenbî ve bike erfeuh",
     "meaning": "Rabbim! Senin adınla yan üzeri yattım ve yine senin adınla kalkacağım.",
     "context": "Yatağa girerken korunmak için okunması tavsiye edilen dualardandır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n102.mp3",
     "defaultTarget": 1,
-    "tags": ["uyku", "koruma"],
-    "source": "Sunnah"
+    "tags": [
+      "uyku",
+      "koruma"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n102.mp3"
   },
   {
     "id": "korunma_07",
@@ -1020,7 +1414,10 @@
     "context": "Peygamberimizin yola çıkarken okuduğu dua bölümlerindendir.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["yolculuk", "koruma"],
+    "tags": [
+      "yolculuk",
+      "koruma"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1036,7 +1433,10 @@
     "context": "Eve girerken okunması tavsiye edilen bir koruma duasıdır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["ev", "koruma"],
+    "tags": [
+      "ev",
+      "koruma"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1050,10 +1450,22 @@
     "transliteration": "Rabbi eûzü bike min hemezâtiş şeyâtîn ve eûzü bike Rabbi en yahdurûn",
     "meaning": "Rabbim! Şeytanların kışkırtmalarından sana sığınırım. Onların yanımda bulunmalarından da sana sığınırım Rabbim!",
     "context": "Şeytanın vesvesesinden korunmak için okunan bir Kur'an duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2770.mp3",
     "defaultTarget": 3,
-    "tags": ["şeytan", "koruma"],
-    "source": "Quran"
+    "tags": [
+      "şeytan",
+      "koruma"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2770.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2771.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2770.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2770.mp3",
+      "assets/audio/quran/2771.mp3"
+    ]
   },
   {
     "id": "korunma_10",
@@ -1068,7 +1480,10 @@
     "context": "Zalim bir kişiden korkulduğunda okunması tavsiye edilen duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["zalim", "koruma"],
+    "tags": [
+      "zalim",
+      "koruma"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1084,7 +1499,10 @@
     "context": "Ağır hastalıklardan Allah'a sığınmak için okunan dualardandır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["hastalık", "koruma"],
+    "tags": [
+      "hastalık",
+      "koruma"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1100,7 +1518,10 @@
     "context": "Deprem ve afetlerden korunmak için okunan geniş kapsamlı bir duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["afet", "koruma"],
+    "tags": [
+      "afet",
+      "koruma"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1116,7 +1537,10 @@
     "context": "Ani felaketlerden korunmak niyetiyle okunan bir duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["yangın", "koruma"],
+    "tags": [
+      "yangın",
+      "koruma"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1130,10 +1554,20 @@
     "transliteration": "Ve min şerri ğâsikın izâ vekab",
     "meaning": "Karanlığı çöktüğü zaman gecenin şerrinden Allah'a sığınırım.",
     "context": "Felak Suresi'nde geceleyin oluşan tehlikelerden korunmak için geçen ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6228.mp3",
     "defaultTarget": 3,
-    "tags": ["gece", "koruma"],
-    "source": "Quran"
+    "tags": [
+      "gece",
+      "koruma"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6228.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/6228.mp3",
+    "audioAssets": [
+      "assets/audio/quran/6228.mp3"
+    ]
   },
   {
     "id": "bagislanma_01",
@@ -1146,10 +1580,14 @@
     "transliteration": "Allahümme ente Rabbî lâ ilâhe illâ ente, halaktenî ve ene abdük",
     "meaning": "Allah'ım! Sen benim Rabbimsin, senden başka ilah yoktur. Beni sen yarattın, ben senin kulunum.",
     "context": "İstiğfarların efendisi olarak bilinen, samimiyetle okunduğunda büyük fazileti olan duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n79.mp3",
     "defaultTarget": 1,
-    "tags": ["seyyidül istiğfar", "tövbe"],
-    "source": "Sunnah"
+    "tags": [
+      "seyyidül istiğfar",
+      "tövbe"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n79.mp3"
   },
   {
     "id": "bagislanma_02",
@@ -1162,10 +1600,20 @@
     "transliteration": "Rabbenâ zalemnâ enfüsenâ ve in lem tağfir lenâ ve terhamnâ lenekûnenne mine'l-hâsirîn",
     "meaning": "Rabbimiz! Kendimize zulmettik, eğer bizi bağışlamaz ve bize merhamet etmezsen mutlaka ziyana uğrayanlardan oluruz.",
     "context": "Hz. Adem (a.s.) ve Havva validemizin tövbe duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/977.mp3",
     "defaultTarget": 33,
-    "tags": ["adem", "tövbe"],
-    "source": "Quran"
+    "tags": [
+      "adem",
+      "tövbe"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/977.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/977.mp3",
+    "audioAssets": [
+      "assets/audio/quran/977.mp3"
+    ]
   },
   {
     "id": "bagislanma_03",
@@ -1180,7 +1628,10 @@
     "context": "Günlük vird olarak sıkça okunan, kısa ve kapsamlı bir istiğfar duasıdır.",
     "audioUrl": null,
     "defaultTarget": 100,
-    "tags": ["istiğfar", "günlük vird"],
+    "tags": [
+      "istiğfar",
+      "günlük vird"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1194,10 +1645,20 @@
     "transliteration": "Rabbiğfirlî ve li vâlideyye ve li'l-mü'minîne yevme yekûmü'l-hisâb",
     "meaning": "Rabbim! Hesabın görüleceği gün beni, anne babamı ve tüm mü'minleri bağışla.",
     "context": "Hz. İbrahim'in (a.s.) kendisi, ailesi ve tüm mü'minler için yaptığı mağfiret duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1791.mp3",
     "defaultTarget": 7,
-    "tags": ["anne baba", "af"],
-    "source": "Quran"
+    "tags": [
+      "anne baba",
+      "af"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1791.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1791.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1791.mp3"
+    ]
   },
   {
     "id": "bagislanma_05",
@@ -1210,10 +1671,20 @@
     "transliteration": "Rabbenâ innenâ âmennâ fağfir lenâ zünûbenâ ve kınâ azâben nâr",
     "meaning": "Rabbimiz! Biz iman ettik, günahlarımızı bağışla ve bizi ateş azabından koru.",
     "context": "Muttakilerin özelliklerinden bahseden ayetler içinde geçen bir tövbe duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/309.mp3",
     "defaultTarget": 7,
-    "tags": ["iman", "af"],
-    "source": "Quran"
+    "tags": [
+      "iman",
+      "af"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/309.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/309.mp3",
+    "audioAssets": [
+      "assets/audio/quran/309.mp3"
+    ]
   },
   {
     "id": "bagislanma_06",
@@ -1226,10 +1697,14 @@
     "transliteration": "Rabbiğfirlî ve tüb aleyye inneke entet tevvâbür rahîm",
     "meaning": "Rabbim! Beni bağışla ve tövbemi kabul et. Şüphesiz sen tövbeleri çokça kabul eden, çok merhametli olansın.",
     "context": "Peygamberimizin sıkça tekrarladığı bildirilen tövbe dualarındandır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n195.mp3",
     "defaultTarget": 100,
-    "tags": ["tövbe", "af"],
-    "source": "Sunnah"
+    "tags": [
+      "tövbe",
+      "af"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n195.mp3"
   },
   {
     "id": "bagislanma_07",
@@ -1244,7 +1719,10 @@
     "context": "Peygamberimizin kapsamlı af talep ettiği dualarından biridir.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["hata", "af"],
+    "tags": [
+      "hata",
+      "af"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1260,7 +1738,10 @@
     "context": "Yalnızca kendisi için değil tüm mü'minler için af talep eden geniş kapsamlı bir duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["mü'minler", "af"],
+    "tags": [
+      "mü'minler",
+      "af"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1276,7 +1757,10 @@
     "context": "Peygamberimizin Kadir Gecesi'nde okunmasını tavsiye ettiği meşhur duadır.",
     "audioUrl": null,
     "defaultTarget": 100,
-    "tags": ["af", "kadir gecesi"],
+    "tags": [
+      "af",
+      "kadir gecesi"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1290,10 +1774,14 @@
     "transliteration": "Sübhânekellâhümme ve bihamdik, eşhedü en lâ ilâhe illâ ente estağfiruke ve etûbü ileyk",
     "meaning": "Allah'ım! Seni hamd ile tesbih ederim, senden başka ilah olmadığına şahitlik ederim, senden bağışlanma diler, sana tövbe ederim.",
     "context": "Bir meclisten kalkarken okunması sünnet olan kefaret duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n15.mp3",
     "defaultTarget": 1,
-    "tags": ["meclis sonu", "af"],
-    "source": "Sunnah"
+    "tags": [
+      "meclis sonu",
+      "af"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n15.mp3"
   },
   {
     "id": "bagislanma_11",
@@ -1306,10 +1794,20 @@
     "transliteration": "Rabbiğfirlî ve li vâlideyye ve li men dehale beytiye mü'minâ",
     "meaning": "Rabbim! Beni, anne babamı ve evime mü'min olarak gireni bağışla.",
     "context": "Hz. Nuh'un (a.s.) ailesi ve mü'minler için yaptığı af duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5447.mp3",
     "defaultTarget": 3,
-    "tags": ["aile", "af"],
-    "source": "Quran"
+    "tags": [
+      "aile",
+      "af"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5447.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/5447.mp3",
+    "audioAssets": [
+      "assets/audio/quran/5447.mp3"
+    ]
   },
   {
     "id": "bagislanma_12",
@@ -1322,10 +1820,20 @@
     "transliteration": "Rabbenağfir lenâ ve li ihvâninellezîne sebekûnâ bil îmâni velâ tec'al fî kulûbinâ gıllen lillezîne âmenû",
     "meaning": "Rabbimiz! Bizi ve bizden önce iman etmiş kardeşlerimizi bağışla; kalbimizde iman edenlere karşı bir kin bırakma.",
     "context": "Mü'minler arası kardeşliği ve kalp temizliğini içeren bir af duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5136.mp3",
     "defaultTarget": 3,
-    "tags": ["kardeşlik", "af"],
-    "source": "Quran"
+    "tags": [
+      "kardeşlik",
+      "af"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5136.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/5136.mp3",
+    "audioAssets": [
+      "assets/audio/quran/5136.mp3"
+    ]
   },
   {
     "id": "bagislanma_13",
@@ -1338,10 +1846,20 @@
     "transliteration": "Rabbenâ tekabbel minnâ inneke entes semîul alîm",
     "meaning": "Rabbimiz! Bizden kabul buyur. Şüphesiz sen hakkıyla işitensin, hakkıyla bilensin.",
     "context": "Hz. İbrahim ve İsmail'in (a.s.) Kabe'yi inşa ederken yaptığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/134.mp3",
     "defaultTarget": 3,
-    "tags": ["kabul", "dua"],
-    "source": "Quran"
+    "tags": [
+      "kabul",
+      "dua"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/134.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/134.mp3",
+    "audioAssets": [
+      "assets/audio/quran/134.mp3"
+    ]
   },
   {
     "id": "bagislanma_14",
@@ -1354,10 +1872,14 @@
     "transliteration": "Allahümmağfirlî verhamnî ve elhıknî bir refîkil a'lâ",
     "meaning": "Allah'ım! Beni bağışla, bana merhamet et ve beni en yüce dosta (Refîk-i A'lâ) kavuştur.",
     "context": "Peygamberimizin vefatına yakın söylediği bildirilen dualardandır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n150.mp3",
     "defaultTarget": 1,
-    "tags": ["ölüm", "af"],
-    "source": "Sunnah"
+    "tags": [
+      "ölüm",
+      "af"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n150.mp3"
   },
   {
     "id": "peygamber_01",
@@ -1370,10 +1892,20 @@
     "transliteration": "Rabbi heb lî hukmen ve elhıknî bi's-sâlihîn",
     "meaning": "Rabbim! Bana hikmet bahşet ve beni salihler arasına kat.",
     "context": "Hz. İbrahim'in (a.s.) hikmet ve salihlerle beraberlik talep ettiği duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3015.mp3",
     "defaultTarget": 7,
-    "tags": ["ibrahim", "hikmet"],
-    "source": "Quran"
+    "tags": [
+      "ibrahim",
+      "hikmet"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3015.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/3015.mp3",
+    "audioAssets": [
+      "assets/audio/quran/3015.mp3"
+    ]
   },
   {
     "id": "peygamber_02",
@@ -1386,10 +1918,26 @@
     "transliteration": "Rabbişrahlî sadrî ve yessirlî emrî vahlül ukdeten min lisânî yefkahû kavlî",
     "meaning": "Rabbim! Göğsümü genişlet, işimi kolaylaştır, dilimden düğümü çöz ki sözümü iyi anlasınlar.",
     "context": "Hz. Musa'nın (a.s.) Firavun'a gönderilirken yaptığı, konuşma kolaylığı dileyen duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2373.mp3",
     "defaultTarget": 7,
-    "tags": ["musa", "kolaylık"],
-    "source": "Quran"
+    "tags": [
+      "musa",
+      "kolaylık"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2373.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2374.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2375.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2376.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2373.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2373.mp3",
+      "assets/audio/quran/2374.mp3",
+      "assets/audio/quran/2375.mp3",
+      "assets/audio/quran/2376.mp3"
+    ]
   },
   {
     "id": "peygamber_03",
@@ -1402,10 +1950,20 @@
     "transliteration": "Rabbi evzi'nî en eşküra ni'metekelletî en'amte aleyy",
     "meaning": "Rabbim! Bana ve anne babama verdiğin nimete şükretmemi, razı olacağın salih ameller işlememi nasip et.",
     "context": "Hz. Süleyman'ın (a.s.) karıncanın sözünü duyunca Allah'a şükür için yaptığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3178.mp3",
     "defaultTarget": 7,
-    "tags": ["süleyman", "şükür"],
-    "source": "Quran"
+    "tags": [
+      "süleyman",
+      "şükür"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3178.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/3178.mp3",
+    "audioAssets": [
+      "assets/audio/quran/3178.mp3"
+    ]
   },
   {
     "id": "peygamber_04",
@@ -1418,10 +1976,20 @@
     "transliteration": "Ennî messeniye'd-durru ve ente erhamü'r-râhimîn",
     "meaning": "Başıma bu dert geldi, sen merhametlilerin en merhametlisisin.",
     "context": "Hz. Eyyüb'ün (a.s.) uzun süren hastalığı esnasında sabırla Allah'a yönelerek yaptığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2566.mp3",
     "defaultTarget": 3,
-    "tags": ["eyyüb", "sabır"],
-    "source": "Quran"
+    "tags": [
+      "eyyüb",
+      "sabır"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2566.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2566.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2566.mp3"
+    ]
   },
   {
     "id": "peygamber_05",
@@ -1434,10 +2002,14 @@
     "transliteration": "Allahümme salli alâ Muhammedin ve alâ âli Muhammed",
     "meaning": "Allah'ım! Muhammed'e ve Muhammed'in âline salât eyle.",
     "context": "Peygamberimize salavat getirmek, Kur'an'da emredilen ve büyük sevap kazandıran bir ameldir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n53.mp3",
     "defaultTarget": 100,
-    "tags": ["salavat", "muhammed"],
-    "source": "Sunnah"
+    "tags": [
+      "salavat",
+      "muhammed"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n53.mp3"
   },
   {
     "id": "peygamber_06",
@@ -1450,10 +2022,20 @@
     "transliteration": "Rabbi innî eûzü bike en es'eleke mâ leyse lî bihî ilm, ve illâ tağfirlî ve terhamnî ekün minel hâsirîn",
     "meaning": "Rabbim! Bilmediğim şeyi senden istemekten sana sığınırım. Eğer beni bağışlamaz ve bana merhamet etmezsen ziyana uğrayanlardan olurum.",
     "context": "Hz. Nuh'un (a.s.) tufandan sonra oğlu için yaptığı isteğin ardından tövbe edip yaptığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1520.mp3",
     "defaultTarget": 3,
-    "tags": ["nuh", "peygamber duası"],
-    "source": "Quran"
+    "tags": [
+      "nuh",
+      "peygamber duası"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1520.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1520.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1520.mp3"
+    ]
   },
   {
     "id": "peygamber_07",
@@ -1466,10 +2048,20 @@
     "transliteration": "Rabbi lâ tezernî ferden ve ente hayrul vârisîn",
     "meaning": "Rabbim! Beni tek başıma bırakma. Sen varislerin en hayırlısısın.",
     "context": "Hz. Zekeriyya'nın (a.s.) evlat sahibi olmak için Allah'a yalvardığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2572.mp3",
     "defaultTarget": 3,
-    "tags": ["zekeriyya", "evlat"],
-    "source": "Quran"
+    "tags": [
+      "zekeriyya",
+      "evlat"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2572.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2572.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2572.mp3"
+    ]
   },
   {
     "id": "peygamber_08",
@@ -1482,10 +2074,20 @@
     "transliteration": "Rabbi kad âteytenî minel mülki ve allemtenî min te'vîlil ehâdîs, fâtıras semâvâti vel ard ente veliyyî fid dünyâ vel âhirah, teveffenî müslimen ve elhıknî bis sâlihîn",
     "meaning": "Rabbim! Bana mülkten pay verdin ve rüyaların yorumundan öğrettin. Ey gökleri ve yeri yaratan! Dünyada da ahirette de sen benim velimsin. Beni müslüman olarak öldür ve beni salihler arasına kat.",
     "context": "Hz. Yusuf'un (a.s.) ailesiyle kavuştuktan sonra yaptığı şükür ve teslimiyet duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1697.mp3",
     "defaultTarget": 3,
-    "tags": ["yusuf", "teslimiyet"],
-    "source": "Quran"
+    "tags": [
+      "yusuf",
+      "teslimiyet"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1697.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1697.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1697.mp3"
+    ]
   },
   {
     "id": "peygamber_09",
@@ -1498,10 +2100,20 @@
     "transliteration": "Rabbenâftah beynenâ ve beyne kavminâ bil hakkı ve ente hayrul fâtihîn",
     "meaning": "Rabbimiz! Bizimle kavmimiz arasında hak ile hükmet. Sen hükmedenlerin en hayırlısısın.",
     "context": "Hz. Şuayb'ın (a.s.) kavmine karşı Allah'tan adaletle hükmetmesini istediği duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1043.mp3",
     "defaultTarget": 3,
-    "tags": ["şuayb", "hüküm"],
-    "source": "Quran"
+    "tags": [
+      "şuayb",
+      "hüküm"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1043.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1043.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1043.mp3"
+    ]
   },
   {
     "id": "peygamber_10",
@@ -1514,10 +2126,21 @@
     "transliteration": "Elhamdü lillâhillezî faddalenâ alâ kesîrin min ibâdihil mü'minîn",
     "meaning": "Bizi mü'min kullarının birçoğundan üstün kılan Allah'a hamd olsun.",
     "context": "Hz. Davud ve Hz. Süleyman'ın (a.s.) kendilerine verilen ilim nimetine şükrettiği ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3174.mp3",
     "defaultTarget": 3,
-    "tags": ["davud", "süleyman", "şükür"],
-    "source": "Quran"
+    "tags": [
+      "davud",
+      "süleyman",
+      "şükür"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3174.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/3174.mp3",
+    "audioAssets": [
+      "assets/audio/quran/3174.mp3"
+    ]
   },
   {
     "id": "peygamber_11",
@@ -1530,10 +2153,20 @@
     "transliteration": "Rabbinsurnî alel kavmil müfsidîn",
     "meaning": "Rabbim! Bozgunculuk yapan kavme karşı bana yardım et.",
     "context": "Hz. Lut'un (a.s.) azgın kavmine karşı Allah'tan yardım istediği duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3370.mp3",
     "defaultTarget": 3,
-    "tags": ["lut", "yardım"],
-    "source": "Quran"
+    "tags": [
+      "lut",
+      "yardım"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3370.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/3370.mp3",
+    "audioAssets": [
+      "assets/audio/quran/3370.mp3"
+    ]
   },
   {
     "id": "peygamber_12",
@@ -1546,10 +2179,20 @@
     "transliteration": "Allahümme Rabbenâ enzil aleynâ mâideten mines semâi tekûnü lenâ îden li evvelinâ ve âhirinâ ve âyeten mink",
     "meaning": "Allah'ım Rabbimiz! Bize gökten bir sofra indir ki bizim için, önce ve sonra gelenlerimiz için bir bayram ve senden bir mucize olsun.",
     "context": "Hz. İsa'nın (a.s.) havarilerinin isteği üzerine Allah'a yaptığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/783.mp3",
     "defaultTarget": 1,
-    "tags": ["isa", "mucize"],
-    "source": "Quran"
+    "tags": [
+      "isa",
+      "mucize"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/783.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/783.mp3",
+    "audioAssets": [
+      "assets/audio/quran/783.mp3"
+    ]
   },
   {
     "id": "peygamber_13",
@@ -1562,10 +2205,20 @@
     "transliteration": "Rabbi neccinî minel kavmiz zâlimîn",
     "meaning": "Rabbim! Beni zalimler topluluğundan kurtar.",
     "context": "Hz. Musa'nın (a.s.) Mısır'dan kaçarken yaptığı kısa ve etkili duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3273.mp3",
     "defaultTarget": 7,
-    "tags": ["musa", "kurtuluş"],
-    "source": "Quran"
+    "tags": [
+      "musa",
+      "kurtuluş"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3273.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/3273.mp3",
+    "audioAssets": [
+      "assets/audio/quran/3273.mp3"
+    ]
   },
   {
     "id": "peygamber_14",
@@ -1578,10 +2231,20 @@
     "transliteration": "İnnemâ eşkû bessî ve huznî ilallâh",
     "meaning": "Ben tasa ve üzüntümü ancak Allah'a arz ederim.",
     "context": "Hz. Yakub'un (a.s.) oğlu Yusuf'un ayrılığına sabrederken söylediği sözdür.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1682.mp3",
     "defaultTarget": 3,
-    "tags": ["yakub", "sabır"],
-    "source": "Quran"
+    "tags": [
+      "yakub",
+      "sabır"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1682.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1682.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1682.mp3"
+    ]
   },
   {
     "id": "peygamber_15",
@@ -1596,7 +2259,10 @@
     "context": "Peygamberimizin ümmetine olan düşkünlüğünü gösteren, kıyamet günü için rivayet edilen niyazıdır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["ümmet", "şefaat"],
+    "tags": [
+      "ümmet",
+      "şefaat"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1612,7 +2278,10 @@
     "context": "Akşam namazından sonra okunan zikirdir.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["akşam", "zikir"],
+    "tags": [
+      "akşam",
+      "zikir"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1626,10 +2295,14 @@
     "transliteration": "Allahümme bike asbahnâ ve bike emseynâ ve bike nahyâ ve bike nemûtü ve ileykennüşûr",
     "meaning": "Allah'ım! Senin izninle sabaha erdik, senin izninle akşama eririz, senin izninle yaşar, senin izninle ölürüz. Dönüş yalnız sanadır.",
     "context": "Sabah namazından sonra okunan zikirdir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n78.mp3",
     "defaultTarget": 1,
-    "tags": ["sabah", "zikir"],
-    "source": "Sunnah"
+    "tags": [
+      "sabah",
+      "zikir"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n78.mp3"
   },
   {
     "id": "sabah_aksam_03",
@@ -1642,10 +2315,14 @@
     "transliteration": "Allahümme bike emseynâ ve bike asbahnâ ve bike nahyâ ve bike nemûtü ve ileykel-masîr",
     "meaning": "Allah'ım! Senin izninle akşama erdik, senin izninle sabaha eririz, senin izninle yaşar, senin izninle ölürüz. Dönüş yalnız sanadır.",
     "context": "Akşam okunan, sabah zikrinin akşam versiyonudur.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n78.mp3",
     "defaultTarget": 1,
-    "tags": ["akşam", "zikir"],
-    "source": "Sunnah"
+    "tags": [
+      "akşam",
+      "zikir"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n78.mp3"
   },
   {
     "id": "sabah_aksam_04",
@@ -1658,10 +2335,14 @@
     "transliteration": "Asbahnâ alâ fıtratil İslâm ve alâ kelimetil ihlâs",
     "meaning": "İslam fıtratı ve ihlas kelimesi üzere sabahladık.",
     "context": "Sabah okunan, İslam üzere devam etme dileğini ifade eden bir zikirdir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n90.mp3",
     "defaultTarget": 1,
-    "tags": ["sabah", "fıtrat"],
-    "source": "Sunnah"
+    "tags": [
+      "sabah",
+      "fıtrat"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n90.mp3"
   },
   {
     "id": "sabah_aksam_05",
@@ -1676,7 +2357,10 @@
     "context": "Sabah nimetlerin şükrünü ifade etmek için okunur.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["şükür", "sabah"],
+    "tags": [
+      "şükür",
+      "sabah"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1690,10 +2374,26 @@
     "transliteration": "Kul hüvellâhü ehad",
     "meaning": "De ki: O Allah birdir.",
     "context": "Sabah akşam üçer defa İhlas, Felak ve Nas sureleri okunması tavsiye edilir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6222.mp3",
     "defaultTarget": 3,
-    "tags": ["ihlas", "sabah akşam"],
-    "source": "Quran"
+    "tags": [
+      "ihlas",
+      "sabah akşam"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6222.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6223.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6224.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6225.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/6222.mp3",
+    "audioAssets": [
+      "assets/audio/quran/6222.mp3",
+      "assets/audio/quran/6223.mp3",
+      "assets/audio/quran/6224.mp3",
+      "assets/audio/quran/6225.mp3"
+    ]
   },
   {
     "id": "sabah_aksam_07",
@@ -1706,10 +2406,14 @@
     "transliteration": "Yâ Hayyu yâ Kayyûm bi rahmetike estegîs",
     "meaning": "Ey Hayy ve Kayyum olan Allah'ım! Rahmetinle yardım isterim.",
     "context": "Sabah akşam okunması tavsiye edilen bir yardım isteme duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n88.mp3",
     "defaultTarget": 3,
-    "tags": ["yardım", "sabah akşam"],
-    "source": "Sunnah"
+    "tags": [
+      "yardım",
+      "sabah akşam"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n88.mp3"
   },
   {
     "id": "sabah_aksam_08",
@@ -1722,10 +2426,14 @@
     "transliteration": "Hasbiyallâhu lâ ilâhe illâ hüve aleyhi tevekkeltü ve hüve Rabbül arşil azîm",
     "meaning": "Allah bana yeter, O'ndan başka ilah yoktur, O'na tevekkül ettim, O büyük Arş'ın Rabbidir.",
     "context": "Sabah akşam 7 defa okunması tavsiye edilen bir güven duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n83.mp3",
     "defaultTarget": 7,
-    "tags": ["tevekkül", "sabah akşam"],
-    "source": "Sunnah"
+    "tags": [
+      "tevekkül",
+      "sabah akşam"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n83.mp3"
   },
   {
     "id": "sabah_aksam_09",
@@ -1738,10 +2446,14 @@
     "transliteration": "Estağfirullâhe ve etûbü ileyh",
     "meaning": "Allah'tan bağışlanma diler, O'na tövbe ederim.",
     "context": "Sabah akşam yüz defa okunması tavsiye edilen kısa istiğfardır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n96.mp3",
     "defaultTarget": 100,
-    "tags": ["istiğfar", "sabah akşam"],
-    "source": "Sunnah"
+    "tags": [
+      "istiğfar",
+      "sabah akşam"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n96.mp3"
   },
   {
     "id": "sabah_aksam_10",
@@ -1754,10 +2466,14 @@
     "transliteration": "Allahümme salli ve sellim alâ nebiyyinâ Muhammed",
     "meaning": "Allah'ım! Peygamberimiz Muhammed'e salât ve selam eyle.",
     "context": "Sabah akşam salavat getirmenin faziletine dair rivayetlerle sabittir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n98.mp3",
     "defaultTarget": 10,
-    "tags": ["salavat", "sabah akşam"],
-    "source": "Sunnah"
+    "tags": [
+      "salavat",
+      "sabah akşam"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n98.mp3"
   },
   {
     "id": "sabah_aksam_11",
@@ -1770,10 +2486,14 @@
     "transliteration": "Allahümme innî eûzü bike minel küfri vel fakr",
     "meaning": "Allah'ım! Küfürden ve fakirlikten sana sığınırım.",
     "context": "Sabah akşam okunması tavsiye edilen sığınma dualarındandır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n82.mp3",
     "defaultTarget": 3,
-    "tags": ["sığınma", "sabah akşam"],
-    "source": "Sunnah"
+    "tags": [
+      "sığınma",
+      "sabah akşam"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n82.mp3"
   },
   {
     "id": "sabah_aksam_12",
@@ -1786,10 +2506,14 @@
     "transliteration": "Allahümme innî eûzü bike min azâbil kabr",
     "meaning": "Allah'ım! Kabir azabından sana sığınırım.",
     "context": "Sabah akşam okunması tavsiye edilen sığınma dualarındandır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n82.mp3",
     "defaultTarget": 3,
-    "tags": ["sığınma", "sabah akşam"],
-    "source": "Sunnah"
+    "tags": [
+      "sığınma",
+      "sabah akşam"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n82.mp3"
   },
   {
     "id": "sabah_aksam_13",
@@ -1802,10 +2526,15 @@
     "transliteration": "Allahümme innî es'elüke ilmen nâfian ve rizkan tayyiben ve amelen mütekabbelâ",
     "meaning": "Allah'ım! Senden faydalı ilim, temiz rızık ve kabul olunan amel dilerim.",
     "context": "Sabah namazından sonra okunması sünnet olan bir duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n172.mp3",
     "defaultTarget": 1,
-    "tags": ["ilim", "rızık", "sabah"],
-    "source": "Sunnah"
+    "tags": [
+      "ilim",
+      "rızık",
+      "sabah"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n172.mp3"
   },
   {
     "id": "sabah_aksam_14",
@@ -1820,7 +2549,10 @@
     "context": "Sabah akşam okunması tavsiye edilen sığınma dualarındandır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["sığınma", "bela"],
+    "tags": [
+      "sığınma",
+      "bela"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1834,10 +2566,14 @@
     "transliteration": "Elhamdü lillâhillezî ahyânâ ba'de mâ emâtenâ ve ileyhin nüşûr",
     "meaning": "Bizi öldürdükten (uyuttuktan) sonra dirilten (uyandıran) Allah'a hamd olsun, dönüş yalnız O'nadır.",
     "context": "Uykudan uyanınca okunur.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n1.mp3",
     "defaultTarget": 1,
-    "tags": ["uyanma", "sabah"],
-    "source": "Sunnah"
+    "tags": [
+      "uyanma",
+      "sabah"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n1.mp3"
   },
   {
     "id": "sabah_aksam_16",
@@ -1850,10 +2586,13 @@
     "transliteration": "Allahümme Rabbe hâzihid da'vetit tâmmeh ves salâtil kâimeh, âti Muhammeden el vesîlete vel fadîleh",
     "meaning": "Bu eksiksiz davetin ve kılınacak namazın Rabbi olan Allah'ım! Muhammed'e vesile ve fazileti ver.",
     "context": "Ezan bittikten sonra okunması sünnet olan duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n25.mp3",
     "defaultTarget": 1,
-    "tags": ["ezan"],
-    "source": "Sunnah"
+    "tags": [
+      "ezan"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n25.mp3"
   },
   {
     "id": "sabah_aksam_17",
@@ -1868,7 +2607,9 @@
     "context": "Camiye girerken okunur.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["cami"],
+    "tags": [
+      "cami"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1882,10 +2623,13 @@
     "transliteration": "Allahümme innî es'elüke min fadlik",
     "meaning": "Allah'ım! Senden lütfundan istiyorum.",
     "context": "Camiden çıkarken okunur.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n21.mp3",
     "defaultTarget": 1,
-    "tags": ["cami"],
-    "source": "Sunnah"
+    "tags": [
+      "cami"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n21.mp3"
   },
   {
     "id": "sabah_aksam_19",
@@ -1900,7 +2644,10 @@
     "context": "Yemekten sonra okunması sünnet olan bir duadır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["yemek", "şükür"],
+    "tags": [
+      "yemek",
+      "şükür"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1916,7 +2663,9 @@
     "context": "Aynaya bakarken okunması tavsiye edilen bir duadır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["ahlak"],
+    "tags": [
+      "ahlak"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1932,7 +2681,10 @@
     "context": "Recep ayının ilk cuma gecesi olan Regaip Kandili'nde okunur.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["regaip", "kandil"],
+    "tags": [
+      "regaip",
+      "kandil"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1946,10 +2698,20 @@
     "transliteration": "Sübhânellezî esrâ bi abdihî leylâ",
     "meaning": "Kulunu geceleyin yürüten Allah'ı tenzih ederim.",
     "context": "Miraç Kandili'nde Peygamberimizin (s.a.v.) İsra ve Miraç mucizesi anılarak okunur.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2030.mp3",
     "defaultTarget": 1,
-    "tags": ["miraç", "kandil"],
-    "source": "Quran"
+    "tags": [
+      "miraç",
+      "kandil"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2030.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2030.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2030.mp3"
+    ]
   },
   {
     "id": "kandil_bayram_03",
@@ -1964,7 +2726,10 @@
     "context": "Berat Kandili gecesinde okunması tavsiye edilen affediliş duasıdır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["berat", "kandil"],
+    "tags": [
+      "berat",
+      "kandil"
+    ],
     "source": "Sunnah"
   },
   {
@@ -1978,10 +2743,20 @@
     "transliteration": "İnnâ enzelnâhü fî leyletil kadr",
     "meaning": "Şüphesiz biz onu (Kur'an'ı) Kadir gecesinde indirdik.",
     "context": "Kadir Gecesi'nin faziletini bildiren Kadr Suresi'nin ilk ayetidir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6126.mp3",
     "defaultTarget": 1,
-    "tags": ["kadir gecesi", "kandil"],
-    "source": "Quran"
+    "tags": [
+      "kadir gecesi",
+      "kandil"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6126.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/6126.mp3",
+    "audioAssets": [
+      "assets/audio/quran/6126.mp3"
+    ]
   },
   {
     "id": "kandil_bayram_05",
@@ -1996,7 +2771,9 @@
     "context": "Recep ayından itibaren Ramazan'a kavuşmak için edilen dualardandır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["ramazan"],
+    "tags": [
+      "ramazan"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2010,10 +2787,14 @@
     "transliteration": "Zehebez zamau vebtelletil urûku ve sebetel ecru inşâallâh",
     "meaning": "Susuzluk gitti, damarlar ıslandı, inşallah ecir sabit oldu.",
     "context": "İftar vaktinde orucu açarken okunur.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n176.mp3",
     "defaultTarget": 1,
-    "tags": ["ramazan", "iftar"],
-    "source": "Sunnah"
+    "tags": [
+      "ramazan",
+      "iftar"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n176.mp3"
   },
   {
     "id": "kandil_bayram_07",
@@ -2028,7 +2809,10 @@
     "context": "Sahurda oruç niyeti için okunur.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["ramazan", "sahur"],
+    "tags": [
+      "ramazan",
+      "sahur"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2042,10 +2826,14 @@
     "transliteration": "Allâhü ekber Allâhü ekber, lâ ilâhe illallâhü vallâhü ekber, Allâhü ekber ve lillâhil hamd",
     "meaning": "Allah en büyüktür, Allah en büyüktür. Allah'tan başka ilah yoktur. Allah en büyüktür, Allah en büyüktür. Hamd Allah'a mahsustur.",
     "context": "Ramazan ve Kurban Bayramı günlerinde tekrarlanan bayram tekbiridir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n241.mp3",
     "defaultTarget": 33,
-    "tags": ["bayram", "tekbir"],
-    "source": "Sunnah"
+    "tags": [
+      "bayram",
+      "tekbir"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n241.mp3"
   },
   {
     "id": "kandil_bayram_09",
@@ -2058,10 +2846,14 @@
     "transliteration": "Bismillâhi vallâhü ekber, Allahümme tekabbel minnî",
     "meaning": "Allah'ın adıyla, Allah en büyüktür. Allah'ım! Benden kabul eyle.",
     "context": "Kurban keserken okunan niyet duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n12.mp3",
     "defaultTarget": 1,
-    "tags": ["kurban", "bayram"],
-    "source": "Sunnah"
+    "tags": [
+      "kurban",
+      "bayram"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n12.mp3"
   },
   {
     "id": "kandil_bayram_10",
@@ -2074,10 +2866,14 @@
     "transliteration": "Lâ ilâhe illallâhu vahdehû lâ şerîke leh, lehül mülkü ve lehül hamdü ve hüve alâ külli şey'in kadîr",
     "meaning": "Allah'tan başka ilah yoktur, tektir, ortağı yoktur. Mülk O'nundur, hamd O'nadır, O her şeye kadirdir.",
     "context": "Peygamberimizin en faziletli dua olarak bildirdiği, Arefe gününde çokça okunması tavsiye edilen zikirdir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n77.mp3",
     "defaultTarget": 100,
-    "tags": ["arefe", "kandil"],
-    "source": "Sunnah"
+    "tags": [
+      "arefe",
+      "kandil"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n77.mp3"
   },
   {
     "id": "kandil_bayram_11",
@@ -2092,7 +2888,10 @@
     "context": "Hac ve umre esnasında ihramlı iken tekrarlanan telbiye duasıdır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["hac", "telbiye"],
+    "tags": [
+      "hac",
+      "telbiye"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2108,7 +2907,10 @@
     "context": "Mevlid Kandili'nde Peygamberimizin doğumu anılarak okunan salavattır.",
     "audioUrl": null,
     "defaultTarget": 100,
-    "tags": ["mevlid", "salavat"],
+    "tags": [
+      "mevlid",
+      "salavat"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2124,7 +2926,10 @@
     "context": "Hicri yeni yıl / Muharrem ayı girişinde okunan dualardandır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["muharrem", "yılbaşı"],
+    "tags": [
+      "muharrem",
+      "yılbaşı"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2140,7 +2945,9 @@
     "context": "Muharrem ayının 10. günü olan Aşure gününde okunur.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["aşure"],
+    "tags": [
+      "aşure"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2156,7 +2963,9 @@
     "context": "Üç aylar boyunca sıkça okunan meşhur duadır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["üç aylar"],
+    "tags": [
+      "üç aylar"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2170,10 +2979,20 @@
     "transliteration": "Elhamdü lillâhillezî hedânâ li hâzâ ve mâ künnâ li nehtediye levlâ en hedânallâh",
     "meaning": "Bizi buna ileten Allah'a hamd olsun. Allah bizi doğru yola iletmeseydi biz kendiliğimizden doğru yolu bulamazdık.",
     "context": "Bayram sabahı şükür ifadesi olarak okunabilecek ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/997.mp3",
     "defaultTarget": 1,
-    "tags": ["bayram", "şükür"],
-    "source": "Quran"
+    "tags": [
+      "bayram",
+      "şükür"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/997.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/997.mp3",
+    "audioAssets": [
+      "assets/audio/quran/997.mp3"
+    ]
   },
   {
     "id": "kandil_bayram_17",
@@ -2188,7 +3007,10 @@
     "context": "Tüm kandil gecelerinde okunabilecek genel bir duadır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["kandil", "genel"],
+    "tags": [
+      "kandil",
+      "genel"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2204,7 +3026,10 @@
     "context": "Cuma günü çokça salavat getirilmesi tavsiye edilir.",
     "audioUrl": null,
     "defaultTarget": 100,
-    "tags": ["cuma", "salavat"],
+    "tags": [
+      "cuma",
+      "salavat"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2220,7 +3045,10 @@
     "context": "Bayram günlerinde bayramlaşırken söylenen dua cümlesidir.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["bayram", "bayramlaşma"],
+    "tags": [
+      "bayram",
+      "bayramlaşma"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2236,7 +3064,10 @@
     "context": "Hicri yeni yıl girişinde okunan şükür ve dilek duasıdır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["yılbaşı", "dilek"],
+    "tags": [
+      "yılbaşı",
+      "dilek"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2250,10 +3081,23 @@
     "transliteration": "Rabbi'şrah lî sadrî ve yessir lî emrî",
     "meaning": "Rabbim! Göğsümü aç (genişlet), işimi bana kolaylaştır.",
     "context": "Hz. Musa'nın (a.s.) zorlu bir göreve başlarken Allah'a sığındığı, iç huzur ve kolaylık talep ettiği duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2373.mp3",
     "defaultTarget": 7,
-    "tags": ["huzur", "kolaylık", "musa"],
-    "source": "Quran"
+    "tags": [
+      "huzur",
+      "kolaylık",
+      "musa"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2373.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2374.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2373.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2373.mp3",
+      "assets/audio/quran/2374.mp3"
+    ]
   },
   {
     "id": "huzur_17",
@@ -2266,10 +3110,20 @@
     "transliteration": "Hasbunallâhu ve ni'mel vekîl",
     "meaning": "Allah bize yeter, O ne güzel vekildir.",
     "context": "Müminlerin zorluk anında güven ve tevekkülle söylediği, kalbe huzur veren bir ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/466.mp3",
     "defaultTarget": 33,
-    "tags": ["huzur", "tevekkül"],
-    "source": "Quran"
+    "tags": [
+      "huzur",
+      "tevekkül"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/466.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/466.mp3",
+    "audioAssets": [
+      "assets/audio/quran/466.mp3"
+    ]
   },
   {
     "id": "huzur_18",
@@ -2282,10 +3136,21 @@
     "transliteration": "Lâ ilâhe illâ ente sübhâneke innî küntü minez-zâlimîn",
     "meaning": "Senden başka ilah yoktur. Seni tenzih ederim. Gerçekten ben zalimlerden oldum.",
     "context": "Hz. Yunus'un (a.s.) balığın karnında Allah'a yakardığı, sıkıntıdan kurtuluşa vesile olan meşhur duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2570.mp3",
     "defaultTarget": 40,
-    "tags": ["huzur", "tevbe", "yunus"],
-    "source": "Quran"
+    "tags": [
+      "huzur",
+      "tevbe",
+      "yunus"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2570.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2570.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2570.mp3"
+    ]
   },
   {
     "id": "huzur_19",
@@ -2300,7 +3165,10 @@
     "context": "Zor bir işe başlarken veya zorluk anında okunması tavsiye edilen, kolaylık dileme duasıdır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["huzur", "kolaylık"],
+    "tags": [
+      "huzur",
+      "kolaylık"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2314,10 +3182,15 @@
     "transliteration": "Allahümme innî eûzü bike minel-hemmi vel-hazen, vel-aczi vel-kesel, vel-cübni vel-buhl",
     "meaning": "Allah'ım! Kederden, hüzünden, acizlikten, tembellikten, korkaklıktan ve cimrilikten sana sığınırım.",
     "context": "Hz. Peygamber'in (s.a.v.) sıkça okuduğu, ruhsal ve manevi sıkıntılardan korunma duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n121.mp3",
     "defaultTarget": 3,
-    "tags": ["sıkıntı", "keder", "sığınma"],
-    "source": "Sunnah"
+    "tags": [
+      "sıkıntı",
+      "keder",
+      "sığınma"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n121.mp3"
   },
   {
     "id": "sikinti_16",
@@ -2330,10 +3203,20 @@
     "transliteration": "Hasbiyallâhü lâ ilâhe illâ hû, aleyhi tevekkeltü ve hüve Rabbü'l-arşi'l-azîm",
     "meaning": "Allah bana yeter. O'ndan başka ilah yoktur. Ben O'na tevekkül ettim. O büyük arşın Rabbidir.",
     "context": "Ağır sıkıntı ve çaresizlik anlarında yedi kez okunması tavsiye edilen güven ve tevekkül duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1364.mp3",
     "defaultTarget": 7,
-    "tags": ["sıkıntı", "tevekkül"],
-    "source": "Quran"
+    "tags": [
+      "sıkıntı",
+      "tevekkül"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1364.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1364.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1364.mp3"
+    ]
   },
   {
     "id": "sikinti_17",
@@ -2346,10 +3229,14 @@
     "transliteration": "Yâ Hayyu yâ Kayyûm, bi-rahmetike estegîs",
     "meaning": "Ey diri ve her şeyi ayakta tutan Allah'ım! Senin rahmetinle yardım dilerim.",
     "context": "Hz. Peygamber'in (s.a.v.) sıkıntılı zamanlarda okuduğu bildirilen kısa ve etkili bir yakarıştır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n88.mp3",
     "defaultTarget": 3,
-    "tags": ["sıkıntı", "yardım"],
-    "source": "Sunnah"
+    "tags": [
+      "sıkıntı",
+      "yardım"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n88.mp3"
   },
   {
     "id": "sikinti_18",
@@ -2362,10 +3249,14 @@
     "transliteration": "Allahümme rahmeteke ercû felâ tekilnî ilâ nefsî tarfete ayn",
     "meaning": "Allah'ım! Rahmetini umarım. Beni bir göz açıp kapayıncaya kadar bile nefsime bırakma.",
     "context": "Zayıflık ve çaresizlik anında Allah'ın rahmetine sığınmayı ifade eden bir duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n123.mp3",
     "defaultTarget": 3,
-    "tags": ["sıkıntı", "rahmet"],
-    "source": "Sunnah"
+    "tags": [
+      "sıkıntı",
+      "rahmet"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n123.mp3"
   },
   {
     "id": "sifa_15",
@@ -2380,7 +3271,10 @@
     "context": "Hz. Peygamber'in (s.a.v.) hasta ziyaretlerinde okuduğu bildirilen meşhur şifa duasıdır.",
     "audioUrl": null,
     "defaultTarget": 7,
-    "tags": ["şifa", "hastalık"],
+    "tags": [
+      "şifa",
+      "hastalık"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2396,7 +3290,10 @@
     "context": "Hz. Cebrail'in Hz. Peygamber'e (s.a.v.) okuduğu rivayet edilen, hastaya okunan şifa duasıdır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["şifa", "rukye"],
+    "tags": [
+      "şifa",
+      "rukye"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2410,10 +3307,21 @@
     "transliteration": "Rabbi ennî messeniyed-durru ve ente erhamür-râhimîn",
     "meaning": "Rabbim! Başıma bela geldi, sen merhametlilerin en merhametlisisin.",
     "context": "Hz. Eyyub'un (a.s.) uzun süren hastalığında sabırla Allah'a yönelerek yaptığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2566.mp3",
     "defaultTarget": 3,
-    "tags": ["şifa", "sabır", "eyyub"],
-    "source": "Quran"
+    "tags": [
+      "şifa",
+      "sabır",
+      "eyyub"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2566.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2566.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2566.mp3"
+    ]
   },
   {
     "id": "sifa_18",
@@ -2426,10 +3334,14 @@
     "transliteration": "Es'elullâhe'l-azîme Rabbe'l-arşi'l-azîmi en yeşfiyek",
     "meaning": "Büyük Arş'ın Rabbi olan Yüce Allah'tan sana şifa vermesini dilerim.",
     "context": "Hz. Peygamber'in (s.a.v.) hasta ziyaretinde yedi kez okunmasını tavsiye ettiği duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n148.mp3",
     "defaultTarget": 7,
-    "tags": ["şifa", "hasta ziyareti"],
-    "source": "Sunnah"
+    "tags": [
+      "şifa",
+      "hasta ziyareti"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n148.mp3"
   },
   {
     "id": "rizik_15",
@@ -2442,10 +3354,14 @@
     "transliteration": "Allahümme'kfinî bi-helâlike an harâmike ve ağninî bi-fadlike ammen sivâk",
     "meaning": "Allah'ım! Helalinle beni haramından koru, lütfunla beni senden başkasına muhtaç etme.",
     "context": "Borçlu bir sahabiye Hz. Peygamber'in (s.a.v.) öğrettiği, helal kazanç ve kanaat duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n136.mp3",
     "defaultTarget": 3,
-    "tags": ["rızık", "helal"],
-    "source": "Sunnah"
+    "tags": [
+      "rızık",
+      "helal"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n136.mp3"
   },
   {
     "id": "rizik_16",
@@ -2458,10 +3374,20 @@
     "transliteration": "Rabbi innî limâ enzelte ileyye min hayrin fakîr",
     "meaning": "Rabbim! Bana indireceğin her hayra muhtacım.",
     "context": "Hz. Musa'nın (a.s.) Medyen'e sığındığında, çaresizlik içinde Allah'tan rızık ve yardım dilediği duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3276.mp3",
     "defaultTarget": 3,
-    "tags": ["rızık", "musa"],
-    "source": "Quran"
+    "tags": [
+      "rızık",
+      "musa"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3276.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/3276.mp3",
+    "audioAssets": [
+      "assets/audio/quran/3276.mp3"
+    ]
   },
   {
     "id": "rizik_17",
@@ -2476,7 +3402,11 @@
     "context": "Yemek öncesi veya sonrasında okunan, verilen rızka bereket dilenen kısa bir duadır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["rızık", "sofra", "bereket"],
+    "tags": [
+      "rızık",
+      "sofra",
+      "bereket"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2490,10 +3420,15 @@
     "transliteration": "Lâ havle ve lâ kuvvete illâ billâhi'l-aliyyi'l-azîm",
     "meaning": "Güç ve kuvvet ancak yüce ve büyük olan Allah'tandır.",
     "context": "Cennet hazinelerinden biri olarak nitelenen, rızık ve güç konusunda tevekkülü ifade eden zikirdir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n2.mp3",
     "defaultTarget": 33,
-    "tags": ["rızık", "güç", "zikir"],
-    "source": "Sunnah"
+    "tags": [
+      "rızık",
+      "güç",
+      "zikir"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n2.mp3"
   },
   {
     "id": "korunma_15",
@@ -2506,10 +3441,14 @@
     "transliteration": "Bismillâhillezî lâ yedurru measmihî şey'ün fi'l-ardı ve lâ fi's-semâi ve hüve's-Semîu'l-Alîm",
     "meaning": "İsmiyle birlikte yerde ve gökte hiçbir şeyin zarar veremeyeceği Allah'ın adıyla. O işitendir, bilendir.",
     "context": "Sabah akşam üç kez okunması halinde hiçbir şeyin zarar veremeyeceği bildirilen koruma duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n86.mp3",
     "defaultTarget": 3,
-    "tags": ["korunma", "sabah akşam"],
-    "source": "Sunnah"
+    "tags": [
+      "korunma",
+      "sabah akşam"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n86.mp3"
   },
   {
     "id": "korunma_16",
@@ -2522,10 +3461,14 @@
     "transliteration": "Eûzü bikelimâtillâhi't-tâmmâti min şerri mâ halak",
     "meaning": "Allah'ın eksiksiz kelimelerine, yarattığı şeylerin şerrinden sığınırım.",
     "context": "Bir yere konaklarken veya akşam vakti okunması tavsiye edilen genel bir koruma duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n97.mp3",
     "defaultTarget": 3,
-    "tags": ["korunma", "sığınma"],
-    "source": "Sunnah"
+    "tags": [
+      "korunma",
+      "sığınma"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n97.mp3"
   },
   {
     "id": "korunma_17",
@@ -2540,7 +3483,10 @@
     "context": "Hz. Peygamber'in (s.a.v.) ağır ve bulaşıcı hastalıklardan korunmak için okuduğu bildirilen duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["korunma", "hastalık"],
+    "tags": [
+      "korunma",
+      "hastalık"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2554,10 +3500,21 @@
     "transliteration": "Rabbenâ zalemnâ enfüsenâ ve in lem tağfir lenâ ve terhamnâ lenekûnenne minel-hâsirîn",
     "meaning": "Rabbimiz! Kendimize zulmettik. Eğer bizi bağışlamaz ve bize merhamet etmezsen, elbette hüsrana uğrayanlardan oluruz.",
     "context": "Hz. Adem ve Havva'nın (a.s.) cennetten sonra pişmanlıkla Allah'a yöneldiği ilk tevbe duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/977.mp3",
     "defaultTarget": 3,
-    "tags": ["bağışlanma", "tevbe", "adem"],
-    "source": "Quran"
+    "tags": [
+      "bağışlanma",
+      "tevbe",
+      "adem"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/977.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/977.mp3",
+    "audioAssets": [
+      "assets/audio/quran/977.mp3"
+    ]
   },
   {
     "id": "bagislanma_16",
@@ -2570,10 +3527,14 @@
     "transliteration": "Allahümme ente Rabbî lâ ilâhe illâ ente, halaktenî ve ene abdüke ve ene alâ ahdike ve va'dike mesteta'tü",
     "meaning": "Allah'ım! Sen benim Rabbimsin, senden başka ilah yoktur. Beni sen yarattın, ben senin kulunum ve gücüm yettiğince sana verdiğim söz ve ahit üzereyim.",
     "context": "İstiğfarların efendisi olarak bilinen, samimiyetle inanıp okuyanın cennete gireceği bildirilen duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n79.mp3",
     "defaultTarget": 1,
-    "tags": ["bağışlanma", "istiğfar"],
-    "source": "Sunnah"
+    "tags": [
+      "bağışlanma",
+      "istiğfar"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n79.mp3"
   },
   {
     "id": "bagislanma_17",
@@ -2586,10 +3547,21 @@
     "transliteration": "Rabbenağfir lî ve li vâlideyye ve lil mü'minîne yevme yekûmü'l-hisâb",
     "meaning": "Rabbimiz! Hesabın görüleceği gün beni, anne babamı ve mü'minleri bağışla.",
     "context": "Hz. İbrahim'in (a.s.) kendisi, ailesi ve tüm müminler için bağışlanma dilediği kapsamlı bir duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1791.mp3",
     "defaultTarget": 3,
-    "tags": ["bağışlanma", "anne baba", "ibrahim"],
-    "source": "Quran"
+    "tags": [
+      "bağışlanma",
+      "anne baba",
+      "ibrahim"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1791.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1791.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1791.mp3"
+    ]
   },
   {
     "id": "peygamber_16",
@@ -2602,10 +3574,21 @@
     "transliteration": "Rabbi lâ tezernî ferden ve ente hayru'l-vârisîn",
     "meaning": "Rabbim! Beni tek başıma bırakma, sen varislerin en hayırlısısın.",
     "context": "Hz. Zekeriya'nın (a.s.) ileri yaşında evlat ve soyu için Allah'a yalvardığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2572.mp3",
     "defaultTarget": 3,
-    "tags": ["peygamber", "zekeriya", "evlat"],
-    "source": "Quran"
+    "tags": [
+      "peygamber",
+      "zekeriya",
+      "evlat"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2572.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2572.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2572.mp3"
+    ]
   },
   {
     "id": "peygamber_17",
@@ -2618,10 +3601,21 @@
     "transliteration": "Rabbi innî zalemtü nefsî fağfir lî",
     "meaning": "Rabbim! Doğrusu kendime zulmettim, beni bağışla.",
     "context": "Hz. Musa'nın (a.s.) istemeden sebep olduğu bir olay sonrası pişmanlıkla Allah'a sığındığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3268.mp3",
     "defaultTarget": 3,
-    "tags": ["peygamber", "musa", "bağışlanma"],
-    "source": "Quran"
+    "tags": [
+      "peygamber",
+      "musa",
+      "bağışlanma"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3268.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/3268.mp3",
+    "audioAssets": [
+      "assets/audio/quran/3268.mp3"
+    ]
   },
   {
     "id": "peygamber_18",
@@ -2634,10 +3628,21 @@
     "transliteration": "Rabbi heb lî mine's-sâlihîn",
     "meaning": "Rabbim! Bana salihlerden olacak bir evlat bağışla.",
     "context": "Hz. İbrahim'in (a.s.) hayırlı bir evlat için Allah'a yaptığı kısa ve özlü duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3888.mp3",
     "defaultTarget": 3,
-    "tags": ["peygamber", "ibrahim", "evlat"],
-    "source": "Quran"
+    "tags": [
+      "peygamber",
+      "ibrahim",
+      "evlat"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3888.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/3888.mp3",
+    "audioAssets": [
+      "assets/audio/quran/3888.mp3"
+    ]
   },
   {
     "id": "peygamber_19",
@@ -2650,10 +3655,21 @@
     "transliteration": "Rabbi innî eûzü bike en es'eleke mâ leyse lî bihî ilm",
     "meaning": "Rabbim! Bilmediğim şeyi senden istemekten sana sığınırım.",
     "context": "Hz. Nuh'un (a.s.) tufandan sonra oğlunun akıbetini sorgulaması üzerine edeple Allah'a sığındığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1520.mp3",
     "defaultTarget": 3,
-    "tags": ["peygamber", "nuh", "edep"],
-    "source": "Quran"
+    "tags": [
+      "peygamber",
+      "nuh",
+      "edep"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1520.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1520.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1520.mp3"
+    ]
   },
   {
     "id": "huzur_20",
@@ -2666,10 +3682,14 @@
     "transliteration": "Allahümme innî es'elüke'l-afve ve'l-âfiyete fi'd-dünyâ ve'l-âhirah",
     "meaning": "Allah'ım! Dünyada ve ahirette senden af ve afiyet dilerim.",
     "context": "Hz. Peygamber'in (s.a.v.) sabah akşam sıkça okuduğu, kapsamlı bir esenlik duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n84.mp3",
     "defaultTarget": 3,
-    "tags": ["huzur", "afiyet"],
-    "source": "Sunnah"
+    "tags": [
+      "huzur",
+      "afiyet"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n84.mp3"
   },
   {
     "id": "huzur_21",
@@ -2682,10 +3702,20 @@
     "transliteration": "Rabbi zidnî ilmâ",
     "meaning": "Rabbim! İlmimi artır.",
     "context": "Allah'ın Hz. Peygamber'e (s.a.v.) öğretmesini emrettiği, ilim talep etme duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2462.mp3",
     "defaultTarget": 3,
-    "tags": ["huzur", "ilim"],
-    "source": "Quran"
+    "tags": [
+      "huzur",
+      "ilim"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2462.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2462.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2462.mp3"
+    ]
   },
   {
     "id": "huzur_22",
@@ -2698,10 +3728,14 @@
     "transliteration": "Allahümme ente's-selâm ve minke's-selâm tebârakte yâ ze'l-celâli ve'l-ikrâm",
     "meaning": "Allah'ım! Selam sensin, selamet sendendir. Ey celal ve ikram sahibi, sen yücesin.",
     "context": "Hz. Peygamber'in (s.a.v.) farz namazların ardından okuduğu bildirilen zikirdir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n66.mp3",
     "defaultTarget": 1,
-    "tags": ["huzur", "namaz sonrası"],
-    "source": "Sunnah"
+    "tags": [
+      "huzur",
+      "namaz sonrası"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n66.mp3"
   },
   {
     "id": "huzur_23",
@@ -2716,7 +3750,10 @@
     "context": "Hz. Peygamber'in (s.a.v.) sıkça okuduğu, imanda sebat dileme duasıdır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["huzur", "sebat"],
+    "tags": [
+      "huzur",
+      "sebat"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2730,10 +3767,15 @@
     "transliteration": "İnnâ lillâhi ve innâ ileyhi râci'ûn, Allahümme'cürnî fî musîbetî ve ahlif lî hayren minhâ",
     "meaning": "Şüphesiz biz Allah'a aidiz ve yine O'na döneceğiz. Allah'ım! Musibetimin karşılığını ver ve onun yerine bana daha hayırlısını ihsan et.",
     "context": "Hz. Peygamber'in (s.a.v.) musibet anında okunmasını tavsiye ettiği, sabır ve teselli duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n154.mp3",
     "defaultTarget": 3,
-    "tags": ["sıkıntı", "musibet", "sabır"],
-    "source": "Sunnah"
+    "tags": [
+      "sıkıntı",
+      "musibet",
+      "sabır"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n154.mp3"
   },
   {
     "id": "sikinti_20",
@@ -2748,7 +3790,10 @@
     "context": "Hadis kaynaklarında geçen, dünyevi ve uhrevi darlıktan Allah'a sığınma duasıdır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["sıkıntı", "darlık"],
+    "tags": [
+      "sıkıntı",
+      "darlık"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2764,7 +3809,10 @@
     "context": "Hz. Peygamber'in (s.a.v.) dua ederken sığındığı dört şeyi içeren meşhur duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["sıkıntı", "bela"],
+    "tags": [
+      "sıkıntı",
+      "bela"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2778,10 +3826,21 @@
     "transliteration": "Rabbenâ efrig aleynâ sabren ve sebbit akdâmenâ ve'nsurnâ ale'l-kavmi'l-kâfirîn",
     "meaning": "Rabbimiz! Üzerimize sabır yağdır, ayaklarımızı sabit kıl ve bize yardım et.",
     "context": "Talut'un ordusunun zorlu bir mücadele öncesinde sabır ve sebat için yaptığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/257.mp3",
     "defaultTarget": 3,
-    "tags": ["sıkıntı", "sabır", "sebat"],
-    "source": "Quran"
+    "tags": [
+      "sıkıntı",
+      "sabır",
+      "sebat"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/257.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/257.mp3",
+    "audioAssets": [
+      "assets/audio/quran/257.mp3"
+    ]
   },
   {
     "id": "sifa_19",
@@ -2794,10 +3853,14 @@
     "transliteration": "Allahümme âfinî fî bedenî, Allahümme âfinî fî sem'î, Allahümme âfinî fî basarî",
     "meaning": "Allah'ım! Bedenimde bana afiyet ver. Allah'ım! Kulağımda bana afiyet ver. Allah'ım! Gözümde bana afiyet ver.",
     "context": "Hz. Peygamber'in (s.a.v.) her sabah okuduğu bildirilen, beden sağlığı duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n82.mp3",
     "defaultTarget": 3,
-    "tags": ["şifa", "sağlık"],
-    "source": "Sunnah"
+    "tags": [
+      "şifa",
+      "sağlık"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n82.mp3"
   },
   {
     "id": "sifa_20",
@@ -2812,7 +3875,10 @@
     "context": "Ağrıyan yere elini koyup üç kez okuma şeklinde Hz. Peygamber'in (s.a.v.) tavsiye ettiği duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["şifa", "ağrı"],
+    "tags": [
+      "şifa",
+      "ağrı"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2826,10 +3892,14 @@
     "transliteration": "Elhamdü lillâhillezî âfânî mimmebtelâke bihî ve faddalenî alâ kesîrin mimmen halaka tafdîlâ",
     "meaning": "Beni, seni müptela kıldığı şeyden koruyan ve yarattıklarının çoğundan üstün kılan Allah'a hamd olsun.",
     "context": "Hz. Peygamber'in (s.a.v.), musibete uğramış birini gördüğünde söylenmesini tavsiye ettiği şükür duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n194.mp3",
     "defaultTarget": 3,
-    "tags": ["şifa", "şükür"],
-    "source": "Sunnah"
+    "tags": [
+      "şifa",
+      "şükür"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n194.mp3"
   },
   {
     "id": "rizik_19",
@@ -2844,7 +3914,10 @@
     "context": "Hz. Peygamber'in (s.a.v.) kendi ailesi için sadece yeterli rızık istediği, kanaati öğreten meşhur duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["rızık", "kanaat"],
+    "tags": [
+      "rızık",
+      "kanaat"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2858,10 +3931,20 @@
     "transliteration": "Feizâ kudiyeti's-salâtü fenteşirû fi'l-ardı vebtegû min fadlillâh",
     "meaning": "Namaz kılınınca yeryüzüne dağılın ve Allah'ın lütfundan (rızkından) isteyin.",
     "context": "Cuma suresinde geçen, namaz sonrası çalışıp helal rızık aramayı teşvik eden ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5187.mp3",
     "defaultTarget": 1,
-    "tags": ["rızık", "çalışma"],
-    "source": "Quran"
+    "tags": [
+      "rızık",
+      "çalışma"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/5187.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/5187.mp3",
+    "audioAssets": [
+      "assets/audio/quran/5187.mp3"
+    ]
   },
   {
     "id": "rizik_21",
@@ -2874,10 +3957,20 @@
     "transliteration": "Rabbiğfir lî ve heb lî mülken lâ yenbeğî li ehadin min ba'dî inneke ente'l-vehhâb",
     "meaning": "Rabbim! Beni bağışla ve bana, benden sonra kimseye yakışmayacak bir mülk bahşet. Şüphesiz sen çok bahşedensin.",
     "context": "Hz. Süleyman'ın (a.s.) Allah'tan eşsiz bir nimet ve rızık istediği duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/4005.mp3",
     "defaultTarget": 3,
-    "tags": ["rızık", "süleyman"],
-    "source": "Quran"
+    "tags": [
+      "rızık",
+      "süleyman"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/4005.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/4005.mp3",
+    "audioAssets": [
+      "assets/audio/quran/4005.mp3"
+    ]
   },
   {
     "id": "korunma_18",
@@ -2892,7 +3985,10 @@
     "context": "Kur'an okumaya başlamadan önce ve öfke anında okunan, en temel sığınma cümlesidir.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["korunma", "şeytan"],
+    "tags": [
+      "korunma",
+      "şeytan"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2908,7 +4004,11 @@
     "context": "Eve girerken okunması tavsiye edilen, aile huzuru ve korunma duasıdır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["korunma", "ev", "aile"],
+    "tags": [
+      "korunma",
+      "ev",
+      "aile"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2922,10 +4022,22 @@
     "transliteration": "Sübhânellezî sehhara lenâ hâzâ ve mâ künnâ lehû mukrinîn ve innâ ilâ rabbinâ le münkalibûn",
     "meaning": "Bunu bizim hizmetimize vereni tesbih ederiz, yoksa biz buna güç yetiremezdik. Şüphesiz biz Rabbimize döneceğiz.",
     "context": "Bir vasıtaya binerken okunan, Kur'an'da yer alan yolculuk duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/4338.mp3",
     "defaultTarget": 1,
-    "tags": ["korunma", "yolculuk"],
-    "source": "Quran"
+    "tags": [
+      "korunma",
+      "yolculuk"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/4338.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/4339.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/4338.mp3",
+    "audioAssets": [
+      "assets/audio/quran/4338.mp3",
+      "assets/audio/quran/4339.mp3"
+    ]
   },
   {
     "id": "korunma_21",
@@ -2938,10 +4050,15 @@
     "transliteration": "Eûzü bikelimâtillâhi't-tâmmâti min külli şeytânin ve hâmmetin ve min külli aynin lâmme",
     "meaning": "Her şeytandan, zehirli hayvandan ve kem gözden Allah'ın tam kelimelerine sığınırım.",
     "context": "Hz. Peygamber'in (s.a.v.) torunları Hasan ve Hüseyin için okuduğu, çocukları nazardan koruma duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n146.mp3",
     "defaultTarget": 3,
-    "tags": ["korunma", "çocuk", "nazar"],
-    "source": "Sunnah"
+    "tags": [
+      "korunma",
+      "çocuk",
+      "nazar"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n146.mp3"
   },
   {
     "id": "bagislanma_18",
@@ -2954,10 +4071,20 @@
     "transliteration": "Rabbiğfir verham ve ente hayrü'r-râhimîn",
     "meaning": "Rabbim! Bağışla, merhamet et, sen merhamet edenlerin en hayırlısısın.",
     "context": "Kur'an'da geçen, Allah'ın sonsuz merhametine sığınarak bağışlanma dilenen kısa bir duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2791.mp3",
     "defaultTarget": 3,
-    "tags": ["bağışlanma", "merhamet"],
-    "source": "Quran"
+    "tags": [
+      "bağışlanma",
+      "merhamet"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2791.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/2791.mp3",
+    "audioAssets": [
+      "assets/audio/quran/2791.mp3"
+    ]
   },
   {
     "id": "bagislanma_19",
@@ -2972,7 +4099,9 @@
     "context": "Hz. Peygamber'in (s.a.v.) namazında okuduğu bildirilen kapsamlı bağışlanma duasıdır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["bağışlanma"],
+    "tags": [
+      "bağışlanma"
+    ],
     "source": "Sunnah"
   },
   {
@@ -2986,10 +4115,20 @@
     "transliteration": "Rabbenağfir lenâ zünûbenâ ve isrâfenâ fî emrinâ ve sebbit akdâmenâ ve'nsurnâ ale'l-kavmi'l-kâfirîn",
     "meaning": "Rabbimiz! Günahlarımızı ve işimizdeki taşkınlığımızı bağışla, ayaklarımızı sabit kıl ve bize yardım et.",
     "context": "Bedir savaşında müminlerin hem bağışlanma hem zafer için yaptığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/440.mp3",
     "defaultTarget": 3,
-    "tags": ["bağışlanma", "zafer"],
-    "source": "Quran"
+    "tags": [
+      "bağışlanma",
+      "zafer"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/440.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/440.mp3",
+    "audioAssets": [
+      "assets/audio/quran/440.mp3"
+    ]
   },
   {
     "id": "bagislanma_21",
@@ -3004,7 +4143,10 @@
     "context": "Hz. Ebu Bekir'e (r.a.) Hz. Peygamber'in (s.a.v.) namazda okumasını öğrettiği duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["bağışlanma", "ebu bekir"],
+    "tags": [
+      "bağışlanma",
+      "ebu bekir"
+    ],
     "source": "Sunnah"
   },
   {
@@ -3018,10 +4160,21 @@
     "transliteration": "Rabbi evzi'nî en eşküra ni'meteke elletî en'amte aleyye ve alâ vâlideyye ve en a'mele sâlihan terdâh",
     "meaning": "Rabbim! Bana ve anne babama verdiğin nimete şükretmemi ve razı olacağın salih ameller işlememi nasip et.",
     "context": "Hz. Süleyman'ın (a.s.) nimetlere şükür ve salih amel için yaptığı duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3178.mp3",
     "defaultTarget": 3,
-    "tags": ["peygamber", "süleyman", "şükür"],
-    "source": "Quran"
+    "tags": [
+      "peygamber",
+      "süleyman",
+      "şükür"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/3178.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/3178.mp3",
+    "audioAssets": [
+      "assets/audio/quran/3178.mp3"
+    ]
   },
   {
     "id": "peygamber_21",
@@ -3034,10 +4187,21 @@
     "transliteration": "Allahümme Rabbenâ enzil aleynâ mâideten mine's-semâi tekûnu lenâ îden li-evvelinâ ve âhirinâ ve âyeten minke verzuknâ ve ente hayru'r-râzikîn",
     "meaning": "Allah'ım, Rabbimiz! Bize gökten bir sofra indir ki bizim için, öncekilerimiz ve sonrakilerimiz için bir bayram ve senden bir mucize olsun. Bizi rızıklandır, sen rızık verenlerin en hayırlısısın.",
     "context": "Havarilerin isteği üzerine Hz. İsa'nın (a.s.) Allah'tan gökten sofra indirmesini istediği duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/783.mp3",
     "defaultTarget": 3,
-    "tags": ["peygamber", "isa", "rızık"],
-    "source": "Quran"
+    "tags": [
+      "peygamber",
+      "isa",
+      "rızık"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/783.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/783.mp3",
+    "audioAssets": [
+      "assets/audio/quran/783.mp3"
+    ]
   },
   {
     "id": "peygamber_22",
@@ -3050,10 +4214,20 @@
     "transliteration": "Ennî messeniye'ş-şeytânu bi-nusbin ve azâb",
     "meaning": "Doğrusu şeytan bana yorgunluk ve azap dokundurdu.",
     "context": "Hz. Eyyub'un (a.s.) hastalığı esnasında durumunu Allah'a arz ettiği bir başka ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/4011.mp3",
     "defaultTarget": 3,
-    "tags": ["peygamber", "eyyub"],
-    "source": "Quran"
+    "tags": [
+      "peygamber",
+      "eyyub"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/4011.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/4011.mp3",
+    "audioAssets": [
+      "assets/audio/quran/4011.mp3"
+    ]
   },
   {
     "id": "peygamber_23",
@@ -3066,10 +4240,20 @@
     "transliteration": "Rabbi kad âteytenî minel-mülki ve allemtenî min te'vîli'l-ehâdîs, fâtıra's-semâvâti vel-ardı ente veliyyî fi'd-dünyâ vel-âhirah, teveffenî müslimen ve elhıknî bi's-sâlihîn",
     "meaning": "Rabbim! Bana mülkten verdin ve bana olayların yorumunu öğrettin. Ey gökleri ve yeri yaratan! Sen dünyada da ahirette de benim velimsin. Beni Müslüman olarak öldür ve beni salihler arasına kat.",
     "context": "Hz. Yusuf'un (a.s.) kavuştuğu nimetlerin ardından Allah'a şükür ve Müslüman olarak ölmeyi dilediği duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1697.mp3",
     "defaultTarget": 3,
-    "tags": ["peygamber", "yusuf"],
-    "source": "Quran"
+    "tags": [
+      "peygamber",
+      "yusuf"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1697.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/1697.mp3",
+    "audioAssets": [
+      "assets/audio/quran/1697.mp3"
+    ]
   },
   {
     "id": "sabah_aksam_21",
@@ -3082,10 +4266,14 @@
     "transliteration": "Asbahnâ ve asbaha'l-mülkü lillâh, ve'l-hamdü lillâh, lâ ilâhe illallâhü vahdehû lâ şerîke leh",
     "meaning": "Sabaha erdik, mülk de Allah'ın olarak sabaha erdi. Hamd Allah'adır. Allah'tan başka ilah yoktur, O tektir, ortağı yoktur.",
     "context": "Hz. Peygamber'in (s.a.v.) her sabah okuduğu bildirilen meşhur sabah zikridir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n77.mp3",
     "defaultTarget": 1,
-    "tags": ["sabah", "zikir"],
-    "source": "Sunnah"
+    "tags": [
+      "sabah",
+      "zikir"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n77.mp3"
   },
   {
     "id": "sabah_aksam_22",
@@ -3098,10 +4286,14 @@
     "transliteration": "Emseynâ ve emse'l-mülkü lillâh, ve'l-hamdü lillâh, lâ ilâhe illallâhü vahdehû lâ şerîke leh",
     "meaning": "Akşama erdik, mülk de Allah'ın olarak akşama erdi. Hamd Allah'adır. Allah'tan başka ilah yoktur, O tektir, ortağı yoktur.",
     "context": "Sabah zikrinin akşam vaktine uyarlanmış hali olup akşam namazından sonra okunur.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n77.mp3",
     "defaultTarget": 1,
-    "tags": ["akşam", "zikir"],
-    "source": "Sunnah"
+    "tags": [
+      "akşam",
+      "zikir"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n77.mp3"
   },
   {
     "id": "sabah_aksam_23",
@@ -3114,10 +4306,21 @@
     "transliteration": "Allâhü lâ ilâhe illâ hüve'l-Hayyu'l-Kayyûm, lâ te'huzühû sinetün ve lâ nevm",
     "meaning": "Allah, kendisinden başka ilah olmayandır. O, diridir, her şeyi ayakta tutandır. O'nu ne uyuklama tutar ne de uyku.",
     "context": "Ayete'l-Kürsi'nin ilk kısmı olup sabah akşam okunmasının koruma sağladığı bildirilmiştir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/262.mp3",
     "defaultTarget": 1,
-    "tags": ["sabah", "akşam", "koruma"],
-    "source": "Quran"
+    "tags": [
+      "sabah",
+      "akşam",
+      "koruma"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/262.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/262.mp3",
+    "audioAssets": [
+      "assets/audio/quran/262.mp3"
+    ]
   },
   {
     "id": "kandil_bayram_21",
@@ -3130,10 +4333,14 @@
     "transliteration": "Allâhü ekber Allâhü ekber, lâ ilâhe illallâh, vallâhü ekber Allâhü ekber ve lillâhi'l-hamd",
     "meaning": "Allah en büyüktür, Allah en büyüktür. Allah'tan başka ilah yoktur. Allah en büyüktür, Allah en büyüktür. Hamd Allah'adır.",
     "context": "Ramazan ve Kurban Bayramlarında okunan, bayram sevincini ifade eden tekbir metnidir.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n241.mp3",
     "defaultTarget": 3,
-    "tags": ["bayram", "tekbir"],
-    "source": "Sunnah"
+    "tags": [
+      "bayram",
+      "tekbir"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n241.mp3"
   },
   {
     "id": "kandil_bayram_22",
@@ -3148,7 +4355,10 @@
     "context": "Hz. Aişe'nin (r.a.) Kadir gecesine denk gelirse ne okuyayım sorusuna Hz. Peygamber'in (s.a.v.) öğrettiği duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["kadir gecesi", "af"],
+    "tags": [
+      "kadir gecesi",
+      "af"
+    ],
     "source": "Sunnah"
   },
   {
@@ -3162,10 +4372,14 @@
     "transliteration": "Allahümme salli alâ Muhammedin ve alâ âli Muhammed, kemâ salleyte alâ İbrâhîme ve alâ âli İbrâhîm, inneke Hamîdün Mecîd",
     "meaning": "Allah'ım! İbrahim'e ve Al-i İbrahim'e salat ettiğin gibi Muhammed'e ve Al-i Muhammed'e de salat et. Şüphesiz sen övülmeye layıksın, şan ve şeref sahibisin.",
     "context": "Salat-ı İbrahimiyye olarak bilinen, özellikle Mevlid Kandili'nde sıkça okunan salavattır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n53.mp3",
     "defaultTarget": 3,
-    "tags": ["mevlid", "salavat"],
-    "source": "Sunnah"
+    "tags": [
+      "mevlid",
+      "salavat"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n53.mp3"
   },
   {
     "id": "sabah_aksam_24",
@@ -3178,10 +4392,15 @@
     "transliteration": "Radîtü billâhi Rabben ve bi'l-İslâmi dînen ve bi Muhammedin sallallâhu aleyhi ve sellem nebiyyâ",
     "meaning": "Rab olarak Allah'tan, din olarak İslam'dan, peygamber olarak Muhammed'den (s.a.v.) razı oldum.",
     "context": "Sabah akşam üç kez okunması tavsiye edilen, kıyamet günü Allah'ın rızasına vesile olacağı bildirilen bir duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n87.mp3",
     "defaultTarget": 3,
-    "tags": ["sabah", "akşam", "rıza"],
-    "source": "Sunnah"
+    "tags": [
+      "sabah",
+      "akşam",
+      "rıza"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n87.mp3"
   },
   {
     "id": "sabah_aksam_25",
@@ -3194,10 +4413,14 @@
     "transliteration": "Allahümme bike asbahnâ ve bike emseynâ ve bike nahyâ ve bike nemûtü ve ileyke'n-nüşûr",
     "meaning": "Allah'ım! Senin izninle sabaha erdik, senin izninle akşama eririz, seninle yaşar seninle ölürüz. Dönüş sanadır.",
     "context": "Hz. Peygamber'in (s.a.v.) sabah namazından sonra okuduğu, hayatın Allah'a bağlı olduğunu ifade eden duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n78.mp3",
     "defaultTarget": 1,
-    "tags": ["sabah", "hayat"],
-    "source": "Sunnah"
+    "tags": [
+      "sabah",
+      "hayat"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n78.mp3"
   },
   {
     "id": "sabah_aksam_26",
@@ -3212,7 +4435,10 @@
     "context": "Hz. Peygamber'in (s.a.v.) yatağına girdiğinde okuduğu bildirilen kısa bir duadır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["akşam", "uyku"],
+    "tags": [
+      "akşam",
+      "uyku"
+    ],
     "source": "Sunnah"
   },
   {
@@ -3226,10 +4452,14 @@
     "transliteration": "Elhamdü lillâhillezî ahyânâ ba'de mâ emâtenâ ve ileyhi'n-nüşûr",
     "meaning": "Bizi öldürdükten (uyuttuktan) sonra dirilten (uyandıran) Allah'a hamd olsun, dönüş O'nadır.",
     "context": "Hz. Peygamber'in (s.a.v.) uyanır uyanmaz okuduğu bildirilen şükür duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n1.mp3",
     "defaultTarget": 1,
-    "tags": ["sabah", "uyanış"],
-    "source": "Sunnah"
+    "tags": [
+      "sabah",
+      "uyanış"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n1.mp3"
   },
   {
     "id": "huzur_24",
@@ -3242,10 +4472,14 @@
     "transliteration": "Sübhâneke Allahümme ve bihamdik, eşhedü en lâ ilâhe illâ ente estağfiruke ve etûbü ileyk",
     "meaning": "Allah'ım! Seni hamdinle tesbih ederim. Senden başka ilah olmadığına şahitlik ederim. Senden bağışlanma diler, sana tevbe ederim.",
     "context": "Bir meclisten kalkarken okunması tavsiye edilen, o mecliste yapılan hataların kefareti olan duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n15.mp3",
     "defaultTarget": 1,
-    "tags": ["huzur", "meclis"],
-    "source": "Sunnah"
+    "tags": [
+      "huzur",
+      "meclis"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n15.mp3"
   },
   {
     "id": "huzur_25",
@@ -3260,7 +4494,10 @@
     "context": "Her işin güzel bir şekilde sonuçlanmasını dileyen kapsamlı bir duadır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["huzur", "hayırlı son"],
+    "tags": [
+      "huzur",
+      "hayırlı son"
+    ],
     "source": "Sunnah"
   },
   {
@@ -3276,7 +4513,10 @@
     "context": "Allah'ın mutlak hakimiyetini ve hayrın kaynağı olduğunu ifade eden kapsamlı bir zikir duasıdır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["huzur", "hamd"],
+    "tags": [
+      "huzur",
+      "hamd"
+    ],
     "source": "Sunnah"
   },
   {
@@ -3290,10 +4530,15 @@
     "transliteration": "Allahümme innî abdüke'bnü abdike'bnü emetik, nâsıyetî biyedik, mâdın fiyye hukmük, adlün fiyye kadâük",
     "meaning": "Allah'ım! Ben senin kulunum, kulunun oğluyum, cariyenin oğluyum. Alnım (perçemim) senin elindedir. Hakkımdaki hükmün geçerlidir, hakkımdaki takdirin adildir.",
     "context": "Hz. Peygamber'in (s.a.v.) öğrettiği, keder ve sıkıntı anında okunan uzun ama etkili bir duanın giriş kısmıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n120.mp3",
     "defaultTarget": 1,
-    "tags": ["sıkıntı", "keder", "teslimiyet"],
-    "source": "Sunnah"
+    "tags": [
+      "sıkıntı",
+      "keder",
+      "teslimiyet"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n120.mp3"
   },
   {
     "id": "sikinti_24",
@@ -3306,10 +4551,15 @@
     "transliteration": "Es'elüke bikülli ismin hüve lek, semmeyte bihî nefsek, en tec'ale'l-Kur'âne rabîa kalbî",
     "meaning": "Sana ait olan, kendine isim koyduğun her isim hürmetine, Kur'an'ı kalbimin baharı kılmanı senden dilerim.",
     "context": "Kalp ferahlığı duasının devamı olup Kur'an'ın kalbe huzur vermesini dileyen kısımdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n120.mp3",
     "defaultTarget": 1,
-    "tags": ["sıkıntı", "kuran", "huzur"],
-    "source": "Sunnah"
+    "tags": [
+      "sıkıntı",
+      "kuran",
+      "huzur"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n120.mp3"
   },
   {
     "id": "sikinti_25",
@@ -3322,10 +4572,23 @@
     "transliteration": "Feinne meal usri yüsrâ, inne meal usri yüsrâ",
     "meaning": "Şüphesiz zorlukla beraber bir kolaylık vardır. Gerçekten zorlukla beraber bir kolaylık vardır.",
     "context": "İnşirah suresinde iki kez tekrarlanan, sıkıntıların ardından mutlaka kolaylık geleceğini müjdeleyen ayettir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6095.mp3",
     "defaultTarget": 3,
-    "tags": ["sıkıntı", "kolaylık", "müjde"],
-    "source": "Quran"
+    "tags": [
+      "sıkıntı",
+      "kolaylık",
+      "müjde"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6095.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6096.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/6095.mp3",
+    "audioAssets": [
+      "assets/audio/quran/6095.mp3",
+      "assets/audio/quran/6096.mp3"
+    ]
   },
   {
     "id": "sifa_22",
@@ -3338,10 +4601,14 @@
     "transliteration": "Lâ be'se tahûrun inşâallah",
     "meaning": "Zararı yok, inşallah (bu hastalık günahlara) kefarettir.",
     "context": "Hz. Peygamber'in (s.a.v.) hasta ziyaretinde hastayı teselli etmek için söylediği bildirilen sözdür.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n147.mp3",
     "defaultTarget": 1,
-    "tags": ["şifa", "teselli"],
-    "source": "Sunnah"
+    "tags": [
+      "şifa",
+      "teselli"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n147.mp3"
   },
   {
     "id": "sifa_23",
@@ -3356,7 +4623,10 @@
     "context": "Bir yakını için dua ederken kullanılan, şifa duasının başkası için uyarlanmış şeklidir.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["şifa", "yakınlar"],
+    "tags": [
+      "şifa",
+      "yakınlar"
+    ],
     "source": "Sunnah"
   },
   {
@@ -3370,10 +4640,14 @@
     "transliteration": "Allahümme innî es'elüke ilmen nâfian ve rizkan tayyiben ve amelen mütekabbelâ",
     "meaning": "Allah'ım! Senden faydalı ilim, temiz rızık ve kabul edilen amel dilerim.",
     "context": "Hz. Peygamber'in (s.a.v.) sabah namazından sonra okuduğu bildirilen kapsamlı bir duadır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n172.mp3",
     "defaultTarget": 1,
-    "tags": ["rızık", "ilim"],
-    "source": "Sunnah"
+    "tags": [
+      "rızık",
+      "ilim"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n172.mp3"
   },
   {
     "id": "rizik_23",
@@ -3388,7 +4662,11 @@
     "context": "Hz. Peygamber'in (s.a.v.) erken kalkıp çalışmaya bereket dilediği bildirilen duadır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["rızık", "bereket", "çalışma"],
+    "tags": [
+      "rızık",
+      "bereket",
+      "çalışma"
+    ],
     "source": "Sunnah"
   },
   {
@@ -3402,10 +4680,24 @@
     "transliteration": "Kul hüvallâhü ehad, kul eûzü bi Rabbi'l-felak, kul eûzü bi Rabbi'n-nâs",
     "meaning": "De ki: O Allah birdir. De ki: Sığınırım felakın Rabbine. De ki: Sığınırım insanların Rabbine.",
     "context": "İhlas, Felak ve Nas surelerinin başlangıcı olup sabah akşam üçer kez okunmasının tam bir koruma sağladığı bildirilmiştir.",
-    "audioUrl": null,
+    "audioUrl": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6222.mp3",
     "defaultTarget": 3,
-    "tags": ["korunma", "kul sureleri"],
-    "source": "Quran"
+    "tags": [
+      "korunma",
+      "kul sureleri"
+    ],
+    "source": "Quran",
+    "audioUrls": [
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6222.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6226.mp3",
+      "https://cdn.islamic.network/quran/audio/128/ar.alafasy/6231.mp3"
+    ],
+    "audioAsset": "assets/audio/quran/6222.mp3",
+    "audioAssets": [
+      "assets/audio/quran/6222.mp3",
+      "assets/audio/quran/6226.mp3",
+      "assets/audio/quran/6231.mp3"
+    ]
   },
   {
     "id": "korunma_23",
@@ -3420,7 +4712,10 @@
     "context": "Doğal afetlerden korunmak için okunan, hadis kaynaklarında geçen bir sığınma duasıdır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["korunma", "afet"],
+    "tags": [
+      "korunma",
+      "afet"
+    ],
     "source": "Sunnah"
   },
   {
@@ -3436,7 +4731,10 @@
     "context": "Söyleyenin günahları deniz köpüğü kadar çok olsa bile bağışlanacağı bildirilen meşhur istiğfar duasıdır.",
     "audioUrl": null,
     "defaultTarget": 3,
-    "tags": ["bağışlanma", "istiğfar"],
+    "tags": [
+      "bağışlanma",
+      "istiğfar"
+    ],
     "source": "Sunnah"
   },
   {
@@ -3450,10 +4748,14 @@
     "transliteration": "Allahümmağfir lî zenbî küllehû dikkahû ve cillehû ve evvelehû ve âhirahû ve alâniyetehû ve sirrahû",
     "meaning": "Allah'ım! Küçük büyük, ilk son, açık gizli bütün günahlarımı bağışla.",
     "context": "Hz. Peygamber'in (s.a.v.) secdede okuduğu bildirilen, tüm günahları kapsayan bağışlanma duasıdır.",
-    "audioUrl": null,
+    "audioUrl": "https://archive.org/download/HisnulMuslimAudio_201510/n46.mp3",
     "defaultTarget": 1,
-    "tags": ["bağışlanma", "secde"],
-    "source": "Sunnah"
+    "tags": [
+      "bağışlanma",
+      "secde"
+    ],
+    "source": "Sunnah",
+    "audioAsset": "assets/audio/dua/n46.mp3"
   },
   {
     "id": "peygamber_24",
@@ -3468,7 +4770,11 @@
     "context": "Hz. Peygamber'in (s.a.v.) Taif'te taşlanıp kovulduktan sonra Allah'a yaptığı, sabrı ve teslimiyeti anlatan meşhur duadır.",
     "audioUrl": null,
     "defaultTarget": 1,
-    "tags": ["peygamber", "taif", "sabır"],
+    "tags": [
+      "peygamber",
+      "taif",
+      "sabır"
+    ],
     "source": "Sunnah"
   }
 ]

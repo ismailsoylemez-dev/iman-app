@@ -123,16 +123,16 @@ class _CalendarFullScreenState extends State<CalendarFullScreen> {
         children: [
           IconButton(
             icon: const Icon(Icons.chevron_left_rounded),
-            color: AppColors.primaryTeal,
+            color: AppColors.primary(context),
             onPressed: () => _changeMonth(-1),
           ),
           Text(
             '$monthName $_hYear H',
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primaryTeal),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.primary(context)),
           ),
           IconButton(
             icon: const Icon(Icons.chevron_right_rounded),
-            color: AppColors.primaryTeal,
+            color: AppColors.primary(context),
             onPressed: () => _changeMonth(1),
           ),
         ],
@@ -186,12 +186,12 @@ class _CalendarFullScreenState extends State<CalendarFullScreen> {
           child: Container(
             decoration: BoxDecoration(
               color: isSelected
-                  ? AppColors.primaryTeal
+                  ? AppColors.primary(context)
                   : isToday
-                      ? AppColors.secondaryCream.withValues(alpha: 0.4)
+                      ? AppColors.accent(context).withValues(alpha: 0.4)
                       : Colors.transparent,
               borderRadius: BorderRadius.circular(10),
-              border: isToday && !isSelected ? Border.all(color: AppColors.primaryTeal, width: 1) : null,
+              border: isToday && !isSelected ? Border.all(color: AppColors.primary(context), width: 1) : null,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -201,14 +201,14 @@ class _CalendarFullScreenState extends State<CalendarFullScreen> {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: isSelected || isToday ? FontWeight.bold : FontWeight.w500,
-                    color: isSelected ? Colors.white : AppColors.text(context),
+                    color: isSelected ? AppColors.onPrimary : AppColors.text(context),
                   ),
                 ),
                 Text(
                   '${gregorian.day}/${gregorian.month}',
                   style: TextStyle(
                     fontSize: 9,
-                    color: isSelected ? Colors.white70 : AppColors.textSecondary(context),
+                    color: isSelected ? AppColors.onPrimarySecondary : AppColors.textSecondary(context),
                   ),
                 ),
                 if (events.isNotEmpty)
