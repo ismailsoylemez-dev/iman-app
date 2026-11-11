@@ -1,0 +1,58 @@
+<svg viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg">
+  <!-- Koyu zemin -->
+  <rect width="1200" height="420" fill="#0F241C"/>
+
+  <!-- Sol taraf: Rozet ve metin -->
+  <g>
+    <!-- Rozetler (3 etiket) -->
+    <rect x="40" y="30" width="360" height="50" rx="12" fill="#1B4332" stroke="#D4AF37" stroke-width="1.5"/>
+    <text x="220" y="62" font-family="Segoe UI, sans-serif" font-size="18" font-weight="bold" fill="#D4AF37" text-anchor="middle">📍 KONUM BAZLI EZAN VAKTİ</text>
+
+    <rect x="40" y="100" width="360" height="50" rx="12" fill="#1B4332" stroke="#D4AF37" stroke-width="1.5"/>
+    <text x="220" y="132" font-family="Segoe UI, sans-serif" font-size="18" font-weight="bold" fill="#D4AF37" text-anchor="middle">🤲 700+ DUA KÜTÜPHANESI</text>
+
+    <rect x="40" y="170" width="360" height="50" rx="12" fill="#1B4332" stroke="#D4AF37" stroke-width="1.5"/>
+    <text x="220" y="202" font-family="Segoe UI, sans-serif" font-size="18" font-weight="bold" fill="#D4AF37" text-anchor="middle">📿 ZİKİR SAYACI & İSTATİSTİK</text>
+
+    <!-- Ana başlık -->
+    <text x="40" y="280" font-family="Segoe UI, sans-serif" font-size="52" font-weight="800" fill="#FFFFFF">İman</text>
+    <text x="40" y="330" font-family="Segoe UI, sans-serif" font-size="52" font-weight="800" fill="#FFFFFF">Uygulaması</text>
+
+    <!-- Alt açıklama -->
+    <text x="40" y="370" font-family="Segoe UI, sans-serif" font-size="16" fill="#D4AF37" font-weight="600">Cihaz içi, offline çalışan İslami ibadette yardımcı</text>
+    <text x="40" y="395" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Hicri takvim • Namaz rehberi • Bildirim alarmı</text>
+  </g>
+
+  <!-- Sağ taraf: Mock ekran kartı -->
+  <g>
+    <!-- Gölgeli kart çerçevesi -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.4"/>
+    </filter>
+
+    <rect x="750" y="50" width="360" height="340" rx="24" fill="#1B4332" stroke="#D4AF37" stroke-width="2" filter="url(#shadow)"/>
+
+    <!-- Ekran simulasyonu (mock) -->
+    <rect x="770" y="80" width="320" height="280" rx="16" fill="#0F241C"/>
+
+    <!-- Status bar -->
+    <rect x="770" y="80" width="320" height="40" rx="16" fill="#1B4332"/>
+    <text x="930" y="105" font-family="Segoe UI, sans-serif" font-size="12" fill="#D4AF37">🕌 14:25 İkindi</text>
+
+    <!-- Sonraki namaz kartı (mock) -->
+    <rect x="790" y="140" width="280" height="80" rx="12" fill="#D4AF37" opacity="0.1" stroke="#D4AF37" stroke-width="1"/>
+    <text x="930" y="162" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#D4AF37" text-anchor="middle">Sonraki Namaz</text>
+    <text x="930" y="190" font-family="Segoe UI, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF" text-anchor="middle">Akşam 17:45</text>
+    <text x="930" y="215" font-family="Segoe UI, sans-serif" font-size="12" fill="#D4AF37" text-anchor="middle">2 saat 20 dakika kaldı</text>
+
+    <!-- Zikir sayaç (mock) -->
+    <circle cx="820" cy="260" r="35" fill="#D4AF37" opacity="0.15" stroke="#D4AF37" stroke-width="1.5"/>
+    <text x="820" y="268" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#D4AF37" text-anchor="middle">33</text>
+
+    <!-- Bilgi yazısı -->
+    <text x="950" y="258" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF">Subhanallah (Tur 2/7)</text>
+  </g>
+
+  <!-- Footer: Teknoloji -->
+  <text x="600" y="415" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">Flutter • Dart • Hive • Provider • adhan_dart</text>
+</svg>

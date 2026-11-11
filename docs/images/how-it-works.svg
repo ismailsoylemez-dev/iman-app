@@ -1,0 +1,88 @@
+<svg viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg">
+  <!-- Koyu zemin -->
+  <rect width="1200" height="280" fill="#0F241C"/>
+
+  <!-- Adım 1: Konum & Takvim -->
+  <g>
+    <rect x="40" y="20" width="220" height="230" rx="16" fill="#1B4332" stroke="#D4AF37" stroke-width="1.5"/>
+
+    <!-- Numara dairesi -->
+    <circle cx="95" cy="45" r="18" fill="#D4AF37"/>
+    <text x="95" y="52" font-family="Segoe UI, sans-serif" font-size="20" font-weight="bold" fill="#0F241C" text-anchor="middle">1</text>
+
+    <!-- Başlık -->
+    <text x="150" y="50" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#D4AF37">Başlangıç</text>
+
+    <!-- İçerik -->
+    <text x="60" y="85" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF" font-weight="500">GPS konumu al</text>
+    <text x="60" y="105" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF" font-weight="500">Hicri takvim oluştur</text>
+    <text x="60" y="125" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF" font-weight="500">Ayarları yükle</text>
+
+    <!-- Etiketi -->
+    <text x="150" y="215" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">PrayerTimeService</text>
+  </g>
+
+  <!-- Ok 1 -->
+  <path d="M 280 135 L 310 135" stroke="#D4AF37" stroke-width="2.5" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Adım 2: Ezan Vaktini Hesapla -->
+  <g>
+    <rect x="330" y="20" width="220" height="230" rx="16" fill="#1B4332" stroke="#D4AF37" stroke-width="1.5"/>
+
+    <circle cx="385" cy="45" r="18" fill="#D4AF37"/>
+    <text x="385" y="52" font-family="Segoe UI, sans-serif" font-size="20" font-weight="bold" fill="#0F241C" text-anchor="middle">2</text>
+
+    <text x="440" y="50" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#D4AF37">Hesapla</text>
+
+    <text x="350" y="85" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF" font-weight="500">Fajr, Dhuhr, Asr</text>
+    <text x="350" y="105" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF" font-weight="500">Maghrib, Isha vakti</text>
+    <text x="350" y="125" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF" font-weight="500">Kıble yönü (pusula)</text>
+
+    <text x="440" y="215" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">adhan_dart lib</text>
+  </g>
+
+  <!-- Ok 2 -->
+  <path d="M 570 135 L 600 135" stroke="#D4AF37" stroke-width="2.5" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Adım 3: Dua ve Zikir Yönetimi -->
+  <g>
+    <rect x="620" y="20" width="220" height="230" rx="16" fill="#1B4332" stroke="#D4AF37" stroke-width="1.5"/>
+
+    <circle cx="675" cy="45" r="18" fill="#D4AF37"/>
+    <text x="675" y="52" font-family="Segoe UI, sans-serif" font-size="20" font-weight="bold" fill="#0F241C" text-anchor="middle">3</text>
+
+    <text x="730" y="50" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#D4AF37">Yönet</text>
+
+    <text x="640" y="85" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF" font-weight="500">Dua kütüphanesi (700+)</text>
+    <text x="640" y="105" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF" font-weight="500">Zikir sayacı & hedef</text>
+    <text x="640" y="125" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF" font-weight="500">İstatistikler grafik</text>
+
+    <text x="730" y="215" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">DuaService, Zikir</text>
+  </g>
+
+  <!-- Ok 3 -->
+  <path d="M 860 135 L 890 135" stroke="#D4AF37" stroke-width="2.5" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Adım 4: Bildir ve Kaydet -->
+  <g>
+    <rect x="910" y="20" width="220" height="230" rx="16" fill="#1B4332" stroke="#D4AF37" stroke-width="1.5"/>
+
+    <circle cx="965" cy="45" r="18" fill="#D4AF37"/>
+    <text x="965" y="52" font-family="Segoe UI, sans-serif" font-size="20" font-weight="bold" fill="#0F241C" text-anchor="middle">4</text>
+
+    <text x="1020" y="50" font-family="Segoe UI, sans-serif" font-size="14" font-weight="bold" fill="#D4AF37">Bildir</text>
+
+    <text x="930" y="85" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF" font-weight="500">Ezan push bildirimi</text>
+    <text x="930" y="105" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF" font-weight="500">Sesli alarm oynat</text>
+    <text x="930" y="125" font-family="Segoe UI, sans-serif" font-size="12" fill="#FFFFFF" font-weight="500">Hive'de kalıcı kayıt</text>
+
+    <text x="1020" y="215" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">NotificationService</text>
+  </g>
+
+  <!-- Ok marker tanımı -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#D4AF37"/>
+    </marker>
+  </defs>
+</svg>

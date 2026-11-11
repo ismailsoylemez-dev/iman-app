@@ -1,0 +1,87 @@
+<svg viewBox="0 0 1200 440" xmlns="http://www.w3.org/2000/svg">
+  <!-- Koyu zemin -->
+  <rect width="1200" height="440" fill="#0F241C"/>
+
+  <!-- Başlık -->
+  <text x="600" y="35" font-family="Segoe UI, sans-serif" font-size="18" font-weight="bold" fill="#D4AF37" text-anchor="middle">Teknik Mimari: Flutter UI ↔ Native Android</text>
+
+  <!-- Sol sütun: Flutter / State Management -->
+  <g>
+    <!-- Ana kutu -->
+    <rect x="60" y="70" width="420" height="320" rx="16" fill="#1B4332" stroke="#D4AF37" stroke-width="2"/>
+
+    <!-- Başlık -->
+    <rect x="60" y="70" width="420" height="50" rx="16 16 0 0" fill="#D4AF37" opacity="0.1"/>
+    <text x="270" y="105" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#D4AF37" text-anchor="middle">Flutter UI & State Mgmt</text>
+
+    <!-- Katman 1: Screens -->
+    <rect x="90" y="130" width="360" height="60" rx="8" fill="#1B4332" stroke="#D4AF37" stroke-width="1"/>
+    <text x="270" y="148" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Presentation Layer</text>
+    <text x="270" y="165" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">HomeScreen | DuaScreen | ZikirScreen | PrayerGuideScreen</text>
+    <text x="270" y="182" font-family="Segoe UI, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">Widget ağacı, form input, navigasyon</text>
+
+    <!-- Katman 2: Provider -->
+    <rect x="90" y="210" width="360" height="60" rx="8" fill="#1B4332" stroke="#D4AF37" stroke-width="1"/>
+    <text x="270" y="228" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">State Management (Provider)</text>
+    <text x="270" y="245" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">PrayerTimesNotifier | AppThemeNotifier | ChangeNotifier</text>
+    <text x="270" y="262" font-family="Segoe UI, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">Ezan vakitleri, tema, reusable state</text>
+
+    <!-- Katman 3: Services -->
+    <rect x="90" y="290" width="360" height="80" rx="8" fill="#1B4332" stroke="#D4AF37" stroke-width="1"/>
+    <text x="270" y="308" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Services Layer</text>
+    <text x="270" y="325" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">PrayerTimeService | DuaService | ZikirStorageService</text>
+    <text x="270" y="342" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">NotificationService | HiveStorageService</text>
+    <text x="270" y="359" font-family="Segoe UI, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">İş mantığı, API, veri işleme</text>
+  </g>
+
+  <!-- Orta: Çift yönlü ok ve kanal -->
+  <g>
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#D4AF37"/>
+      </marker>
+    </defs>
+
+    <!-- Sol → Sağ -->
+    <path d="M 500 200 L 560 200" stroke="#D4AF37" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+    <!-- Sağ → Sol -->
+    <path d="M 560 240 L 500 240" stroke="#D4AF37" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+
+    <!-- Kanal adı -->
+    <text x="540" y="215" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#D4AF37" text-anchor="middle">Event & Data</text>
+    <text x="540" y="232" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold" fill="#D4AF37" text-anchor="middle">Flow</text>
+  </g>
+
+  <!-- Sağ sütun: Native Android -->
+  <g>
+    <!-- Ana kutu -->
+    <rect x="720" y="70" width="420" height="320" rx="16" fill="#1B4332" stroke="#D4AF37" stroke-width="2"/>
+
+    <!-- Başlık -->
+    <rect x="720" y="70" width="420" height="50" rx="16 16 0 0" fill="#D4AF37" opacity="0.1"/>
+    <text x="930" y="105" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#D4AF37" text-anchor="middle">Native Android Layer</text>
+
+    <!-- Katman 1: Permissions & Sensors -->
+    <rect x="750" y="130" width="360" height="60" rx="8" fill="#1B4332" stroke="#D4AF37" stroke-width="1"/>
+    <text x="930" y="148" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">System Integration</text>
+    <text x="930" y="165" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">permission_handler | geolocator | flutter_compass</text>
+    <text x="930" y="182" font-family="Segoe UI, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">GPS, Pusula sensörü, sistem izinleri</text>
+
+    <!-- Katman 2: Notifications -->
+    <rect x="750" y="210" width="360" height="60" rx="8" fill="#1B4332" stroke="#D4AF37" stroke-width="1"/>
+    <text x="930" y="228" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Notifications & Media</text>
+    <text x="930" y="245" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">flutter_local_notifications | audioplayers | flutter_tts</text>
+    <text x="930" y="262" font-family="Segoe UI, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">Push, Ses alarm, Türkçe TTS</text>
+
+    <!-- Katman 3: Storage -->
+    <rect x="750" y="290" width="360" height="80" rx="8" fill="#1B4332" stroke="#D4AF37" stroke-width="1"/>
+    <text x="930" y="308" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Persistent Storage</text>
+    <text x="930" y="325" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">Hive | SharedPreferences | Android FileSystem</text>
+    <text x="930" y="342" font-family="monospace" font-size="11" fill="#D4AF37" text-anchor="middle">JSON (dua, zikir) | Offline cache | User settings</text>
+    <text x="930" y="359" font-family="Segoe UI, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">Kalıcı veri: ezan vakitleri, dualar, sayaçlar</text>
+  </g>
+
+  <!-- Alt: Veri akışı -->
+  <rect x="60" y="410" width="1080" height="20" rx="4" fill="#1B4332" stroke="#D4AF37" stroke-width="1" opacity="0.5"/>
+  <text x="600" y="424" font-family="Segoe UI, sans-serif" font-size="11" fill="#D4AF37" text-anchor="middle" font-weight="600">Veri Akışı: UI → Notifier → Service → Native/Storage → UI (rebuild)</text>
+</svg>
